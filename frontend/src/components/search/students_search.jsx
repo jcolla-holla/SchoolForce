@@ -153,10 +153,12 @@ class StudentsSearch extends React.Component {
                 </div>
 
                 <div className='studentoptions'>
-                    <select className='genderSelect' onChange={this.filterUpdate('gender')}>
+                        <select className='genderSelect' onChange={this.filterUpdate('gender')}>
+                        <option value="" disabled selected value>Gender</option>
+                        <option value="">All</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                        <option value="other">Other</option>
+                        <option value="other">Other</option> 
                     </select>
                     <label className="gradeContainer">Grade:
                         <input placeholder="try '4' or '6'" className="gradeInput"type="text" value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}></input>
