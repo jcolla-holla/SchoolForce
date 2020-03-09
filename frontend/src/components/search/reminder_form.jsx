@@ -11,7 +11,7 @@ class ReminderForm extends React.Component {
         }
 
         // *START line prevents error out when not loading page
-        this.props.location.state ? this.props.location.state = this.props.location.state : this.props.location.state = { users: { filteredParentsArr: []}, adminId: "",  }
+        this.props.location.state = this.props.location.state ? this.props.location.state : this.props.location.state = { users: { filteredParentsArr: []}, adminId: "",  }
         // * END
 
         this.alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV!@#$%^&*()-+"
@@ -44,8 +44,7 @@ class ReminderForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        this.props.history.location.state.createReminder.createReminder({title: this.state.title, body: this.state.body, authorId: this.authorId, parentId: this.parentIds});
-        
+        this.props.history.location.state.createReminder.createReminder({ title: this.state.title, body: this.state.body, authorId: this.authorId, parentId: this.parentIds, parentMobileArr: this.parentMobileArr});
 
         // Danny's Desire (this line below will only work once the reminder backend is updated): 
         // this.props.history.location.state.createReminder.createReminder({title: this.state.title, body: this.state.body, authorId: this.authorId, parentId: this.parentIds, parentMobileArr: this.parentMobileArr});
@@ -144,7 +143,7 @@ class ReminderForm extends React.Component {
                                         <div className="parentNumber">{"+1 " + parent[0].mobile.slice(0, 3) + "-" + parent[0].mobile.slice(3, 6) + "-" + parent[0].mobile.slice(6, 10)}</div>
                                     </li>
                                 }
-
+                                return true
                             })}    
                         </ul>
                     </div>

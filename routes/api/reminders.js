@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ noRemindersFound: 'No reminders found' }));
 });
 
-router.get('/:title', (req, res) => {
+router.get('/:id', (req, res) => {
     Reminder.findById(req.params.title)
         .then(reminder => res.json(reminder))
         .catch(err =>
@@ -40,16 +40,14 @@ router.post('/new',
             authorId: req.body.authorId
         });
 
-    let arrayOfNumbers = []
-        
         newReminder.save()
             .then(reminder => res.json(reminder))
-            .then(arrayOfNumbers.forEach(number => {
+            .then(req.body.parentMobileArr.forEach(mobile => {
                     client.messages
                         .create({
                             body: newReminder.body,
                             from: config.twilioNumber,
-                            to: number
+                            to: mobile
                         })}))
                         .then(() => {
                             res.status(200).send('Reminder was successfully sent');
@@ -58,7 +56,6 @@ router.post('/new',
                             console.error(err);
                             response.status(500).send();
                         })
-
 });
 
 module.exports = router;
