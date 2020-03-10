@@ -54,7 +54,7 @@ router.post('/new',
                         })
                         .catch((err) => {
                             console.error(err);
-                            response.status(500).send();
+                            res.status(500).send();
                         })
 });
 
