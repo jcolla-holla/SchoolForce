@@ -27,7 +27,6 @@ export const fetchAllStudents = () => dispatch => (
     .catch(err => console.log(err))
 );
 
-
 export const createNewStudent = data => (dispatch) => {
   return APIUtil.createStudent(data)
     .then(student => dispatch(receiveStudent(student)))
