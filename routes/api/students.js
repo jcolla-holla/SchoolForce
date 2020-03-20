@@ -13,21 +13,21 @@ router.get('/', (req, res) => {
     Student.find()
         .then(students => res.json(students))
         .catch(err => 
-            res.status(400).json({ err: 'No students found' }))
+            res.status(500).json({ err: 'No students found' }))
 });
 
 // router.get('/:parentId', (req, res) => {
-//     Student.find({ student: req.params.parentId })
-//         .then(students => res.json(students))
+//     Student.find(req.params.parentId)
+//         .then(student => res.json(student))
 //         .catch(err =>
-//             res.status(400).json({ err: 'No student found from that parent' }))
+//             res.status(500).json(err))
 // });
 
 router.get('/:id', (req, res) => {
     Student.findById(req.params.id)
         .then(student => res.json(student))
         .catch(err =>
-            res.status(400).json('err: ' + err))
+            res.status(500).json(err))
 });
 
 
@@ -35,33 +35,15 @@ router.delete('/:id', (req, res) => {
     Student.findByIdAndDelete(req.params.id)
         .then(() => res.json({ msg: "Student deleted." }))
         .catch(err =>
-            res.status(400).json('err: ' + err))
+            res.status(500).json(err))
 });
 
-router.post('/edit/:id', (req, res) => {
-    Student.findById(req.params.id)
-        .then(student => {
-            student.firstName = req.body.firstName,
-                student.lastName = req.body.lastName,
-                student.allergies = req.body.allergies,
-                student.specialNeeds = req.body.specialNeeds,
-                student.medicalConditions = req.body.medicalConditions,
-                student.gender = req.body.gender,
-                student.dateOfBirth = req.body.dateOfBirth,
-                student.startDate = req.body.startDate,
-                student.grade = req.body.grade
-
-            console.log(student)
-
-            student.save()
-            .then(student => res.json(student, { msg: "Student updated." }))
-                .catch(err =>
-                    res.status(400).json('err: ' + err))
-        })
-        .catch(err =>
-            res.status(400).json('err: ' + err))
-});
-
+// router.put('/:id', (req, res) => {
+//     Student.findByIdAndUpdate(req.params.id, req.body)
+//         .then(() => res.json({ msg: "Student updated." }))
+//         .catch(err =>
+//             res.status(500).json(err))
+// });
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
@@ -71,7 +53,7 @@ router.post('/',
         const { errors, isValid } = validateStudentInput(req.body);
 
         if (!isValid) {
-            return res.status(400).json(errors);
+            return res.status(500).json(errors);
         }
 
         const newStudent = new Student({
@@ -92,7 +74,7 @@ router.post('/',
         newStudent.save()
             .then(() => res.json({ msg: "New student created." }))
             .catch(err =>
-                res.status(400).json('err: ' + err))
+                res.status(500).json(err))
     }
 );
 

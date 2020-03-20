@@ -117,8 +117,8 @@ class StudentsSearch extends React.Component {
             });
         }
 
-        let userAdminId = this.adminUserId;
-        let createReminder = this.props.createReminder;
+        const userAdminId = this.adminUserId;
+        const { createReminder, deleteStudent } = this.props;
         
         return ( 
             <div id='admin-search-container'>
@@ -173,6 +173,7 @@ class StudentsSearch extends React.Component {
                         student={student} 
                         handleStudentCheck={this.handleStudentCheck}
                         selectedStudents={this.state.selectedStudents}
+                        deleteStudent={deleteStudent}
                         key={student._id}
                         />)
                         )

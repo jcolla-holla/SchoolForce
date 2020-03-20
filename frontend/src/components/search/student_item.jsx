@@ -3,6 +3,7 @@ import "./student_search_item.css";
 
 
 const studentItem = props => {
+
     return (
     <li>
         <div className="checkboxAndName">
@@ -42,6 +43,14 @@ const studentItem = props => {
             <div className='grade'>
                 <label className="title">Grade</label>
                 <p> {props.student.grade}</p>
+            </div>
+            <div className='student-search-item-buttons'>
+                <button className='update-student-button'>
+                    Update Student
+                    </button> 
+                <button className='delete-student-button'>
+                        Delete Student
+                    </button> 
             </div>
         </div>
     </li>

@@ -15,3 +15,7 @@ export const createStudent = data => {
 export const deleteStudent = id => {
   return axios.get(`/api/students/${id}`);
 };
+
+export const updateStudent = data => {
+  return axios.get(`/api/students/${data.id}`, data);
+};
