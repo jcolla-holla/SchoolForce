@@ -1,5 +1,5 @@
 import React from 'react'
-import ReminderIndexItemContainer from './reminder_index_item_container.js'
+import ReminderIndexItem from './reminder_index_item.jsx'
 import { Link } from 'react-router-dom'
 import "./reminder_index.css";
 
@@ -12,7 +12,7 @@ class ReminderIndex extends React.Component {
 
   render() {
     let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser.id));
-    
+    let users = this.props.users;
     return (
       <div id='reminder-index-page'>
         <div className="welcome-header">
@@ -23,8 +23,9 @@ class ReminderIndex extends React.Component {
           <h2 className='reminder-index-header'>Your past reminders</h2>
           <ul className="reminder-list">
             {filteredReminders.map(reminder => (
-              <ReminderIndexItemContainer
+              <ReminderIndexItem
                 reminder={reminder}
+                users={users}
                 key={reminder._id}
               />)
             )

@@ -4,7 +4,7 @@ import "./reminder_index_item.css";
 class ReminderIndexItem extends React.Component {
 
     render() {
-        // let author = this.props.users[this.props.reminder.authorId];
+        let author = this.props.users.filter(user => user._id === this.props.reminder.authorId)[0];
         // debugger
         return (
             <li className="reminder-item-container">
@@ -16,7 +16,7 @@ class ReminderIndexItem extends React.Component {
                 </div>
                 <div className="reminder-bottom">
                     <div className='reminder-author-id'>
-                        From: {this.props.reminder.authorId}
+                        From: {author.firstName} {author.lastName}
                     </div>
                     <div className='reminder-date'>
                         Sent: {this.props.reminder.createdDate}
