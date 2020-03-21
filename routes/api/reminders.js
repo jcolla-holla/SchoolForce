@@ -5,7 +5,7 @@ const config = require('../../config/keys')
 const passport = require('passport')
 const client = require('../../frontend/node_modules/twilio/index')(config.accountSid, config.authToken);
 
-const validateReminderInput = require('../../validation/reminders');
+const validateReminderInput = require('../../validation/reminder.js');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the reminders route" }));
 

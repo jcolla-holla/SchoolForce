@@ -1,0 +1,153 @@
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "sofia-pro";
+    font-size: 14px;
+    margin: 0;
+}
+
+.student-form-page {
+    box-sizing: border-box;
+    display: block;
+}
+
+.student-form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+    box-sizing: border-box;
+    margin-bottom: 200px;
+}
+
+.student-form-box {
+    box-sizing: border-box;
+}
+
+.student-form-title {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 30px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-weight: bolder;
+    margin: 0 auto 30px;
+}
+
+.student-form-description {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 18px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+}
+
+.student-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.student-form-header {
+    height: 40.5px;
+    border-bottom: 1px solid black;
+    font-family: sofia-pro, sans-serif;
+    font-style: normal;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    top: 50%;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.student-form-input {
+    height: 48px;
+    width: 100%;
+    padding: 0;
+    border: none;
+    caret-color: green;
+    line-height: 100%;
+    outline: none;
+    pointer-events: initial !important;
+    -webkit-appearance: none;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(22,24,35,0.2);
+    font-size: 14px;
+    font-family: sofia-pro, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.student-form-date-input {
+    height: 48px;
+    width: 100%;
+    padding: 0;
+    border: none;
+    caret-color: green;
+    line-height: 100%;
+    outline: none;
+    pointer-events: initial !important;
+    -webkit-appearance: none;
+    margin-top: 0px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(22,24,35,0.2);
+    font-size: 14px;
+    font-family: sofia-pro, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.date-field {
+    margin-top: 20px;
+    font-size: 14px;
+    font-family: sofia-pro, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: gray;
+}
+
+.student-form-instructions {
+    color: darkgreen;
+    font-family: sofia-pro, sans-serif;
+    font-size: 12px;
+    padding-bottom: 0px;
+    margin-top: 1px;
+    margin-bottom: 0;
+}
+
+.student-form-error-messages {
+    list-style: none;
+    color: red;
+    font-family: sofiapro, PingFangSC, sans-serif;
+}
+
+.student-form-submit {
+    color: rgba(22,24,35,0.3);
+    font-weight: 500;
+    font-size: 16px;
+    background-color: rgba(22,24,35,0.06);
+    display: flex;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 2px;
+    position: relative;
+    margin-top: 30px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.5s;
+}
+
+.student-form-submit:hover {
+    background-color: #feb72b;
+    color: white;
+}

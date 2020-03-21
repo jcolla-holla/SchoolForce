@@ -1,0 +1,56 @@
+li {
+    margin: 10px;
+    border: 1px solid grey;
+    padding: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+.student-name-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.student-name {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.student-info {
+    display: flex;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.student-info div {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-info .title {
+    font-weight: bold;
+     font-size: 18px;
+}
+
+.student-info p {
+    /* this margin: 0px; resets something inherited I can't figure out - Jesse */
+    margin: 0px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.update-student-button {
+    text-decoration: none;
+    font-size: 20px;
+    background-color: lightgray;
+    color: red;
+    border-radius: 4px;
+    padding: 5px;
+    border: 1px solid red;
+}
