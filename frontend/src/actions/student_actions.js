@@ -2,7 +2,7 @@ import * as APIUtil from "../util/student_util";
 
 export const RECEIVE_STUDENT = "RECEIVE_STUDENT";
 export const RECEIVE_ALL_STUDENTS = "RECEIVE_ALL_STUDENTS";
-export const REMOVE_STUDENT = "RECEIVE_NEW_STUDENT";
+export const REMOVE_STUDENT = "REMOVE_STUDENT";
 
 export const receiveStudent = student => {
   return {
@@ -16,9 +16,9 @@ export const receiveAllStudents = students => ({
 });
 
 
-export const removeStudent = students => ({
+export const removeStudent = studentId => ({
   type: REMOVE_STUDENT,
-  students
+  studentId
 });
 
 export const fetchStudent = (id) => dispatch => (
@@ -33,20 +33,20 @@ export const fetchAllStudents = () => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const createNewStudent = data => (dispatch) => (
+export const createNewStudent = (data) => (dispatch) => (
   APIUtil.createStudent(data)
     .then(student => dispatch(receiveStudent(student)))
     .catch(err => console.log(err))
 )
 
-export const deleteStudent = (student) => (dispatch) => (
-  APIUtil.deleteStudent(student)
-    .then(() => dispatch(removeStudent(student)))
+export const deleteStudent = (id) => (dispatch) => (
+  APIUtil.deleteStudent(id)
+    .then((studentId) => dispatch(removeStudent(studentId)))
     .catch(err => console.log(err))
 )
 
-export const updateStudent = (student) => (dispatch) => (
-  APIUtil.updateStudent(student)
-    .then(() => dispatch(receiveStudent(student)))
+export const updateStudent = (data) => (dispatch) => (
+  APIUtil.updateStudent(data)
+    .then(student => dispatch(receiveStudent(student)))
     .catch(err => console.log(err))
 )

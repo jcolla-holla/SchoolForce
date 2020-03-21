@@ -1,6 +1,6 @@
 import React from 'react'
 import StudentItem from './student_item'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./students_search.css";
 
 class StudentsSearch extends React.Component {

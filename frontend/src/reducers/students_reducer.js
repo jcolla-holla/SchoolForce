@@ -17,7 +17,7 @@ const StudentsReducer = ( state = {}, action ) => {
       return newState;
 
     case REMOVE_STUDENT:
-      return {};
+      return newState;
 
     default:
       return state;
