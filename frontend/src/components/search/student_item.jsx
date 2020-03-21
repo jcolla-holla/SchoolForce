@@ -18,20 +18,24 @@ class StudentItem extends React.Component {
     render() {
         
     return (
-    <li>
-        <div className="checkboxAndName">
+        <li>
+            <div className="checkboxAndName">
 
                 {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
                 <label className="toggle">
+
                     <input className="checkboxStudent toggle__input" checked={Boolean(this.props.selectedStudents[this.props.student._id])} type="checkbox" name="student.name" onChange={() => this.props.handleStudentCheck(this.props.student)} />
                         <span className="toggle__label">
                             <span className="toggle__text"></span>
                         </span>
+
                 </label>
+            </div>
 
             <div className="student-name">
                 {this.props.student.firstName} {this.props.student.lastName}
             </div>
+
         </div>
         <div className="nonNameInfo">
             <div className='allergies'>
@@ -73,3 +77,4 @@ class StudentItem extends React.Component {
 
 
 export default StudentItem;
+
