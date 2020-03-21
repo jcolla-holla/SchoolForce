@@ -29,12 +29,12 @@ const StudentSchema = new Schema({
         required: true
     },
     dateOfBirth: {
-        type: Date,
+        type: String,
         required: true
     },
     startDate: {
-        type: Date,
-        default: Date.now
+        type: String,
+        required: true
     },
     grade: {
         type: String,

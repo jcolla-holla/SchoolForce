@@ -121,10 +121,12 @@ class StudentsSearch extends React.Component {
             });
         }
 
-        let userAdminId = this.adminUserId;
-        let createReminder = this.props.createReminder;
 
-        return (
+        const userAdminId = this.adminUserId;
+        const { createReminder, deleteStudent } = this.props;
+        
+        return ( 
+
             <div id='admin-search-container'>
                 {/* Jesse note: not sure if we want a title or not on search page */}
                 {/* <title className="adminSearchTitle">Filter the students whose parents you want to message</title> */}
@@ -176,13 +178,16 @@ class StudentsSearch extends React.Component {
                 <div className='studentIndex'>
                     <h2 className='studentIndexTitle'>Select the students to draft a reminder to their parents</h2>
                     <ul className="studentsUl">
-                        {filteredStudents.map(student => (
-                            <StudentItem
-                                student={student}
-                                handleStudentCheck={this.handleStudentCheck}
-                                selectedStudents={this.state.selectedStudents}
-                                key={student._id}
-                            />)
+
+                    { filteredStudents.map ( student => (
+                        <StudentItem 
+                        student={student} 
+                        handleStudentCheck={this.handleStudentCheck}
+                        selectedStudents={this.state.selectedStudents}
+                        deleteStudent={deleteStudent}
+                        key={student._id}
+                        />)
+
                         )
                         }
                     </ul>
