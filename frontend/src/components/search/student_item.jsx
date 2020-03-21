@@ -12,7 +12,6 @@ class StudentItem extends React.Component {
     handleDeleteStudent(e) {
         e.preventDefault()
         const studentId = this.props.student._id
-        debugger
         return this.props.deleteStudent(studentId)
     }
 

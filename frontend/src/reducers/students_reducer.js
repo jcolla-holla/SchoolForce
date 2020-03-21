@@ -17,7 +17,7 @@ const StudentsReducer = ( state = {}, action ) => {
       return newState;
 
     case REMOVE_STUDENT:
-      return newState;
+      return Object.values(newState).filter(val => val._id !== action.studentId);
 
     default:
       return state;

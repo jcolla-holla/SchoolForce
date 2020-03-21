@@ -1,28 +1,14 @@
 import axios from "axios";
 
 export const getReminder = id => {
-  return axios.get(`/api/reminders/${id}`)
-    .then((res) => {
-      console.log(res);
-    }, (err) => {
-      console.log(err);
-    });
+  return axios.get(`/api/reminders/${id}`);
 };
 
 export const getAllReminders = () => {
-  return axios.get("/api/reminders")
-    .then((res) => {
-      console.log(res);
-    }, (err) => {
-      console.log(err);
-    });
+  return axios.get("/api/reminders");
 };
 
 export const createReminder = data => {
-  return axios.post("/api/reminders/new", data)
-    .then((res) => {
-      console.log(res);
-    }, (err) => {
-      console.log(err);
-    });
+  return axios.post("/api/reminders/new", data);
+
 };

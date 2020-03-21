@@ -38,11 +38,11 @@ export const createNewStudent = (data) => dispatch => (
     .catch(err => console.log(err))
 )
 
-export const deleteStudent = (studentId) => dispatch => (
+export const deleteStudent = (studentId) => dispatch => {
   APIUtil.deleteStudent(studentId)
     .then(() => dispatch(removeStudent(studentId)))
     .catch(err => console.log(err))
-)
+}
 
 export const updateStudent = (data) => dispatch => (
   APIUtil.updateStudent(data)
