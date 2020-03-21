@@ -10,6 +10,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the students route." 
 
 
 router.get('/', (req, res) => {
+    debugger
     Student.find()
         .then(students => res.json(students))
         .catch(err => 
