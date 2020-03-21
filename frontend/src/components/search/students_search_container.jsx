@@ -12,17 +12,14 @@ const mapStateToProps = (state) => {
         users: state.entities.users,
         adminUserId: state.session.user.id 
     }
-}
+};
 
-const mapDispatchToProps = (dispatch) => (
-    {
-        deleteStudent: (studentId) => dispatch(deleteStudent(studentId)),
-        updateStudent: (student) => dispatch(updateStudent(student)),
-        fetchAllStudents: () => dispatch(fetchAllStudents()),
-        fetchAllUsers: () => dispatch(fetchAllUsers()),
-        createReminder: (reminder) => dispatch(createReminder(reminder))
-
-    }
-)
+const mapDispatchToProps = (dispatch) => ({
+    deleteStudent: (studentId) => dispatch(deleteStudent(studentId)),
+    updateStudent: (student) => dispatch(updateStudent(student)),
+    fetchAllStudents: () => dispatch(fetchAllStudents()),
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
+    createReminder: (reminder) => dispatch(createReminder(reminder))
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StudentsSearch));

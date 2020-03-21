@@ -19,3 +19,7 @@ export const deleteStudent = id => {
 export const updateStudent = data => {
   return axios.put(`/api/students/edit/${data.id}`, data);
 };
+
+export const getParent = id => {
+  return axios.get(`/api/students/${id}`);
+};
