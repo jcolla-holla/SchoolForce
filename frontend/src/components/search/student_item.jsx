@@ -14,7 +14,7 @@ const studentItem = props => {
                         <span className="toggle__text"></span>
                     </span>
                 </label>
-
+            </div>
 
             <div className="student-name">
                 {props.student.firstName} {props.student.lastName}
