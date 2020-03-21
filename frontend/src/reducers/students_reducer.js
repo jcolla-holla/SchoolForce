@@ -1,7 +1,8 @@
 import {
   RECEIVE_STUDENT,
   RECEIVE_ALL_STUDENTS,
-  REMOVE_STUDENT
+  REMOVE_STUDENT,
+  RECEIVE_PARENT
 } from "../actions/student_actions";
 
 const StudentsReducer = ( state = {}, action ) => {
@@ -21,6 +22,10 @@ const StudentsReducer = ( state = {}, action ) => {
 
     // case UPDATE_STUDENT: 
     //   return state.map((post) => post.id === action.id ? { ...post, editing: !post.editing } : post)
+    case RECEIVE_PARENT:
+      debugger
+      // newState.students = action.student.data;
+      return newState;
 
     default:
       return state;
