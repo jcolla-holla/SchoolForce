@@ -9,6 +9,7 @@ import { logout } from "./actions/session_actions";
 
 import { createNewStudent } from "./actions/student_actions";
 import { createReminder } from "./actions/reminder_actions";
+import { signup } from "./actions/session_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.createNewStudent = data => store.dispatch(createNewStudent(data));
   window.createReminder = data => store.dispatch(createReminder(data));
+  window.signup = user => store.dispatch(signup(user));
 
 
   ReactDOM.render(<Root store={store} />, root);

@@ -12,6 +12,7 @@ class SignupForm extends React.Component {
       mobile: "",
       password: "",
       password2: "",
+      schoolId: "",
       demoParent: false,
       demoAdmin: false,
       errors: {}
@@ -153,6 +154,13 @@ class SignupForm extends React.Component {
                   />
                 </div>
               </div>
+                  <input
+                    type="text"
+                    value={this.state.schoolId}
+                    onChange={this.update("schoolId")}
+                    placeholder="School ID"
+                    className="signup-input"
+                  />
               <div className="session-error-messages">
                 {this.renderErrors()}
               </div>

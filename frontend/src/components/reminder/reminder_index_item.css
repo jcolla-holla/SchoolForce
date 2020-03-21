@@ -1,0 +1,47 @@
+.reminder-item-container {
+    margin: 10px;
+    border: 1px solid grey;
+    padding: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+.reminder-title {
+    border-bottom: 1px solid lightblue;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+    font-family: sofia-pro,sans-serif;
+    padding-bottom: 5px;
+}
+
+.reminder-body {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightblue;
+    font-family: sofia-pro,sans-serif;
+}
+
+.reminder-bottom {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+}
+
+.reminder-author-id {
+    font-family: sofia-pro,sans-serif;
+    font-size: 14px;
+}
+
+.reminder-date {
+    font-family: sofia-pro,sans-serif;
+    font-size: 14px;
+}
