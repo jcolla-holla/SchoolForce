@@ -15,9 +15,9 @@ const studentItem = props => {
                     </span>
                 </label>
 
-                <div className="student-name">
-                    {props.student.firstName} {props.student.lastName}
-                </div>
+
+            <div className="student-name">
+                {props.student.firstName} {props.student.lastName}
             </div>
             <div className="nonNameInfo">
                 <div className='allergies'>

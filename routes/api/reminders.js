@@ -5,7 +5,9 @@ const config = require('../../config/keys')
 const passport = require('passport')
 const client = require('../../frontend/node_modules/twilio/index')(config.accountSid, config.authToken);
 
+
 const validateReminderInput = require('../../validation/reminder.js');
+
 
 router.get("/test", (req, res) => res.json({ msg: "This is the reminders route" }));
 
@@ -15,7 +17,7 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ noRemindersFound: 'No reminders found' }));
 });
 
-router.get('/:title', (req, res) => {
+router.get('/:id', (req, res) => {
     Reminder.findById(req.params.title)
         .then(reminder => res.json(reminder))
         .catch(err =>
@@ -40,25 +42,22 @@ router.post('/new',
             authorId: req.body.authorId
         });
 
-    let arrayOfNumbers = []
-        
         newReminder.save()
             .then(reminder => res.json(reminder))
-            .then(arrayOfNumbers.forEach(number => {
+            .then(req.body.parentMobileArr.forEach(mobile => {
                     client.messages
                         .create({
                             body: newReminder.body,
                             from: config.twilioNumber,
-                            to: number
+                            to: mobile
                         })}))
                         .then(() => {
                             res.status(200).send('Reminder was successfully sent');
                         })
                         .catch((err) => {
                             console.error(err);
-                            response.status(500).send();
+                            res.status(500).send();
                         })
-
 });
 
 module.exports = router;

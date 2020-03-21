@@ -54,8 +54,8 @@
 #admin-search-container .adminCreateReminderLink {
     text-decoration: none;
     font-size: 20px;
-    background-color: #899857;
-    color: white;
+    background-color: #feb72b;
+    color: floralwhite;
     border-radius: 4px;
     padding: 10px;
     margin-left: 40px;
@@ -63,7 +63,7 @@
 }
 
 #admin-search-container .adminCreateReminderLink:hover {
-    background-color: #feb72b;
+    background-color: #899857;
     border: 1px gray solid;
 }
 

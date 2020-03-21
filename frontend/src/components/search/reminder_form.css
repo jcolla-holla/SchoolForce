@@ -1,0 +1,151 @@
+#reminderForm {
+    font-family: sofia-pro, sans-serif;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#reminderForm .reminderSubmitForm {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width: 40%;
+    align-items: center;
+}
+
+#reminderForm .reminderSubmitForm label{
+    width: 100%;
+}
+
+#reminderForm .reminderFormContent{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#reminderForm .body {
+    width: 70%;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+    /* border-radius: 2px; */
+}
+
+#reminderForm .title {
+    width: 70%;
+    height: 40px;
+    margin-left: 26px;
+    margin-top: 10px;
+    /* border-radius: 2px; */
+}
+
+#reminderForm h2 {
+    margin-left: 70px;
+}
+
+#reminderForm .sendReminderButton {
+    margin-top: 20px;
+    margin-right: 70px;
+    width: 140px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #feb72b;
+    color: floralwhite;
+    border-radius: 4px;
+}
+
+#reminderForm .sendReminderButton:hover {
+    background-color: #899857;
+    border: 1px gray solid;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#reminderForm .demoSubmitForm {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+#reminderForm .demoSubmitTitle {
+    display: flex;
+    font-weight: bold;
+}
+
+.demoSubmitForm input {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 80%;
+    height: 40px;
+    display: flex;
+}
+
+.demoSubmitForm .demoSubmitButton {
+    width: 200px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #feb72b;
+    color: floralwhite;
+    border-radius: 4px;
+}
+
+.demoSubmitForm .demoSubmitButton:hover {
+    background-color: #899857;
+    border: 1px gray solid;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* RECIPIENT LIST */
+#reminderForm .recipientsList {
+    width: 20%;
+    margin-left: 40px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reminderForm .recipientListTitle {
+    display: flex;
+    font-weight: bold;
+}
+
+#reminderForm .recipientsList ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reminderForm .recipientsList li {
+    margin-top: 10px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reminderForm .recipientsList li .parentName {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#reminderForm .recipientsList li .parentNumber {
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+#reminderForm .recipientsList .demoParent {
+    background-color: #527318;
+    color: white;
+}

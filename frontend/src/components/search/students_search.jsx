@@ -57,12 +57,13 @@ class StudentsSearch extends React.Component {
         this.props.fetchAllUsers();
     }
 
-    studentFilters(student) {
 
+    studentFilters (student) {
+        
         let medicalvar = true;
         let namevar = true;
         let gendervar = true;
-        let gradevar = true;
+        let gradevar = true; 
 
 
         if (this.state.query.allergies || this.state.query.specialNeeds || this.state.query.medicalConditions) {
@@ -79,10 +80,12 @@ class StudentsSearch extends React.Component {
         }
 
 
+
         if (student) {
             namevar = (student.firstName.toLowerCase().indexOf(this.state.query.text) !== -1 ||
                 student.lastName.toLowerCase().indexOf(this.state.query.text) !== -1);
         }
+
 
 
         if (this.state.query.gender) {
@@ -93,8 +96,9 @@ class StudentsSearch extends React.Component {
             gradevar = student.grade === this.state.query.grade;
         };
 
-        return gradevar && gendervar && namevar && medicalvar;
 
+       return gradevar && gendervar && namevar && medicalvar;
+        
     };
 
 
@@ -125,6 +129,7 @@ class StudentsSearch extends React.Component {
                 {/* Jesse note: not sure if we want a title or not on search page */}
                 {/* <title className="adminSearchTitle">Filter the students whose parents you want to message</title> */}
                 <div className='studentNameFilter'>Student Name Filter:
+
                     <input className='studentNameFilterTextBox' type="text" placeholder="try 'sally' or 'smith'" value={`${this.state.query.text}`} onChange={this.filterUpdate('text')} />
                     <Link
                         className="adminCreateReminderLink"
@@ -134,6 +139,7 @@ class StudentsSearch extends React.Component {
                                 users: { filteredParentsArr },
                                 adminId: { userAdminId },
                                 createReminder: { createReminder }
+
                             }
                         }}>Draft Reminder</Link>
                 </div>
@@ -153,12 +159,14 @@ class StudentsSearch extends React.Component {
                 </div>
 
                 <div className='studentoptions'>
+
                     <select className='genderSelect' onChange={this.filterUpdate('gender')}>
+
                         <option value="" disabled selected value>Gender</option>
                         <option value="">All</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
-                        <option value="other">Other</option>
+                        <option value="other">Other</option> 
                     </select>
                     <label className="gradeContainer">Grade:
                         <input placeholder="try '4' or '6'" className="gradeInput" type="text" value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}></input>
