@@ -30,7 +30,7 @@ class StudentItem extends React.Component {
                         </span>
 
                 </label>
-            </div>
+
 
             <div className="student-name">
                 {this.props.student.firstName} {this.props.student.lastName}
