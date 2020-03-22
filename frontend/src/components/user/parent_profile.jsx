@@ -10,10 +10,15 @@ class ParentProfile extends React.Component {
     }
 
     render() {
+        const { deleteStudent } = this.props;
         // let children = this.props.students.filter((student) => student.parentId.includes(this.props.currentUser.id));
         const children = this.props.students.map((student, idx) => {
-            return <ChildIndexItem key={idx} student={student} />;
-        });
+            return <ChildIndexItem 
+                        key={idx} 
+                        student={student} 
+                        deleteStudent={deleteStudent}
+                        />;
+                    });
 
         return (
             <div id='parent-profile-page'>
