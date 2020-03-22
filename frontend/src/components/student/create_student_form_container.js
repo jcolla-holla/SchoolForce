@@ -7,15 +7,15 @@ import "./create_student_form.css";
 
 const mapStateToProps = state => {
   return {
-    formType: 'Register Student',
     errors: state.errors.session,
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    formType: 'Register Student'
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: (data) => dispatch(createNewStudent(data)),
+    processForm: payload => dispatch(createNewStudent(payload)),
     closeModal: () => dispatch(closeModal()),
     openModal: (formType) => dispatch(openModal(formType)),
     clearErrors: () => dispatch(clearErrors())

@@ -15,9 +15,9 @@ class ChildIndexItem extends React.Component {
     }
 
     render() {
-        
-        let { allergies, specialNeeds, medicalConditions } = this.props.student
 
+        let { allergies, specialNeeds, medicalConditions } = this.props.student
+        
         const allergiesArr = () => {
             if (allergies.length < 1) {
                 return allergies = ""
@@ -84,7 +84,8 @@ class ChildIndexItem extends React.Component {
                         <p> {this.props.student.grade}</p>
                     </div>
                     <div className='student-index-item-buttons'>
-                        <button className='update-student-button'>
+                        <button className='update-student-button'
+                            onClick={() => this.props.openModal('Update Student')}>
                             Update Student
                         </button>
                         <button className='delete-student-button'

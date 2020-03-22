@@ -17,13 +17,15 @@ class ParentProfile extends React.Component {
         //     return <div></div>
         // };
 
-        const { deleteStudent } = this.props;
+        const { deleteStudent, updateStudent, openModal } = this.props;
         // let children = this.props.students.filter((student) => student.parentId.includes(this.props.currentUser.id));
         const children = this.props.students.map((student, idx) => {
             return <ChildIndexItem
                 key={idx}
                 student={student}
                 deleteStudent={deleteStudent}
+                updateStudent={updateStudent}
+                openModal={openModal}
             />;
         });
 

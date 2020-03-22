@@ -18,7 +18,7 @@ class CreateStudentForm extends React.Component {
       grade: "",
       errors: {}
     };
-
+    debugger
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
@@ -70,7 +70,7 @@ class CreateStudentForm extends React.Component {
       errors: this.state.errors
     };
 
-    
+    // debugger
     this.props.processForm(student)
       .then(() => this.props.closeModal());
   }
@@ -90,7 +90,7 @@ class CreateStudentForm extends React.Component {
     // if (this.props === undefined) {
     //   return <div></div>
     // };
-
+    debugger
     return (
       <div className="student-form-page">
         <div className='form-closing-x' onClick={() => this.props.closeModal()}>&#10005;</div>
@@ -155,23 +155,26 @@ class CreateStudentForm extends React.Component {
                 </div>
                 <div className='student-grade'>
                   <label>Grade</label>
-                  <select className='grade-selector' onChange={this.update('grade')}>
-                    <option disabled value=''>Grade</option>
-                    <option value='Nursery'>Nursery</option>
-                    <option value='PreK'>PreK</option>
-                    <option value='Kindergarten'>Kindergarten</option>
-                    <option value='1st'>1st</option>
-                    <option value='2nd'>2nd</option>
-                    <option value='3rd'>3rd</option>
-                    <option value='4th'>4th</option>
-                    <option value='5th'>5th</option>
-                    <option value='6th'>6th</option>
-                    <option value='7th'>7th</option>
-                    <option value='8th'>8th</option>
-                    <option value='9th'>9th</option>
-                    <option value='10th'>10th</option>
-                    <option value='11th'>11th</option>
-                    <option value='12th'>12th</option>
+                  <select 
+                    className='grade-selector' 
+                    value={this.state.grade} 
+                    onChange={this.update('grade')}>
+                      <option disabled value=''>Grade</option>
+                      <option value='Nursery'>Nursery</option>
+                      <option value='PreK'>PreK</option>
+                      <option value='Kindergarten'>Kindergarten</option>
+                      <option value='1st'>1st</option>
+                      <option value='2nd'>2nd</option>
+                      <option value='3rd'>3rd</option>
+                      <option value='4th'>4th</option>
+                      <option value='5th'>5th</option>
+                      <option value='6th'>6th</option>
+                      <option value='7th'>7th</option>
+                      <option value='8th'>8th</option>
+                      <option value='9th'>9th</option>
+                      <option value='10th'>10th</option>
+                      <option value='11th'>11th</option>
+                      <option value='12th'>12th</option>
                   </select>
                 </div>
               </div>
