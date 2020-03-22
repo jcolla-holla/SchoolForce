@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom'
 import "./reminder_index.css";
 
 class ReminderIndex extends React.Component {
+  constructor(props) {
+    super(props);
+  };
 
   componentDidMount() {
     this.props.fetchAllUsers();
     this.props.fetchAllReminders();
-  }
+  };
 
   render() {
     let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser.id));
@@ -35,6 +38,6 @@ class ReminderIndex extends React.Component {
       </div>
     )
   }
-}
+};
 
 export default ReminderIndex;
