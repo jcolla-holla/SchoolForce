@@ -16,7 +16,7 @@ class StudentItem extends React.Component {
     }
 
     render() {
-        
+
     return (
         <li>
             <div className="checkboxAndName">
