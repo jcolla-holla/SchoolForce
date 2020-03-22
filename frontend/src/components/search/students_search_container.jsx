@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
-
-import StudentsSearch from  './students_search.jsx'
 import { fetchAllStudents, deleteStudent, updateStudent, fetchParent } from '../../actions/student_actions';
-
 import { fetchAllUsers } from '../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
 import { createReminder } from '../../actions/reminder_actions';
+import StudentsSearch from  './students_search.jsx'
 
 
 const mapStateToProps = (state) => {
@@ -25,4 +23,6 @@ const mapDispatchToProps = (dispatch) => ({
     createReminder: (reminder) => dispatch(createReminder(reminder))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StudentsSearch));
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(StudentsSearch)
+);

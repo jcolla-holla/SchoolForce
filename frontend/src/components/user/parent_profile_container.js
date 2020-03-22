@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchAllStudents } from '../../actions/student_actions';
+import { fetchAllStudents, deleteStudent, updateStudent } from '../../actions/student_actions';
 import { withRouter } from "react-router-dom";
 import ParentProfile from "./parent_profile.jsx";
 
@@ -18,7 +18,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchAllStudents: () => dispatch(fetchAllStudents())
+    fetchAllStudents: () => dispatch(fetchAllStudents()),
+    deleteStudent: (studentId) => dispatch(deleteStudent(studentId)),
+    updateStudent: (student) => dispatch(updateStudent(student)),
 });
 
 export default withRouter(

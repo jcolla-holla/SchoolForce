@@ -16,7 +16,7 @@ class StudentItem extends React.Component {
     }
 
     render() {
-        
+
     return (
         <li>
             <div className="checkboxAndName">
@@ -28,9 +28,7 @@ class StudentItem extends React.Component {
                         <span className="toggle__label">
                             <span className="toggle__text"></span>
                         </span>
-
                 </label>
-
 
             <div className="student-name">
                 {this.props.student.firstName} {this.props.student.lastName}

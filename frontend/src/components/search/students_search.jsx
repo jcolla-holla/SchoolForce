@@ -186,10 +186,8 @@ class StudentsSearch extends React.Component {
                         selectedStudents={this.state.selectedStudents}
                         deleteStudent={deleteStudent}
                         key={student._id}
-                        />)
-
-                        )
-                        }
+                        />
+                        ))}
                     </ul>
                 </div>
             </div>
