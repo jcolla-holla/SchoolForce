@@ -38,12 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //putting these on window to test
   window.store = store;
-  window.logout = () => store.dispatch(logout());
-
-  window.createNewStudent = data => store.dispatch(createNewStudent(data));
-  window.createReminder = data => store.dispatch(createReminder(data));
-  window.signup = user => store.dispatch(signup(user));
-
 
   ReactDOM.render(<Root store={store} />, root);
 });
