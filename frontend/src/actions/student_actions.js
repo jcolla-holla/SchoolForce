@@ -13,15 +13,17 @@ export const receiveAllStudents = (students) => ({
 
 export const receiveStudent = (student) => {
   return {
-  type: RECEIVE_STUDENT,
-  student
-}};
+    type: RECEIVE_STUDENT,
+    student
+  }
+};
 
 export const removeStudent = (studentId) => {
   return {
     type: REMOVE_STUDENT,
     studentId
-}};
+  }
+};
 
 export const receiveParent = (parentId) => {
   return {

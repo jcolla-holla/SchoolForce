@@ -19,10 +19,22 @@
     text-decoration: none;
     font-size: 20px;
     background-color: #feb72b;
-    color: #fffaf0;
+    color: white;
     border-radius: 4px;
     padding: 10px;
     border: 1px solid grey;
+    cursor: pointer;
+}
+
+.create-student-button:hover {
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #FEE9BF;
+    color: #feb72b;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid grey;
+    cursor: pointer;
 }
 
 .reminder-index-header {

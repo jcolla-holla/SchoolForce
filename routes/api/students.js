@@ -88,7 +88,7 @@ router.post('/',
         console.log(newStudent);
 
         newStudent.save()
-            .then(() => res.json({ msg: "New student created." }))
+            .then(student => res.json(student))
             .catch(err =>
                 res.status(400).json(err))
     }

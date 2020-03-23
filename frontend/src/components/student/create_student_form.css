@@ -6,39 +6,43 @@ body {
     margin: 0;
 }
 
+input {
+    padding: 0;
+    margin-top: 12px;
+}
+
+.student-form-box {
+    position: relative;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 20px 50px 40px;
+    margin: -50px 0;
+    font-size: 12px;
+}
+
 .student-form-page {
     box-sizing: border-box;
     display: block;
+    color: black;
 }
 
 .student-form-container {
     display: flex;
     justify-content: center;
-    margin-top: 55px;
-    box-sizing: border-box;
-    margin-bottom: 200px;
-}
-
-.student-form-box {
     box-sizing: border-box;
 }
 
 .student-form-title {
-    font-family: 'proxima-nova', sans-serif;
-    font-size: 30px;
-    height: 33px;
-    line-height: 33px;
+    font-size: 18px;
     text-align: center;
-    font-weight: bolder;
-    margin: 0 auto 30px;
+    font-weight: 700;
 }
 
 .student-form-description {
-    font-family: 'proxima-nova', sans-serif;
-    font-size: 18px;
     height: 33px;
-    line-height: 33px;
+    width: 500px;
     text-align: center;
+    margin: 5px 0 0;
 }
 
 .student-form {
@@ -50,63 +54,98 @@ body {
 }
 
 .student-form-header {
-    height: 40.5px;
     border-bottom: 1px solid black;
-    font-family: sofia-pro, sans-serif;
-    font-style: normal;
-    width: 100%;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     text-align: center;
     color: black;
-    text-decoration: none;
-    top: 50%;
-    box-sizing: border-box;
-    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: .07em;
+    margin: 10px 0 10px;
 }
 
 .student-form-input {
-    height: 48px;
+    height: 34px;
     width: 100%;
     padding: 0;
     border: none;
-    caret-color: green;
-    line-height: 100%;
-    outline: none;
     pointer-events: initial !important;
     -webkit-appearance: none;
-    margin-top: 10px;
+    margin: 10px 0;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(22,24,35,0.2);
-    font-size: 14px;
-    font-family: sofia-pro, sans-serif;
-    font-style: normal;
-    font-weight: 400;
+    font-size: 12px;
 }
 
 .student-form-date-input {
-    height: 48px;
-    width: 100%;
+    height: 30px;
+    width: 250px;
     padding: 0;
     border: none;
-    caret-color: green;
-    line-height: 100%;
-    outline: none;
     pointer-events: initial !important;
     -webkit-appearance: none;
-    margin-top: 0px;
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(22,24,35,0.2);
-    font-size: 14px;
+    border: 1px solid rgba(22,24,35,0.2);
+    font-size: 12px;
     font-family: sofia-pro, sans-serif;
-    font-style: normal;
-    font-weight: 400;
+}
+
+input.student-form-date-input {
+    margin-top: 4px;
+    padding-left: 10px;
+    border-radius: 2px;
+    color: #484848;
+    font-size: 12px;
+    width: 250px;
+    height: 30px;
+    border: 1px solid #D3D3D3;
+}
+
+.gender-radios {
+    margin-top: 13px;
+}
+
+label.gender-title {
+    color: #808080;
+}
+
+.gender-radio-input {
+    margin: 0 5px 0 20px;
+}
+
+.gender-grade-inputs {
+    display: inline-flex;
+}
+
+select.grade-selector {
+    margin: -3px 0 0 12px;
+    border-radius: 6px;
+    color: #484848;
+    font-size: 12px;
+    width: 120px;
+    height: 30px;
+    border: 1px solid #D3D3D3;
+}
+
+select:invalid {
+    outline: none;    
+    box-shadow: 0 0 0 1px red;
+}
+
+
+.student-grade {
+    margin-top: 8px;
+    margin-left: 70px;
+}
+
+.date-inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 16px;
 }
 
 .date-field {
-    margin-top: 20px;
-    font-size: 14px;
-    font-family: sofia-pro, sans-serif;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     color: gray;
@@ -150,4 +189,43 @@ body {
 .student-form-submit:hover {
     background-color: #feb72b;
     color: white;
+}
+
+
+.modal-background {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  width:100%;
+  height:100%;
+  z-index: 10;
+  left:0px;
+  top:0px;
+  color: white;
+}
+
+.modal-closing-x {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  color: #000000;;
+  vertical-align: middle;
+  line-height: 40px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.form-closing-x {
+    display: block;
+    position: relative;
+    justify-content: center;
+    color: white;
+    font-size: 50px;
+    border: 5px solid white;
+    border-radius: 50%;
+    width: 70px;
+    padding-left: 10px;
+    cursor: pointer;
+    top: 20px;
+    left: 20px;
+
 }

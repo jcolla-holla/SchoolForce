@@ -8,11 +8,14 @@ import SignupFormContainer from "./session/signup_form_container";
 import CreateStudentFormContainer from "./student/create_student_form_container";
 import ReminderForm from "./search/reminder_form";
 import ParentProfileContainer from "./user/parent_profile_container";
+import Modal from '../components/modal/modal';
 import About from "./nav/about";
+
 
 
 const App = () => (
   <div id="appContainer">
+    <Modal />
     <NavBarContainer />
     <Switch>
       <Route exact path="/" component={MainPageContainer} />

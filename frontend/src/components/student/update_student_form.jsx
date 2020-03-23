@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-class CreateStudentForm extends React.Component {
+class UpdateStudentForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,23 +23,24 @@ class CreateStudentForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
+    componentDidMount() {
+        // const studentId = this.props.student._id
+        // return this.props.fetchStudent(studentId)
+    };
 
-  update(field) {
-    if (Array.isArray(this.state[field])) {
-      return e =>
-        this.setState({
-          [field]: e.currentTarget.value
-        });
-    } else {
-      return e =>
-        this.setState({
-          [field]: e.currentTarget.value
-        });
+    update(field) {
+        if (Array.isArray(this.state[field])) {
+        return e =>
+            this.setState({
+            [field]: e.currentTarget.value
+            });
+        } else {
+        return e =>
+            this.setState({
+            [field]: e.currentTarget.value
+            });
+        }
     }
-  }
 
   // addData(field) {
   //   return e =>
@@ -69,11 +70,13 @@ class CreateStudentForm extends React.Component {
       grade: this.state.grade,
       errors: this.state.errors
     };
+    debugger
+    const studentId = this.props.student._id
 
-
-    this.props.processForm(student)
+    this.props.processForm(studentId)
       .then(() => this.props.closeModal());
   }
+
 
   renderErrors() {
     return (
@@ -87,9 +90,11 @@ class CreateStudentForm extends React.Component {
 
   render() {
 
-    // if (this.props === undefined) {
-    //   return <div></div>
-    // };
+      if (this.props.student === undefined) {
+          return <div></div>
+      };
+
+      debugger
 
     return (
       <div className="student-form-page">
@@ -98,13 +103,11 @@ class CreateStudentForm extends React.Component {
 
           <form onSubmit={this.handleSubmit} className="student-form-box">
             <div className="student-form-title">
-              Register Your Student
-            </div>
-            <p className="student-form-description">
-              If your student is not registered on SchoolForce,
             <br/>
-              please use to form below to fill out your student's infomation.
-            </p>
+              Update Your Student
+                <br/>
+                <br/>
+            </div>
             <div className="student-form">
               <p className="student-form-header">
                 Student Information
@@ -244,4 +247,4 @@ class CreateStudentForm extends React.Component {
   }
 }
 
-export default withRouter(CreateStudentForm);
+export default withRouter(UpdateStudentForm);
