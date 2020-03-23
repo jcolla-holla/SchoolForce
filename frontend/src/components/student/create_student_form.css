@@ -189,8 +189,9 @@ select:invalid {
     position: relative;
     margin-top: 30px;
     cursor: pointer;
-    border: none;
+    border: 2px solid #feb72b;
     transition: background-color 0.5s;
+
 }
 
 .student-form-submit:hover {

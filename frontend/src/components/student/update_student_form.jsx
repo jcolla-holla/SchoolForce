@@ -76,6 +76,7 @@ class UpdateStudentForm extends React.Component {
     };
 
     this.props.processForm(student)
+      .then()
       .then(() => this.props.closeModal())
   }
 
