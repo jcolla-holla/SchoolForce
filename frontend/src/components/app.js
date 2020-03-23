@@ -8,7 +8,9 @@ import SignupFormContainer from "./session/signup_form_container";
 import CreateStudentFormContainer from "./student/create_student_form_container";
 import ReminderForm from "./search/reminder_form";
 import ParentProfileContainer from "./user/parent_profile_container";
-import Modal from '../components/modal/modal'
+import Modal from '../components/modal/modal';
+import About from "./nav/about";
+
 
 
 const App = () => (
@@ -17,6 +19,7 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <Route exact path="/" component={MainPageContainer} />
+      <Route exact path="/about" component={About} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/profile" component={ParentProfileContainer} />
