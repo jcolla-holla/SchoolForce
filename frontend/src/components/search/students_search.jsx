@@ -123,7 +123,7 @@ class StudentsSearch extends React.Component {
 
 
         const userAdminId = this.adminUserId;
-        const { createReminder, deleteStudent } = this.props;
+        const { createReminder, deleteStudent, updateStudent, openModal } = this.props;
         
         return ( 
 
@@ -185,6 +185,8 @@ class StudentsSearch extends React.Component {
                         handleStudentCheck={this.handleStudentCheck}
                         selectedStudents={this.state.selectedStudents}
                         deleteStudent={deleteStudent}
+                        updateStudent={updateStudent} 
+                        openModal={openModal}
                         key={student._id}
                         />
                         ))}
