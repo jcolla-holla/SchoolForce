@@ -1,55 +1,71 @@
-#admin-search-container li {
+body {
+    font-family: sofia-pro, sans-serif
+}
+
+li {
     margin: 10px;
-    border: 1px solid gray;
-    padding: 10px 10px 0;
+    border: 1px solid grey;
+    padding: 10px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+.student-name-container {
+    justify-content: space-between;
+    margin: 10px;
     width: 1000px;
     display: inline-block;
     flex-direction: column;
     border-radius: 4px;
 }
 
-#admin-search-container .checkboxAndName {
-    display: flex;
-}
-
-#admin-search-container .student-name {
+.student-name {
     font-weight: bold;
     margin-left: 10px;
     margin-right: 10px;
     font-size: 24px;
 }
 
-#admin-search-container .nonNameInfo {
+.student-info {
     display: flex;
     margin-left: 30px;
     margin-top: 10px;
-    justify-content: flex-start;
 }
 
-#admin-search-container .nonNameInfo div {
-    margin: 30px;
+.student-info div {
+    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#admin-search-container .nonNameInfo .title {
+.student-info .title {
     font-weight: bold;
-    font-size: 16px;
+     font-size: 18px;
 }
 
-#admin-search-container .nonNameInfo p {
+.student-info p {
     /* this margin: 0px; resets something inherited I can't figure out - Jesse */
     margin: 0px;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-.student-search-item-buttons {
+.student-index-item-buttons {
+    margin-left: 200px;
+}
+
+.child-index-item-button{
     display: flex;
 }
 
-.update-student-button {
+.child-index-item-button a {
+    text-decoration: none;
+}
+
+.update-child-index-button {
     background-color: #034687;
     width: 150px;
     height: 60px;
@@ -59,12 +75,14 @@
     font-weight: 600;
     letter-spacing: .1em;
     line-height: 1.5;
+    justify-content: right;
     margin: -50px 0 20px;
     filter: brightness(1.3);
     font-size: 13px;
+    cursor: pointer;
 }
 
-.update-student-button:hover {
+.update-child-index-button:hover {
     background-color: lightskyblue;
     border-radius: 6px;
     border: 1px solid black;
@@ -73,8 +91,8 @@
     font-size: 13px;
 }
 
-.delete-student-button {
-    background-color: #A30000;
+.delete-child-index-button {
+    background-color: #034687;
     width: 150px;
     height: 60px;
     border-radius: 6px;
@@ -83,12 +101,15 @@
     font-weight: 600;
     letter-spacing: .1em;
     line-height: 1.5;
+    justify-content: right;
+    margin: -100px 0 20px;
     filter: brightness(1.3);
     font-size: 13px;
+    cursor: pointer;
 }
 
-.delete-student-button:hover {
-    background-color: salmon;
+.delete-child-index-button:hover {
+    background-color: lightskyblue;
     border-radius: 6px;
     border: 1px solid black;
     color: black;

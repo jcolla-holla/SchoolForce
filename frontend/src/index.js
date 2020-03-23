@@ -9,6 +9,7 @@ import { logout } from "./actions/session_actions";
 
 import { createNewStudent } from "./actions/student_actions";
 import { createReminder } from "./actions/reminder_actions";
+import { signup } from "./actions/session_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -37,11 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //putting these on window to test
   window.store = store;
-  window.logout = () => store.dispatch(logout());
-
-  window.createNewStudent = data => store.dispatch(createNewStudent(data));
-  window.createReminder = data => store.dispatch(createReminder(data));
-
 
   ReactDOM.render(<Root store={store} />, root);
 });

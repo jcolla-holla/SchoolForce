@@ -16,18 +16,18 @@ router.get('/', (req, res) => {
             res.status(400).json({ err: 'No students found' }))
 });
 
-// router.get('/:parentId', (req, res) => {
-//     Student.find({ student: req.params.parentId })
-//         .then(students => res.json(students))
-//         .catch(err =>
-//             res.status(400).json({ err: 'No student found from that parent' }))
-// });
+router.get('/:parentId', (req, res) => {
+    Student.find({ parentId: req.params.parentId })
+        .then(student => res.json(student))
+        .catch(err =>
+            res.status(400).json(err))
+});
 
 router.get('/:id', (req, res) => {
     Student.findById(req.params.id)
         .then(student => res.json(student))
         .catch(err =>
-            res.status(400).json('err: ' + err))
+            res.status(400).json(err))
 });
 
 
@@ -35,38 +35,36 @@ router.delete('/:id', (req, res) => {
     Student.findByIdAndDelete(req.params.id)
         .then(() => res.json({ msg: "Student deleted." }))
         .catch(err =>
-            res.status(400).json('err: ' + err))
+            res.status(400).json(err))
 });
 
 router.post('/edit/:id', (req, res) => {
     Student.findById(req.params.id)
         .then(student => {
-            student.firstName = req.body.firstName,
-                student.lastName = req.body.lastName,
-                student.allergies = req.body.allergies,
-                student.specialNeeds = req.body.specialNeeds,
-                student.medicalConditions = req.body.medicalConditions,
-                student.gender = req.body.gender,
-                student.dateOfBirth = req.body.dateOfBirth,
-                student.startDate = req.body.startDate,
-                student.grade = req.body.grade
 
-            console.log(student)
+            student.firstName = req.body.firstName === "" ? student.firstName : req.body.firstName;
+            student.lastName = req.body.lastName === "" ? student.lastName : req.body.lastName;
+            student.allergies = req.body.allergies === "" ? student.allergies : req.body.allergies;
+            student.specialNeeds = req.body.specialNeeds === "" ? student.specialNeeds : req.body.specialNeeds;
+            student.medicalConditions = req.body.medicalConditions === "" ? student.medicalConditions : req.body.medicalConditions;
+            student.gender = req.body.gender === "" ? student.gender : req.body.gender;
+            student.dateOfBirth = req.body.dateOfBirth === "" ? student.dateOfBirth : req.body.dateOfBirth;
+            student.startDate = req.body.startDate === "" ? student.startDate : req.body.startDate;
+            student.grade = req.body.grade === "" ? student.grade : req.body.grade;
 
             student.save()
-            .then(student => res.json(student, { msg: "Student updated." }))
+                .then(student => res.json(student))
                 .catch(err =>
-                    res.status(400).json('err: ' + err))
+                    res.status(400).json(err))
         })
         .catch(err =>
-            res.status(400).json('err: ' + err))
+            res.status(400).json(err))
 });
-
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        console.log(req);
+        // console.log(req);
 
         const { errors, isValid } = validateStudentInput(req.body);
 
@@ -90,9 +88,9 @@ router.post('/',
         console.log(newStudent);
 
         newStudent.save()
-            .then(() => res.json({ msg: "New student created." }))
+            .then(student => res.json(student))
             .catch(err =>
-                res.status(400).json('err: ' + err))
+                res.status(400).json(err))
     }
 );
 

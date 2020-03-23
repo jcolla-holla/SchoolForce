@@ -22,12 +22,12 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "twilio": "^3.39.5",
     "update": "^0.7.4",
     "validator": "^12.2.0",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.5",
+    "webpack-dev-server": "^3.10.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -52,6 +52,7 @@
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
+    "redux-logger": "^3.0.6",
     "nodemon": "^2.0.2"
   }
 }

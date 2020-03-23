@@ -13,5 +13,13 @@ export const createStudent = data => {
 };
 
 export const deleteStudent = id => {
+  return axios.delete(`/api/students/${id}`);
+};
+
+export const updateStudent = data => {
+  return axios.post(`/api/students/edit/${data.id}`, data);
+};
+
+export const getParent = id => {
   return axios.get(`/api/students/${id}`);
 };

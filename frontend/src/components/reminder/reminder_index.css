@@ -1,0 +1,50 @@
+.reminder-index-page {
+    font-family: sofia-pro,sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.welcome-header {
+    font-size: 24px;
+    height: 20px;
+    margin: 40px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-student-button {
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #feb72b;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.create-student-button:hover {
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #FEE9BF;
+    color: #feb72b;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.reminder-index-header {
+    margin-left: 40px;
+    margin-top: 40px;
+    font-family: sofia-pro,sans-serif;
+}
+
+.reminder-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
