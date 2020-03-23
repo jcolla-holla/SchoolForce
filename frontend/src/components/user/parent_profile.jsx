@@ -24,19 +24,26 @@ class ParentProfile extends React.Component {
         // filters through all children matching currentUser.id === child.parentId
         const currentUserChildren = Object.values(students).filter(ele => ele.parentId[0] === currentUser.id);
 
-         
-        // maping children matching currentUser.id === child.parentId
-        const childrenList = currentUserChildren.map((student, idx) => {
-            
-            return <ChildIndexItem
-                key={idx}
-                student={student}
-                deleteStudent={deleteStudent}
-                updateStudent={updateStudent}
-                openModal={openModal}
-            />;
-        });
-        
+
+        let childrenList;
+        if (currentUserChildren.length === 0) {
+            childrenList = <p>You have not registered any students yet</p>
+        } else {
+            // maping children matching currentUser.id === child.parentId
+            childrenList = currentUserChildren.map(
+            (student, idx) => {
+                return (
+                <ChildIndexItem
+                    key={idx}
+                    student={student}
+                    deleteStudent={deleteStudent}
+                    updateStudent={updateStudent}
+                    openModal={openModal}
+                />
+                );
+            }
+            );
+        }
 
         return (
             <div id='parent-profile-page'>
