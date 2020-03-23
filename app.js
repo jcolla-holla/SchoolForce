@@ -9,8 +9,6 @@ const students = require("./routes/api/students");
 const reminders = require("./routes/api/reminders");
 const passport = require('passport')
 
-//this is for heroku deploy: https://open.appacademy.io/learn/swe-in-person-nyc/mern-stack-curriculum/deploying-your-app
-
 const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
@@ -26,7 +24,7 @@ mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: t
     .catch(err => console.log(err));
 
 // basic route to render info on our page
-app.get("/", (req, res) => res.send("SchoolForce is in session"));
+// app.get("/", (req, res) => res.send("SchoolForce is in session"));
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
@@ -37,6 +35,23 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/students", students);
 app.use("/api/reminders", reminders);
+
+// EXPERIMENTAL ADD FROM: https://coursework.vschool.io/deploying-mern-with-heroku/
+// ... other imports 
+// const path = require("path")
+
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+// app.listen(...);
+
+// END EXPERIMENTS FROM ABOVE
 
 
 //tell Express to start a socket and listen for connections on the path.

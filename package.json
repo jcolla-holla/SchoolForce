@@ -49,5 +49,7 @@
   "devDependencies": {
     "redux-logger": "^3.0.6",
     "nodemon": "^2.0.2"
-  }
+  },
+  "proxy": "http://localhost:5000"
+
 }
