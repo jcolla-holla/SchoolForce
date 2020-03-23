@@ -11,29 +11,39 @@ class ReminderIndex extends React.Component {
   }
 
   render() {
-    let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser.id));
     let users = this.props.users;
+    let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser.id));
+    let reminderList;
+    
+    if (filteredReminders.length === 0) {
+      reminderList = <p>You do not have any past reminders</p>;
+    } else {
+      reminderList = filteredReminders.map(reminder => (
+        <ReminderIndexItem
+          reminder={reminder}
+          users={users}
+          key={reminder._id}
+        />
+      ));
+    }
+
     return (
-      <div id='reminder-index-page'>
+      <div id="reminder-index-page">
         <div className="welcome-header">
-          <p>Hello {this.props.currentUser.firstName} {this.props.currentUser.lastName}, welcome to your dashboard</p>
-          <Link className="create-student-button" to="/profile">View Profile</Link>
+          <p>
+            Hello {this.props.currentUser.firstName}{" "}
+            {this.props.currentUser.lastName}, welcome to your dashboard
+          </p>
+          <Link className="create-student-button" to="/profile">
+            View Profile
+          </Link>
         </div>
         <div className="reminder-index-container">
-          <h2 className='reminder-index-header'>Your past reminders</h2>
-          <ul className="reminder-list">
-            {filteredReminders.map(reminder => (
-              <ReminderIndexItem
-                reminder={reminder}
-                users={users}
-                key={reminder._id}
-              />)
-            )
-            }
-          </ul>
+          <h2 className="reminder-index-header">Your past reminders</h2>
+          <ul className="reminder-list">{reminderList}</ul>
         </div>
       </div>
-    )
+    );
   }
 }
 
