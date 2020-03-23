@@ -70,7 +70,7 @@ class CreateStudentForm extends React.Component {
       errors: this.state.errors
     };
 
-    // debugger
+
     this.props.processForm(student)
       .then(() => this.props.closeModal());
   }
@@ -86,11 +86,11 @@ class CreateStudentForm extends React.Component {
   }
 
   render() {
-    // debugger
+
     // if (this.props === undefined) {
     //   return <div></div>
     // };
-    debugger
+
     return (
       <div className="student-form-page">
         <div className='form-closing-x' onClick={() => this.props.closeModal()}>&#10005;</div>
