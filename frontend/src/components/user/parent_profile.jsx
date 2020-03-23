@@ -23,7 +23,7 @@ class ParentProfile extends React.Component {
         // filters through all children matching currentUser.id === child.parentId
         const currentUserChildren = Object.values(students).filter(ele => ele.parentId[0] === currentUser.id);
 
-        debugger 
+         
         // maping children matching currentUser.id === child.parentId
         const childrenList = currentUserChildren.map((student, idx) => {
             
@@ -35,7 +35,7 @@ class ParentProfile extends React.Component {
                 openModal={openModal}
             />;
         });
-        debugger
+        
 
         return (
             <div id='parent-profile-page'>
