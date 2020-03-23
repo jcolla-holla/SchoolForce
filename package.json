@@ -5,8 +5,10 @@
   "main": "app.js",
   "scripts": {
     "frontend-install": "npm install --prefix frontend",
-    "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server:debug\" \"npm run frontend\"",
+    "frontend-frontend": "npm start --prefix frontend",
+    "client": "npm start --prefix client",
+    "dev-frontend": "concurrently \"npm run server:debug\" \"npm run frontend\"",
+    "dev-client": "concurrently \"npm run server:debug\" \"npm run client\"",
     "start": "node app.js",
     "server": "nodemon app.js",
     "server:debug": "node --inspect app.js",
