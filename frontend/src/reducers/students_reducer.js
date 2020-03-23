@@ -24,7 +24,6 @@ const StudentsReducer = ( state = {}, action ) => {
     // case UPDATE_STUDENT: 
     //   return state.map((post) => post.id === action.id ? { ...post, editing: !post.editing } : post)
     case RECEIVE_PARENT:
-      debugger
       // newState.students = action.student.data;
       return newState;
 
