@@ -23,23 +23,24 @@ class UpdateStudentForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
-  // }
+    componentDidMount() {
+        // const studentId = this.props.student._id
+        // return this.props.fetchStudent(studentId)
+    };
 
-  update(field) {
-    if (Array.isArray(this.state[field])) {
-      return e =>
-        this.setState({
-          [field]: e.currentTarget.value
-        });
-    } else {
-      return e =>
-        this.setState({
-          [field]: e.currentTarget.value
-        });
+    update(field) {
+        if (Array.isArray(this.state[field])) {
+        return e =>
+            this.setState({
+            [field]: e.currentTarget.value
+            });
+        } else {
+        return e =>
+            this.setState({
+            [field]: e.currentTarget.value
+            });
+        }
     }
-  }
 
   // addData(field) {
   //   return e =>
@@ -69,11 +70,13 @@ class UpdateStudentForm extends React.Component {
       grade: this.state.grade,
       errors: this.state.errors
     };
+    debugger
+    const studentId = this.props.student._id
 
-    // debugger
-    this.props.processForm(student)
+    this.props.processForm(studentId)
       .then(() => this.props.closeModal());
   }
+
 
   renderErrors() {
     return (
@@ -86,10 +89,12 @@ class UpdateStudentForm extends React.Component {
   }
 
   render() {
-    // debugger
-    // if (this.props === undefined) {
-    //   return <div></div>
-    // };
+
+      if (this.props.student === undefined) {
+          return <div></div>
+      };
+
+      debugger
 
     return (
       <div className="student-form-page">

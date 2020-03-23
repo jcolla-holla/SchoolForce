@@ -14,6 +14,7 @@ const StudentsReducer = ( state = {}, action ) => {
       return Object.assign({}, state, action.students.data)
 
     case RECEIVE_STUDENT:
+      debugger
       newState.students = action.student.data;
       return newState;
 

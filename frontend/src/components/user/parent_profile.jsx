@@ -1,6 +1,6 @@
 import React from 'react';
 import "./parent_profile.css";
-import ChildIndexItem from './child_index_item.jsx';
+import ChildIndexItem from './child_index_item';
 
 class ParentProfile extends React.Component {
     constructor(props) {
@@ -17,9 +17,14 @@ class ParentProfile extends React.Component {
         //     return <div></div>
         // };
 
-        const { deleteStudent, updateStudent, openModal } = this.props;
-        // let children = this.props.students.filter((student) => student.parentId.includes(this.props.currentUser.id));
-        const children = this.props.students.map((student, idx) => {
+        const { deleteStudent, updateStudent, openModal, students, currentUser } = this.props;
+  
+        // filters through all children matching currentUser.id === child.parentId
+        const currentUserChildren = Object.values(students).filter(ele => ele.parentId[0] === currentUser.id);
+
+        // maping children matching currentUser.id === child.parentId
+        const childrenList = currentUserChildren.map((student, idx) => {
+            debugger
             return <ChildIndexItem
                 key={idx}
                 student={student}
@@ -28,6 +33,8 @@ class ParentProfile extends React.Component {
                 openModal={openModal}
             />;
         });
+
+        debugger
 
         return (
             <div id='parent-profile-page'>
@@ -53,7 +60,7 @@ class ParentProfile extends React.Component {
                         Your students
                     </h2>
                     <ul className="children-index">
-                        {children}
+                        {childrenList}
                     </ul>
                 </div>
             </div>

@@ -6,6 +6,7 @@ class ChildIndexItem extends React.Component {
         super(props);
 
         this.handleDeleteStudent = this.handleDeleteStudent.bind(this)
+        this.handleUpdateStudent = this.handleUpdateStudent.bind(this)
     }
 
     handleDeleteStudent(e) {
@@ -13,6 +14,12 @@ class ChildIndexItem extends React.Component {
         const studentId = this.props.student._id
         return this.props.deleteStudent(studentId)
     }
+
+    handleUpdateStudent(e) {
+        e.preventDefault()
+        return this.props.openModal('Update Student')
+    }
+
 
     render() {
 
@@ -44,6 +51,8 @@ class ChildIndexItem extends React.Component {
                     <p key={`medicalCondition${idx}`}>{medicalCondition}</p>
             ))
         }};
+
+        debugger
         
         return (
             <li>
@@ -85,7 +94,7 @@ class ChildIndexItem extends React.Component {
                     </div>
                     <div className='student-index-item-buttons'>
                         <button className='update-student-button'
-                            onClick={() => this.props.openModal('Update Student')}>
+                            onClick={this.handleUpdateStudent}>
                             Update Student
                         </button>
                         <button className='delete-student-button'
