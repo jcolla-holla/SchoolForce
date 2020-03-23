@@ -18,7 +18,7 @@ class CreateStudentForm extends React.Component {
       grade: "",
       errors: {}
     };
-    debugger
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
