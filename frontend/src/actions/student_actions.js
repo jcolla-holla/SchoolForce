@@ -59,8 +59,6 @@ export const deleteStudent = (studentId) => dispatch => (
 
 export const updateStudent = (data) => dispatch => (
   APIUtil.updateStudent(data)
-    .then(student => dispatch(receiveStudent(student)))
-    .catch(err => console.log(err))
 );
 
 export const fetchParent = (parentId) => dispatch => (

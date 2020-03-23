@@ -1,30 +1,29 @@
-import { connect } from 'react-redux';
-import { updateStudent } from '../../actions/student_actions';
-import { clearErrors } from '../../actions/session_actions';
+import { connect } from "react-redux";
+import { updateStudent, fetchAllStudents } from "../../actions/student_actions";
+import { clearErrors } from "../../actions/session_actions";
 import { closeModal, openModal } from '../../actions/modal_actions';
 import UpdateStudentForm from "./update_student_form";
 import "./create_student_form.css";
-import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => {
-    debugger
+const mapStateToProps = state => {
     return {
-        formType: 'Update Student',
         errors: state.errors.session,
         currentUser: state.session.user,
-        students: state.entities.students
-    }
+        formType: 'Update Student',
+        studentId: state.modal.studentId,
+        updateStudent: Object.values(state.entities.students)
+                    .filter(val => val._id === state.modal.studentId)
+    };
 };
-
 
 const mapDispatchToProps = dispatch => {
     return {
-        processForm: (data) => dispatch(updateStudent(data)),
+        processForm: (payload) => dispatch(updateStudent(payload)),
         closeModal: () => dispatch(closeModal()),
-        openModal: (formType, data) => dispatch(openModal(formType, data)),
-        clearErrors: () => dispatch(clearErrors())
-    }
+        openModal: (modal, id) => dispatch(openModal(modal, id)),
+        clearErrors: () => dispatch(clearErrors()),
+        fetchAllStudents: () => dispatch(fetchAllStudents()),
+    };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UpdateStudentForm));
-
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateStudentForm);

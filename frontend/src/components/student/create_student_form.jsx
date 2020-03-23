@@ -18,7 +18,7 @@ class CreateStudentForm extends React.Component {
       grade: "",
       errors: {}
     };
-
+    
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
@@ -70,7 +70,6 @@ class CreateStudentForm extends React.Component {
       errors: this.state.errors
     };
 
-
     this.props.processForm(student)
       .then(() => this.props.closeModal());
   }
@@ -86,11 +85,11 @@ class CreateStudentForm extends React.Component {
   }
 
   render() {
-
+  
     // if (this.props === undefined) {
     //   return <div></div>
     // };
-
+    
     return (
       <div className="student-form-page">
         <div className='form-closing-x' onClick={() => this.props.closeModal()}>&#10005;</div>

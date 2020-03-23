@@ -53,7 +53,7 @@ router.post('/edit/:id', (req, res) => {
             student.grade = req.body.grade === "" ? student.grade : req.body.grade;
 
             student.save()
-                .then(() => res.json({ msg: "Student updated." }))
+                .then(student => res.json(student))
                 .catch(err =>
                     res.status(400).json(err))
         })

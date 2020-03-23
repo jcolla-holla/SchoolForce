@@ -9,12 +9,13 @@ const StudentsReducer = ( state = {}, action ) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
 
+  console.log(newState);
   switch (action.type) {
     case RECEIVE_ALL_STUDENTS:
-      return Object.assign({}, state, action.students.data)
+      return Object.assign({}, newState, action.students.data)
 
     case RECEIVE_STUDENT:
-      newState.students = action.student.data;
+      newState.students = action.student.data; //to create but need to figure out how to change update
       return newState;
 
     case REMOVE_STUDENT:

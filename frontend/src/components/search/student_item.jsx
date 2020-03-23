@@ -7,6 +7,7 @@ class StudentItem extends React.Component {
         super(props);
 
         this.handleDeleteStudent = this.handleDeleteStudent.bind(this)
+        this.handleUpdateStudent = this.handleUpdateStudent.bind(this)
     }
 
     handleDeleteStudent(e) {
@@ -15,8 +16,14 @@ class StudentItem extends React.Component {
         return this.props.deleteStudent(studentId)
     }
 
-    render() {
+    handleUpdateStudent(e) {
+        e.preventDefault()
+        const studentId = this.props.student._id
+        return this.props.openModal('Update Student', studentId)
+    }
 
+    render() {
+        
     return (
         <li>
             <div className="checkboxAndName">
@@ -60,7 +67,8 @@ class StudentItem extends React.Component {
                 <p> {this.props.student.grade}</p>
             </div>
             <div className='student-search-item-buttons'>
-                <button className='update-student-button'>
+                <button className='update-student-button'
+                        onClick={this.handleUpdateStudent}>
                     Update Student
                     </button> 
                 <button className='delete-student-button'

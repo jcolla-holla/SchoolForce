@@ -8,19 +8,22 @@ class ParentProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllStudents();
+        
+        if (this.props.studentId == '') {
+            return this.props.fetchAllStudents();
+        };
     }
 
     render() {
-        // debugger
-        // if (this.props === undefined) {
-        //     return <div></div>
-        // };
-
+        if (this.props.students === undefined) {
+            return <div></div>
+        };
+        
         const { deleteStudent, updateStudent, openModal, students, currentUser } = this.props;
-  
+        
         // filters through all children matching currentUser.id === child.parentId
         const currentUserChildren = Object.values(students).filter(ele => ele.parentId[0] === currentUser.id);
+
 
         let childrenList;
         if (currentUserChildren.length === 0) {

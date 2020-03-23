@@ -7,16 +7,33 @@ import ParentProfile from "./parent_profile";
 
 const mapStateToProps = state => {
     let students;
-    if (Object.values(state.entities.students).length === 0) {
-        students = [];
+        if (Object.values(state.entities.students).length === 0) {
+            students = [];
+        } else {
+            students = Object.values(state.entities.students);
+        }
+        
+    let formType;
+        if (state.modal === null) {
+            formType = 'Register Student';
+        } else if (Object.values(state.modal.formType) === 'Update Student') {
+            formType = 'Update Student';
+        } else {
+            formType = 'Register Student';
+        } 
+
+    let studentId;
+    if (state.modal !== null) {
+        studentId = state.modal.studentId
     } else {
-        students = Object.values(state.entities.students);
-    }
+        studentId = '';
+    } 
 
     return {
         currentUser: state.session.user,
         students: students,
-        formType: 'Register Student',
+        formType: formType,
+        studentId: studentId
     };
 };
 
@@ -25,7 +42,7 @@ const mapDispatchToProps = dispatch => ({
     deleteStudent: (studentId) => dispatch(deleteStudent(studentId)),
     updateStudent: (student) => dispatch(updateStudent(student)),
     closeModal: () => dispatch(closeModal()),
-    openModal: (formType) => dispatch(openModal(formType)),
+    openModal: (modal, id) => dispatch(openModal(modal, id)),
     clearErrors: () => dispatch(clearErrors()),
 });
 

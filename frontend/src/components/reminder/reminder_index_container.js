@@ -18,7 +18,6 @@ const mapStateToProps = state => {
   } else {
     users = Object.values(state.entities.users);
   }
-  // debugger
 
   return {
     currentUser: state.session.user,
