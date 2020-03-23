@@ -70,7 +70,7 @@ class UpdateStudentForm extends React.Component {
       grade: this.state.grade,
       errors: this.state.errors
     };
-    debugger
+
     const studentId = this.props.student._id
 
     this.props.processForm(studentId)
@@ -93,8 +93,6 @@ class UpdateStudentForm extends React.Component {
       if (this.props.student === undefined) {
           return <div></div>
       };
-
-      debugger
 
     return (
       <div className="student-form-page">

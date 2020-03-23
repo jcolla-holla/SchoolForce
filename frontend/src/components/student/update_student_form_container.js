@@ -7,7 +7,6 @@ import "./create_student_form.css";
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         formType: 'Update Student',
         errors: state.errors.session,

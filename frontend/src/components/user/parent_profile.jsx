@@ -12,7 +12,7 @@ class ParentProfile extends React.Component {
     }
 
     render() {
-        // debugger
+        
         // if (this.props === undefined) {
         //     return <div></div>
         // };
@@ -24,7 +24,7 @@ class ParentProfile extends React.Component {
 
         // maping children matching currentUser.id === child.parentId
         const childrenList = currentUserChildren.map((student, idx) => {
-            debugger
+
             return <ChildIndexItem
                 key={idx}
                 student={student}
@@ -34,7 +34,6 @@ class ParentProfile extends React.Component {
             />;
         });
 
-        debugger
 
         return (
             <div id='parent-profile-page'>

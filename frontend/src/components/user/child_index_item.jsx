@@ -51,8 +51,6 @@ class ChildIndexItem extends React.Component {
                     <p key={`medicalCondition${idx}`}>{medicalCondition}</p>
             ))
         }};
-
-        debugger
         
         return (
             <li>
