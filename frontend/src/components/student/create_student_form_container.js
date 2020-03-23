@@ -15,9 +15,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: payload => dispatch(createNewStudent(payload)),
+    processForm: (payload) => dispatch(createNewStudent(payload)),
     closeModal: () => dispatch(closeModal()),
-    openModal: (formType) => dispatch(openModal(formType)),
+    openModal: (modal, id) => dispatch(openModal(modal, id)),
     clearErrors: () => dispatch(clearErrors())
   };
 };

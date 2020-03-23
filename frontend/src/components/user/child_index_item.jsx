@@ -15,11 +15,12 @@ class ChildIndexItem extends React.Component {
         return this.props.deleteStudent(studentId)
     }
 
+
     handleUpdateStudent(e) {
         e.preventDefault()
-        return this.props.openModal('Update Student')
+        const studentId = this.props.student._id
+        return this.props.openModal('Update Student', studentId)
     }
-
 
     render() {
 
@@ -51,7 +52,7 @@ class ChildIndexItem extends React.Component {
                     <p key={`medicalCondition${idx}`}>{medicalCondition}</p>
             ))
         }};
-        
+
         return (
             <li>
                 <div className="student-name-container">

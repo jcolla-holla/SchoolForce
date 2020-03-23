@@ -4,10 +4,9 @@ import { closeModal } from '../../actions/modal_actions';
 import CreateStudentFormContainer from '../student/create_student_form_container';
 import UpdateStudentFormContainer from '../student/update_student_form_container';
 
-
 const Modal = ({ modal, closeModal }) => {
     if (!modal) return null;
-
+    
     let component;
     switch (modal) {
         case 'Register Student':
@@ -29,13 +28,32 @@ const Modal = ({ modal, closeModal }) => {
     );
 }
 
-const mapStateToProps = (state) => ({
-    modal: state.modal
-});
+const mapStateToProps = state => {
 
-const mapDispatchToProps = (dispatch) => ({
-    closeModal: () => dispatch(closeModal())
-});
+    let modalVar
+    if (!state.modal) {
+        modalVar = null
+    } else {
+        modalVar = state.modal.formType
+    }
+    let idVar
+        if (!state.modal) {
+            idVar = null
+        } else {
+            idVar = state.modal.id
+        }
 
+    return {
+        modal: modalVar,
+        id: idVar
+    };
+};
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        closeModal: () => dispatch(closeModal())
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

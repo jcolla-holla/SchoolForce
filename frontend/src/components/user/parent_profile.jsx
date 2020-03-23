@@ -8,23 +8,25 @@ class ParentProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllStudents();
+        if (this.props.studentId == '') {
+            return this.props.fetchAllStudents();
+        };
     }
 
     render() {
+        if (this.props.students === undefined) {
+            return <div></div>
+        };
         
-        // if (this.props === undefined) {
-        //     return <div></div>
-        // };
-
         const { deleteStudent, updateStudent, openModal, students, currentUser } = this.props;
-  
+        
         // filters through all children matching currentUser.id === child.parentId
         const currentUserChildren = Object.values(students).filter(ele => ele.parentId[0] === currentUser.id);
 
+        debugger 
         // maping children matching currentUser.id === child.parentId
         const childrenList = currentUserChildren.map((student, idx) => {
-
+            
             return <ChildIndexItem
                 key={idx}
                 student={student}
@@ -33,7 +35,7 @@ class ParentProfile extends React.Component {
                 openModal={openModal}
             />;
         });
-
+        debugger
 
         return (
             <div id='parent-profile-page'>
