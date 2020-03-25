@@ -5,18 +5,33 @@
     align-items: center;
     width: 100%;
     height: 60px;
-    background-color: #527318;
+    background-color: #282828;
     border-bottom: 1px solid black;
     font-family: sofia-pro, sans-serif;
 }
 
+
+.nav-links {
+    margin-right: 160px;
+    margin-left: -20px;
+}
+.nav-links a {
+padding: 30px;
+font-family: sofia-pro, sans-serif;
+text-decoration: none;
+color: white;
+font-size: 17px;
+font-weight: 500;
+}
+
 #nav-bar-container .navbar-logo {
-    color: white;
-    margin-left: 50px;
+    color: #feb72b;
+    margin-left: 120px;
     font-family: sofia-pro, sans-serif;
     text-decoration: none;
     font-size: 30px;
     font-weight: bold;
+    -webkit-font-smoothing: antialiased;
 }
 
 
@@ -24,11 +39,13 @@
     padding: 10px;
     color: white;
     text-decoration: none;
-    background-color: black;
-    margin-right: 50px;
+    background: linear-gradient(#67ae55, #527318);
+    margin-right: 80px;
+    box-shadow: inset 0 1px 1px #a4e388;
     font-size: 14px;
     border: none;
     border-radius: 4px;
+   
     /* IMPROVEMENT: some kind of non-silly shadowing */
     /* box-shadow: 4px 2px 2px #ffe75e; */
 }
@@ -42,7 +59,7 @@
     padding: 10px;
     color: white;
     text-decoration: none;
-    background-color: black;
+    background-color: #527318;
     margin-right: 20px;
     font-size: 14px;
     border: none;
@@ -53,11 +70,13 @@
     padding: 10px;
     color: white;
     text-decoration: none;
-    background-color: black;
-    margin-right: 50px;
+    background: linear-gradient(#67ae55, #527318);
+    margin-right: 80px;
+    box-shadow: inset 0 1px 1px #a4e388;
     font-size: 14px;
     border: none;
     border-radius: 4px;
+   
 }
 
 .ourTeamLink {

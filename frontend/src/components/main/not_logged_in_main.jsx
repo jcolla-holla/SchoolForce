@@ -1,50 +1,58 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faSms} from '@fortawesome/free-solid-svg-icons';
+import {faDatabase} from '@fortawesome/free-solid-svg-icons';
+import {faFileMedical} from '@fortawesome/free-solid-svg-icons';
+import About from "../nav/about";
+
+
 
 const NotLoggedInMain = () => (
     <div>
         <section className="main-page-body">
-            <h2 className="main-page-body-main-hook">
-                You're a school director and parents never read your emails?
-            </h2>
-            <img
-                className="main-page-body-frustration-image"
-                src="https://images.unsplash.com/photo-1552345386-6690de5b2c09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                alt=""
-            />
-            <div className="main-page-body-descriptions">
-                <div className="main-page-body-second-third-hooks">
-                    <h3 className="main-page-body-secondary-hook">
-                        SchoolForce is a light CRM for SMS communication with parents
-                        100% from your computer
-                  <img
-                            className="main-page-body-calm-computer-img"
-                            src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
-                            alt=""
-                        />
-                    </h3>
-                    <h3 className="main-page-body-third-hook">
-                        Meet parents where they are - send short reminders that
-                        actually get read
-                  <img
-                            className="main-page-body-happy-parent-img"
-                            src="https://images.unsplash.com/photo-1528475775637-ed767f76e6b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-                            alt=""
-                        />
-                    </h3>
-                </div>
-
-                <div className="main-body-page-student-focus-section">
-                    <h3 className="main-page-body-fourth-hook">
-                        So you get to focus on what matters most: your students
-                </h3>
-                    <img
-                        className="child-picture"
-                        src="https://images.unsplash.com/photo-1580968895877-a19ec54aadc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                        alt=""
-                    />
+            <div className="first-hook-div">
+                <img
+                    className="main-page-body-frustration-image"
+                    src="https://image.shutterstock.com/z/stock-vector-school-principal-in-suit-sitting-in-his-office-and-working-director-at-the-table-education-and-1186878361.jpg"
+                    alt=""
+                />
+                <div className="first-hook-descrition">
+                    <h2 className="main-page-body-main-hook">
+                        Are you a <p>SCHOOL DIRECTOR</p> and parents never read your emails?
+                    </h2>
+                    <p className="first-hook-descritption"><strong>SchoolForce</strong> is a light CRM for SMS communication with parents 100% from your computer. 
+                    <p>Meet parents where they are - send short reminders that actually get read.</p></p>
+                    <Link className="creat-account-button" to={"/signup"}>Register now and start sending reminders immediately</Link>
                 </div>
             </div>
+
+            <div className="resources">
+                
+                <h1 className="resources-title">Here's all the stuff I do.</h1>
+                <div className="resources-icons">
+                    <div id="sms-icon" className="resource-icon">
+                        <FontAwesomeIcon className="icons" size="14x" icon={faSms} />
+                        <h3>SMS messages</h3>
+                        <p>Instantaneously send sms messages to parents, reaching them anywhere and anytime.</p>
+                    </div>
+                    <div id="icon-database"  className="resource-icon">
+                        <FontAwesomeIcon className="icons" icon={faDatabase} />
+                        <h3>Student Database</h3>
+                        <p>Seamlessly search through your students' database.</p>
+                    </div>
+                    <div id="icon-medical" className="resource-icon">
+                        <FontAwesomeIcon className="icons" icon={faFileMedical} />
+						<h3>Medical Needs</h3>
+						<p>Sort and keep track of your students' allergies and medical needs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <About />
         </section>
+
+        
 
         <footer className="main-page-footer">
             <div> Copyright &copy; 2020 SchoolForce</div>

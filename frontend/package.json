@@ -25,9 +25,7 @@
     "redux-thunk": "^2.3.0",
     "twilio": "^3.39.5",
     "update": "^0.7.4",
-    "validator": "^12.2.0",
-    "webpack": "^4.41.5",
-    "webpack-dev-server": "^3.10.2"
+    "validator": "^12.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
