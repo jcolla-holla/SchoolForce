@@ -1,18 +1,35 @@
 #ourTeamContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     font-family: sofia-pro, sans-serif;
     margin-left: 50px;
+    box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 80px;
+
 }
 
 #ourTeamContainer p {
     font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3e3e3e;
+    opacity: 80%;
+}
+
+#ourTeamContainer h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    color: #3e3e3e;
+    font-weight: lighter;
 }
 
 .profName {
     font-weight: bold;
     color: white;
-    background-color: #527318;
+    
     padding: 5px;
-    border-radius: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,12 +55,25 @@
 }
 
 .teamProfile {
-    height: 360px;
-    width: 300px;
+    /* height: 360px;
+    width: 300px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    background-color: white;
+    box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    height: 383px;
+    width: 383px;
+    box-sizing: border-box;
+    padding: 30px;
+   
+}
+
+.teamProfiles {
+    display: flex;
+    align-items: center;
+    
 }
 
 .profileLinks {
@@ -58,22 +88,26 @@
     height: 200px;
     width: 300px;
     border-radius: 4px;
-    border: 6px solid #527318;
+    
     transition: box-shadow .2s;
     /* alternative border color: orange */
     /* border: 4px solid #feb72b; */
 }
 .profPic1:hover {
-    box-shadow: 4px 4px 4px gray, -.2em 0 .4em #feb72b;
+    border: 2px solid #feb72b;
 }
 .profPic2:hover {
-    box-shadow: 4px 4px 4px gray, -.2em 0 .4em #feb72b;
+    border: 2px solid #feb72b;
 }
 .profPic3:hover {
-    box-shadow: 4px 4px 4px gray, -.2em 0 .4em #feb72b;
+    border: 2px solid #feb72b;
 }
 .profPic4:hover {
-    box-shadow: 4px 4px 4px gray, -.2em 0 .4em #feb72b;
+    border: 2px solid #feb72b;
+}
+
+#icon:hover {
+    color: #feb72b;
 }
 
 .profPic2 {
@@ -81,7 +115,7 @@
     height: 200px;
     width: 300px;
     border-radius: 4px;
-    border: 6px solid #527318;
+    
     transition: box-shadow .2s;
 }
 
@@ -90,7 +124,7 @@
     height: 200px;
     width: 300px;
     border-radius: 4px;
-    border: 6px solid #527318;
+   
     transition: box-shadow .2s;
 }
 
@@ -99,7 +133,7 @@
     height: 200px;
     width: 300px;
     border-radius: 4px;
-    border: 6px solid #527318;
+    
     transition: box-shadow .2s;
 }
 

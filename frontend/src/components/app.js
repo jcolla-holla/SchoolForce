@@ -15,7 +15,7 @@ import About from "./nav/about";
 const App = () => (
   <div id="appContainer">
     <Modal />
-    <NavBarContainer />
+    <NavBarContainer  />
     <Switch>
       <Route exact path="/" component={MainPageContainer} />
       <Route exact path="/about" component={About} />
