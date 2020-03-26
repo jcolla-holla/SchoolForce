@@ -23,13 +23,13 @@ const NotLoggedInMain = () => (
                     </h2>
                     <p className="first-hook-descritption"><strong>SchoolForce</strong> is a light CRM for SMS communication with parents 100% from your computer. 
                     <p>Meet parents where they are - send short reminders that actually get read.</p></p>
-                    <Link className="creat-account-button" to={"/signup"}>Register now and start sending reminders immediately</Link>
+                    <Link className="creat-account-button" to={"/signup"}>Register now</Link>
                 </div>
             </div>
 
             <div className="resources">
                 
-                <h1 className="resources-title">Here's all the stuff I do.</h1>
+                <h1 className="resources-title">Say goodbye to spreadsheets and emails.</h1>
                 <div className="resources-icons">
                     <div id="sms-icon" className="resource-icon">
                         <FontAwesomeIcon className="icons" size="14x" icon={faSms} />
