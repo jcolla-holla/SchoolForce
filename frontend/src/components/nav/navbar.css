@@ -8,10 +8,8 @@
     background-color: #282828;
     border-bottom: 1px solid black;
     font-family: sofia-pro, sans-serif;
-   position: fixed;
-   z-index: 1;
-   overflow: hidden;
 }
+
 
 
 .nav-links {
@@ -27,7 +25,6 @@ color: white;
 font-size: 17px;
 font-weight: 500;
 transition: 0.5s ease all .3s;
-
 }
 
 

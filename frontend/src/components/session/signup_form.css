@@ -73,6 +73,8 @@ body {
 }
 
 .form-header-signup {
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 33px;
     position: relative;
     box-sizing: border-box;

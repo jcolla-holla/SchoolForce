@@ -126,7 +126,6 @@ class StudentsSearch extends React.Component {
         const { createReminder, deleteStudent, updateStudent, openModal } = this.props;
         
         return ( 
-
             <div id='admin-search-container'>
                 {/* Jesse note: not sure if we want a title or not on search page */}
                 {/* <title className="adminSearchTitle">Filter the students whose parents you want to message</title> */}

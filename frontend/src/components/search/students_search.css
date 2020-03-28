@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 75px;
 }
 
 #admin-search-container .studentNameFilter {
@@ -11,7 +12,9 @@
     width: 100%;
     margin: 40px;
     font-weight: 500;
+    margin-left: 45px;
 }
+
 
 #admin-search-container .studentNameFilterTextBox {
     font-size: 16px;
@@ -21,12 +24,16 @@
     border-radius: 2px;
 }
 
+.studentoptions {
+  margin-left: 5px;
+}
+
 #admin-search-container .studentChecks {
     margin: 20px;
 }
 
 #admin-search-container .checkboxContainer {
-    margin: 20px;
+    margin: 25px;
     font-size: 18px;
 }
 
@@ -74,7 +81,7 @@
 }
 
 #admin-search-container .studentIndexTitle {
-    margin-left: 40px;
+    margin-left: 47px;
     margin-top: 40px;
 }
 

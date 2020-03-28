@@ -22,7 +22,7 @@ class NavBar extends React.Component {
           {/* THIS TO BE A LINK BACK TO 'home' screen post-login... Main component? */}
           {/* <Link to={"/profile"}>Profile</Link> */}
           <button className="logoutLink" onClick={this.logoutUser}>Logout</button>
-          <Link className="ourTeamLink" to={"/about"}>Our Team</Link>
+          
         </div>
       );
     } else {
@@ -41,12 +41,9 @@ class NavBar extends React.Component {
       <div id="nav-bar-container">
         <Link to="/" className="navbar-logo">SchoolForce</Link>
         <div class="nav-links">
-               <a href="#about">Why SchoolForce?</a>
-              <a href="#resources">Resources</a>
-              <a href="#team">Team</a>
+          <a href="#about">Our Team</a>
         </div>
-            {this.getLinks()}
-      </div>
+        {this.getLinks()}</div>
     );
   }
 }
