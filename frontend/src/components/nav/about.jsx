@@ -33,7 +33,7 @@ const About = (props) => {
                     <div className="profName">Danny Yoo</div>
 
                     <div className="profileLinks">
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/dansteryoo">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/dansteryoo">
                             <FontAwesomeIcon icon={faGithub} size="4x" color="black" id="icon" />
                         </a>
 

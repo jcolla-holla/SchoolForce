@@ -5,6 +5,7 @@ import {faSms} from '@fortawesome/free-solid-svg-icons';
 import {faDatabase} from '@fortawesome/free-solid-svg-icons';
 import {faFileMedical} from '@fortawesome/free-solid-svg-icons';
 import About from "../nav/about";
+import "./main_page.css"; 
 
 
 
