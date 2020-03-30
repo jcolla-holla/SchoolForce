@@ -27,15 +27,14 @@
 
 .profName {
     font-weight: bold;
-    color: white;
-    
     padding: 5px;
     display: flex;
+    color: black;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 10px;
-    
+    font-size: 20px;
 }
 
 /* these classes exist if we want to add titles, which I played w but decided against - Jesse */
