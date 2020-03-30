@@ -14,7 +14,7 @@ const About = (props) => {
                         {/* Jesse note: tried to use <img> but path was giving me issues so I just pivoted to using CSS background-image.  See: /about.css */}
                         <a target="_blank" rel="noopener noreferrer" href="https://jessecolligan.com/"><div className="profPic1" /></a>
                         
-                        <p className="profName">Jesse Colligan</p>
+                        <div className="profName">Jesse Colligan</div>
 
                         <div className="profileLinks">
                             <a target="_blank" rel="noopener noreferrer" href="http://github.com/jcolla-holla/">
@@ -30,7 +30,7 @@ const About = (props) => {
                     {/* Jesse note: tried to use <img> but path was giving me issues so I just pivoted to using CSS background-image.  See: /about.css */}
                 
                     <a target="_blank" rel="noopener noreferrer" href="https://www.dansteryoo.io/"> <div className="profPic2" /></a>
-                    <p className="profName">Danny Yoo</p>
+                    <div className="profName">Danny Yoo</div>
 
                     <div className="profileLinks">
                             <a target="_blank" rel="noopener noreferrer" href="https://github.com/dansteryoo">
@@ -48,7 +48,7 @@ const About = (props) => {
                     {/* Jesse note: tried to use <img> but path was giving me issues so I just pivoted to using CSS background-image.  See: /about.css */}
                     
                     <a target="_blank" rel="noopener noreferrer" href="https://www.stephendipietro.io"><div className="profPic3" /></a>
-                    <p className="profName">Stephen DiPietro</p>
+                    <div className="profName">Stephen DiPietro</div>
 
                     <div className="profileLinks">
                             <a target="_blank" rel="noopener noreferrer" href="https://github.com/sdipietro">
@@ -64,7 +64,7 @@ const About = (props) => {
                     {/* Jesse note: tried to use <img> but path was giving me issues so I just pivoted to using CSS background-image.  See: /about.css */}
                     
                     <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/antonio-cuccu-4b0906114/"><div className="profPic4" /></a>
-                    <p className="profName">Antonio Cuccu</p>
+                    <div className="profName">Antonio Cuccu</div>
 
                     <div className="profileLinks">
                             <a target="_blank" rel="noopener noreferrer" href="https://github.com/acuccu">
