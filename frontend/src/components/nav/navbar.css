@@ -13,6 +13,10 @@
    overflow: hidden;
 }
 
+#body {
+    margin-top: 80px;
+}
+
 
 .nav-links {
     margin-right: 160px;

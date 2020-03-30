@@ -21,8 +21,10 @@ const NotLoggedInMain = () => (
                     <h2 className="main-page-body-main-hook">
                         Are you a <p>SCHOOL DIRECTOR</p> and parents never read your emails?
                     </h2>
-                    <p className="first-hook-descritption"><strong>SchoolForce</strong> is a light CRM for SMS communication with parents 100% from your computer. 
-                    <p>Meet parents where they are - send short reminders that actually get read.</p></p>
+                    <div className="first-hook-descritption"><strong>SchoolForce</strong> is a light CRM for SMS communication with parents 100% from your computer. 
+                    <p>Meet parents where they are - send short reminders that actually get read.</p>
+                    
+                    </div>
                     <Link className="creat-account-button" to={"/signup"}>Register now</Link>
                 </div>
             </div>
@@ -32,7 +34,7 @@ const NotLoggedInMain = () => (
                 <h1 className="resources-title">Say goodbye to spreadsheets and emails.</h1>
                 <div className="resources-icons">
                     <div id="sms-icon" className="resource-icon">
-                        <FontAwesomeIcon className="icons" size="14x" icon={faSms} />
+                        <FontAwesomeIcon className="icons" icon={faSms} />
                         <h3>SMS messages</h3>
                         <p>Instantaneously send sms messages to parents, reaching them anywhere and anytime.</p>
                     </div>
