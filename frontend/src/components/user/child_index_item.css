@@ -2,7 +2,7 @@ body {
     font-family: sofia-pro, sans-serif
 }
 
-li {
+.studentLi {
     margin: 10px;
     border: 1px solid grey;
     padding: 10px;
