@@ -14,8 +14,7 @@ const NotLoggedInMain = () => (
             <div className="first-hook-div">
                 <img
                     className="main-page-body-frustration-image"
-                    src="https://image.shutterstock.com/z/stock-vector-school-principal-in-suit-sitting-in-his-office-and-working-director-at-the-table-education-and-1186878361.jpg"
-                    alt=""
+                    src="https://i.ibb.co/MRHMpV7/shutterstock-1186878361.jpg"
                 />
                 <div className="first-hook-descrition">
                     <h2 className="main-page-body-main-hook">
