@@ -7,7 +7,7 @@ const About = (props) => {
     return (
         <div id="ourTeamContainer">
             <h1>Our Team</h1>
-            <p>Meet the team that built SchoolForce.  We are always open to software engineering opportunities - reach out to us!</p>
+            <div class="meet-the-team">Meet the team that built SchoolForce.  We are always open to software engineering opportunities - reach out to us!</div>
             <div className="teamProfiles">
                 <div>
                     <div className="teamProfile">

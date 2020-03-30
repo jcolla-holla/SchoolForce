@@ -136,4 +136,11 @@
     transition: box-shadow .2s;
 }
 
+.meet-the-team {
+    font-size: 20px;
+    color: black;
+    opacity: 80%;
+    margin-bottom: 20px;
+}
+
 

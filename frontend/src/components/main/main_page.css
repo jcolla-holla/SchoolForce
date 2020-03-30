@@ -272,6 +272,14 @@ body {
     border-radius: 4px;
 }
 
+.feature-description {
+    font-size: 16px;
+    color: black;
+    opacity: 60%;
+    font-family: sofia-pro, sans-serif;
+    text-align: center;
+}
+
 
 
 
