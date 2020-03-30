@@ -42,30 +42,34 @@ class StudentItem extends React.Component {
             </div>
 
         </div>
-        <div className="nonNameInfo">
-            <div className='allergies'>
-                <label className="title">Allergies</label>
-                 {this.props.student.allergies.map( (allergy, idx) => (
-                <p key={`allergy${idx}`}>{allergy}</p>
-            ))}</div>
-            <div className='specialNeeds'>
-                <label className="title">Special Needs</label>
-                 {this.props.student.specialNeeds.map( (specialNeed, idx) => (
-                <p key={`specialNeed${idx}`}>{specialNeed}</p>
-            ))}</div>
-            <div className='medicalConditions'>
-                <label className="title">Medical Conditions</label>
-                 {this.props.student.medicalConditions.map( (medicalCondition, idx) => (
-                <p key={`medicalCondition${idx}`}>{medicalCondition}</p>
-            ))}</div>
-            <div className='gender'>
-                    <label className="title"> Gender</label>
-                    <p>{this.props.student.gender}</p>
+
+        <div className="StudentInfo">
+            <div className="nonNameInfo">
+                <div className='allergies'>
+                    <label className="title">Allergies</label>
+                    {this.props.student.allergies.map( (allergy, idx) => (
+                    <p key={`allergy${idx}`}>{allergy}</p>
+                ))}</div>
+                <div className='specialNeeds'>
+                    <label className="title">Special Needs</label>
+                    {this.props.student.specialNeeds.map( (specialNeed, idx) => (
+                    <p key={`specialNeed${idx}`}>{specialNeed}</p>
+                ))}</div>
+                <div className='medicalConditions'>
+                    <label className="title">Medical Conditions</label>
+                    {this.props.student.medicalConditions.map( (medicalCondition, idx) => (
+                    <p key={`medicalCondition${idx}`}>{medicalCondition}</p>
+                ))}</div>
+                <div className='gender'>
+                        <label className="title"> Gender</label>
+                        <p>{this.props.student.gender}</p>
+                </div>
+                <div className='grade'>
+                    <label className="title">Grade</label>
+                    <p> {this.props.student.grade}</p>
+                </div>
             </div>
-            <div className='grade'>
-                <label className="title">Grade</label>
-                <p> {this.props.student.grade}</p>
-            </div>
+
             <div className='student-search-item-buttons'>
                 <button className='update-student-button'
                         onClick={this.handleUpdateStudent}>
