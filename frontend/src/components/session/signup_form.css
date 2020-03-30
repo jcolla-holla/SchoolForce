@@ -124,6 +124,7 @@ body {
     border: none;
     caret-color: green;
     line-height: 100%;
+    text-align: center;
     outline: none;
     pointer-events: initial !important;
     -webkit-appearance: none;

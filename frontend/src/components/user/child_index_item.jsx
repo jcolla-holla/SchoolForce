@@ -54,7 +54,7 @@ class ChildIndexItem extends React.Component {
         }};
 
         return (
-            <li>
+            <li className="studentLi">
                 <div className="student-name-container">
                     <div className="student-name">
                         {this.props.student.firstName} {this.props.student.lastName}

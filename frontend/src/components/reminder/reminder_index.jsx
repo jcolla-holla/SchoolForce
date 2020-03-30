@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import "./reminder_index.css";
 
 class ReminderIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  };
+  // useless constructor error
+  // constructor(props) {
+  //   super(props);
+  // };
 
   componentDidMount() {
     this.props.fetchAllUsers();

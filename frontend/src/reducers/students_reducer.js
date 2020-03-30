@@ -9,7 +9,6 @@ const StudentsReducer = ( state = {}, action ) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
 
-  console.log(newState);
   switch (action.type) {
     case RECEIVE_ALL_STUDENTS:
       return Object.assign({}, newState, action.students.data)

@@ -2,9 +2,10 @@ import React from 'react';
 import "./reminder_index_item.css";
 
 class ReminderIndexItem extends React.Component {
-    constructor(props) {
-        super(props);
-    };
+    // commenting out constructor as it's giving an warning for some reason - Jesse
+    // constructor(props) {
+    //     super(props);
+    // };
 
     render() {
 

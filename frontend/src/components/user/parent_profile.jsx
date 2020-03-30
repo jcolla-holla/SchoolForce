@@ -3,13 +3,14 @@ import "./parent_profile.css";
 import ChildIndexItem from './child_index_item';
 
 class ParentProfile extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor useless error, commenting out
+    // constructor(props) {
+    //     super(props);
+    // }
 
     componentDidMount() {
         
-        if (this.props.studentId == '') {
+        if (this.props.studentId === '') {
             return this.props.fetchAllStudents();
         };
     }

@@ -15,16 +15,17 @@ import About from "./nav/about";
 const App = () => (
   <div id="appContainer">
     <Modal />
-    <NavBarContainer />
-    <Switch>
-      <Route exact path="/" component={MainPageContainer} />
-      <Route exact path="/about" component={About} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/profile" component={ParentProfileContainer} />
-      <ProtectedRoute exact path="/draftReminder" component={ReminderForm} />
-    </Switch>
-
+    <NavBarContainer  />
+    <div id="body">
+      <Switch>
+        <Route exact path="/" component={MainPageContainer} />
+        <Route exact path="/about" component={About} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+        <ProtectedRoute exact path="/profile" component={ParentProfileContainer} />
+        <ProtectedRoute exact path="/draftReminder" component={ReminderForm} />
+      </Switch>
+    </div>
     <footer className="main-page-footer">
       <div> Copyright &copy; 2020 SchoolForce</div>
     </footer>
