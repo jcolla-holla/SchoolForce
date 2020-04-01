@@ -49,6 +49,8 @@ class ReminderForm extends React.Component {
         // Danny's Desire (this line below will only work once the reminder backend is updated): 
         // this.props.history.location.state.createReminder.createReminder({title: this.state.title, body: this.state.body, authorId: this.authorId, parentId: this.parentIds, parentMobileArr: this.parentMobileArr});
 
+        alert("Your reminder SMS message was sent!");
+
         //redirect to main page
         this.props.history.push("/");
       }

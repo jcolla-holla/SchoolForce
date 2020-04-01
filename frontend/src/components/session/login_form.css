@@ -1,7 +1,7 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: "sofia-pro";
+    font-family: "sans-serif";
     font-size: 14px;
     margin: 0;
 }
@@ -23,14 +23,14 @@ body {
     margin-bottom: 30px;
     cursor: pointer;
     border: none;    
-    color: gray;
-    background-color: #ffe75e;
+    color: white;
+    background-color: #282828;
 }
 
 .demo-login-button:hover {
     color: white;
-    background-color: #feb72b;
-    transition: background-color 0.5s;
+    background-color: #527318;
+    transition: background-color 0.2s;
 }
 
 .login-form-page {
@@ -54,7 +54,7 @@ body {
 
 .login-page-header-left {
     box-sizing: border-box;
-    font-family: sofia-pro, sans-serif;
+    font-family: sans-serif;
     padding-left: 20px;
     text-decoration: none;
     color: white;
@@ -67,7 +67,7 @@ body {
 }
 
 .header-logo {
-    font-family: sofia-pro, sans-serif;
+    font-family: sans-serif;
     color: black;
 }
 
@@ -112,7 +112,7 @@ body {
 .form-header-login a {
     height: 40.5px;
     border-bottom: 1px solid rgba(22,24,35,0.2);
-    font-family: sofia-pro, sans-serif;
+    font-family: sans-serif;
     font-style: normal;
     width: 100%;
     font-size: 15px;
@@ -145,7 +145,7 @@ body {
     box-sizing: border-box;
     border-bottom: 1px solid rgba(22,24,35,0.2);
     font-size: 14px;
-    font-family: sofia-pro, sans-serif;
+    font-family: sans-serif;
     font-style: normal;
     font-weight: 400;
     text-align: center;
@@ -159,6 +159,7 @@ body {
 
 .session-submit {
     color: rgba(22,24,35,0.3);
+    width: 500px;
     font-weight: 500;
     font-size: 16px;
     background-color: rgba(22,24,35,0.06);
@@ -174,10 +175,10 @@ body {
     margin-top: 30px;
     cursor: pointer;
     border: none;
-    transition: background-color 0.5s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .session-submit:hover {
-    background-color: #feb72b;
+    background-color: #899857;
     color: white;
 }

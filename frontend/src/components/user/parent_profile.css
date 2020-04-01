@@ -2,20 +2,20 @@
     margin-left: 40px;
     margin-top: 40px;
     max-width: 90%;
-    font-family: sofia-pro,sans-serif;
+    font-family: sans-serif;
     margin-bottom: 0px;
 }
 
 .children-index-header {
     margin-left: 40px;
     margin-top: 40px;
-    font-family: sofia-pro,sans-serif;
+    font-family: sans-serif;
 }
 
 .parent-details {
     display: flex;
     margin-left: 40px;
-    font-family: sofia-pro,sans-serif;
+    font-family: sans-serif;
     margin-top: 10px;
 }
 

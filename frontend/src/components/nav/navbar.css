@@ -7,7 +7,7 @@
     height: 60px;
     background-color: #282828;
     border-bottom: 1px solid black;
-    font-family: sofia-pro, sans-serif;
+    font-family: sans-serif;
    position: fixed;
    z-index: 1;
    overflow: hidden;
@@ -25,7 +25,7 @@
 .nav-links a {
 position: relative;
 padding: 30px;
-font-family: sofia-pro, sans-serif;
+font-family: sans-serif;
 text-decoration: none;
 color: white;
 font-size: 17px;
@@ -65,7 +65,7 @@ transition: 0.5s ease all .3s;
 #nav-bar-container .navbar-logo {
     color: #feb72b;
     margin-left: 120px;
-    font-family: sofia-pro, sans-serif;
+    font-family: sans-serif;
     text-decoration: none;
     font-size: 30px;
     font-weight: bold;
@@ -77,44 +77,56 @@ transition: 0.5s ease all .3s;
     padding: 10px;
     color: white;
     text-decoration: none;
-    background: linear-gradient(#67ae55, #527318);
+    background: linear-gradient(#899857, #527318);
     margin-right: 80px;
-    box-shadow: inset 0 1px 1px #a4e388;
+     box-shadow: inset 0 1px 1px #899857;
     font-size: 14px;
     border: none;
-    border-radius: 4px;
-   
-    /* IMPROVEMENT: some kind of non-silly shadowing */
-    /* box-shadow: 4px 2px 2px #ffe75e; */
+    border-radius: 4px; 
 }
 
 
 #nav-bar-container .logoutLink:hover {
     cursor: pointer;
+    background: #527318;
+    box-shadow: none;
 }
 
 #nav-bar-container .signupLink {
     padding: 10px;
     color: white;
     text-decoration: none;
-    background-color: #527318;
+    background: linear-gradient(#899857, #527318);
     margin-right: 20px;
+     box-shadow: inset 0 1px 1px #899857;
     font-size: 14px;
     border: none;
-    border-radius: 4px;
+    border-radius: 4px; 
 }
+
+
+#nav-bar-container .signupLink:hover {
+    background: #527318;
+    box-shadow: none;
+}
+
+
 
 #nav-bar-container .loginLink {
     padding: 10px;
     color: white;
     text-decoration: none;
-    background: linear-gradient(#67ae55, #527318);
+    background: linear-gradient(#899857, #527318);
     margin-right: 80px;
-    box-shadow: inset 0 1px 1px #a4e388;
+     box-shadow: inset 0 1px 1px #899857;
     font-size: 14px;
     border: none;
-    border-radius: 4px;
-   
+    border-radius: 4px;  
+}
+
+#nav-bar-container .loginLink:hover {
+    background: #527318;
+    box-shadow: none;
 }
 
 .ourTeamLink {
