@@ -2,14 +2,17 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    font-family: sofia-pro, sans-serif;
+    font-family: sans-serif;
     margin-left: 50px;
-    box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
     width: 100%;
     box-sizing: border-box;
     padding-top: 80px;
-
 }
+
+#main-page #ourTeamContainer {
+    box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+}    
+
 
 #ourTeamContainer p {
     font-size: 20px;

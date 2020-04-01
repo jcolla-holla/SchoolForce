@@ -149,7 +149,59 @@ class StudentsSearch extends React.Component {
                 </div>
 
                 <div className='studentChecks'>
-                    <label className="checkboxContainer">Include Allergies Search?
+                    <div className="checkboxContainer">
+
+                        {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+                        <label className="toggle">
+
+                            <input className="checkboxStudent toggle__input" type="checkbox" name="allergies" onChange={this.handleFilterCheck('allergies')} />
+                            <span className="toggle__label">
+                                <span className="toggle__text"></span>
+                            </span>
+                        </label>
+
+                        <div className="search-name">
+                            Allergies?
+                        </div>
+
+                    </div>
+
+                    <div className="checkboxContainer">
+
+                        {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+                        <label className="toggle">
+
+                            <input className="checkboxStudent toggle__input" type="checkbox" name="specialNeeds" onChange={this.handleFilterCheck('specialNeeds')} />
+                            <span className="toggle__label">
+                                <span className="toggle__text"></span>
+                            </span>
+                        </label>
+
+                        <div className="search-name">
+                            Special Needs?
+                        </div>
+                    </div>
+
+
+                    <div className="checkboxContainer">
+
+                        {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+                        <label className="toggle">
+
+                            <input className="checkboxStudent toggle__input" type="checkbox" name="medicalConditions" onChange={this.handleFilterCheck('medicalConditions')} />
+                            <span className="toggle__label">
+                                <span className="toggle__text"></span>
+                            </span>
+                        </label>
+
+                        <div className="search-name">
+                            Medical Conditions?
+                        </div>
+                    </div>
+
+                    
+
+                    {/* <label className="checkboxContainer">Include Allergies Search?
                         <input className="checkbox" type="checkbox" name='allergies' onChange={this.handleFilterCheck('allergies')} />
                     </label>
 
@@ -159,39 +211,38 @@ class StudentsSearch extends React.Component {
 
                     <label className="checkboxContainer">Include Medical Conditions Search?
                         <input className="checkbox" type="checkbox" name='medicalConditions' onChange={this.handleFilterCheck('medicalConditions')} />
-                    </label>
-                </div>
+                    </label> */}
+                    <div className='studentoptions'>
 
-                <div className='studentoptions'>
+                        <select className='genderSelect' onChange={this.filterUpdate('gender')}>
 
-                    <select className='genderSelect' onChange={this.filterUpdate('gender')}>
-
-                        <option value="" disabled selected value>Gender</option>
-                        <option value="">All</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option> 
-                    </select>
-                    <label className="gradeContainer">Grade:
-                    <select className='genderSelect' value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}>
-                    <option value=''>Grade</option>
-                      <option value='Nursery'>Nursery</option>
-                      <option value='PreK'>PreK</option>
-                      <option value='Kindergarten'>Kindergarten</option>
-                      <option value='1st'>1st</option>
-                      <option value='2nd'>2nd</option>
-                      <option value='3rd'>3rd</option>
-                      <option value='4th'>4th</option>
-                      <option value='5th'>5th</option>
-                      <option value='6th'>6th</option>
-                      <option value='7th'>7th</option>
-                      <option value='8th'>8th</option>
-                      <option value='9th'>9th</option>
-                      <option value='10th'>10th</option>
-                      <option value='11th'>11th</option>
-                      <option value='12th'>12th</option>
-                    </select>
-                    </label>
+                            <option value="" disabled selected value>Gender</option>
+                            <option value="">All</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option> 
+                        </select>
+                        <label className="gradeContainer">
+                        <select className='genderSelect' value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}>
+                        <option value=''>Grade</option>
+                        <option value='Nursery'>Nursery</option>
+                        <option value='PreK'>PreK</option>
+                        <option value='Kindergarten'>Kindergarten</option>
+                        <option value='1st'>1st</option>
+                        <option value='2nd'>2nd</option>
+                        <option value='3rd'>3rd</option>
+                        <option value='4th'>4th</option>
+                        <option value='5th'>5th</option>
+                        <option value='6th'>6th</option>
+                        <option value='7th'>7th</option>
+                        <option value='8th'>8th</option>
+                        <option value='9th'>9th</option>
+                        <option value='10th'>10th</option>
+                        <option value='11th'>11th</option>
+                        <option value='12th'>12th</option>
+                        </select>
+                        </label>
+                    </div>
                 </div>
 
                 <div className='studentIndex'>
@@ -211,6 +262,7 @@ class StudentsSearch extends React.Component {
                         ))}
                     </ul>
                 </div>
+
             </div>
         )
     }
