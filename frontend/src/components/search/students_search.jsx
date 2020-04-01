@@ -65,6 +65,7 @@ class StudentsSearch extends React.Component {
         let gendervar = true;
         let gradevar = true; 
 
+       
 
         if (this.state.query.allergies || this.state.query.specialNeeds || this.state.query.medicalConditions) {
             medicalvar = false;
@@ -82,14 +83,15 @@ class StudentsSearch extends React.Component {
 
 
         if (student) {
-            namevar = (student.firstName.toLowerCase().indexOf(this.state.query.text) !== -1 ||
-                student.lastName.toLowerCase().indexOf(this.state.query.text) !== -1);
+            namevar = (student.firstName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1 ||
+                student.lastName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1);
         }
 
 
 
         if (this.state.query.gender) {
-            gendervar = student.gender === this.state.query.gender;
+            
+            gendervar = student.gender.toLowerCase() === this.state.query.gender.toLowerCase();
         };
 
         if (this.state.query.grade) {
@@ -171,7 +173,24 @@ class StudentsSearch extends React.Component {
                         <option value="other">Other</option> 
                     </select>
                     <label className="gradeContainer">Grade:
-                        <input placeholder="try '4' or '6'" className="gradeInput" type="text" value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}></input>
+                    <select className='genderSelect' value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}>
+                    <option value=''>Grade</option>
+                      <option value='Nursery'>Nursery</option>
+                      <option value='PreK'>PreK</option>
+                      <option value='Kindergarten'>Kindergarten</option>
+                      <option value='1st'>1st</option>
+                      <option value='2nd'>2nd</option>
+                      <option value='3rd'>3rd</option>
+                      <option value='4th'>4th</option>
+                      <option value='5th'>5th</option>
+                      <option value='6th'>6th</option>
+                      <option value='7th'>7th</option>
+                      <option value='8th'>8th</option>
+                      <option value='9th'>9th</option>
+                      <option value='10th'>10th</option>
+                      <option value='11th'>11th</option>
+                      <option value='12th'>12th</option>
+                    </select>
                     </label>
                 </div>
 
