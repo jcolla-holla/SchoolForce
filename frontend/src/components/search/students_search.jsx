@@ -55,7 +55,6 @@ class StudentsSearch extends React.Component {
     componentDidMount() {
         this.props.fetchAllStudents();
         this.props.fetchAllUsers();
-        debugger
     }
 
 
@@ -84,7 +83,6 @@ class StudentsSearch extends React.Component {
 
 
         if (student) {
-            debugger
             namevar = (student.firstName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1 ||
                 student.lastName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1);
         }
