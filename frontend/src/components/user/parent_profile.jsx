@@ -13,7 +13,6 @@ class ParentProfile extends React.Component {
     }
     
     componentDidMount() {
-
         if (this.props.studentId === '') {
             return this.props.fetchAllStudents();
         };
