@@ -13,34 +13,27 @@ class ParentProfile extends React.Component {
     }
     
     componentDidMount() {
-        debugger
+
         if (this.props.studentId === '') {
             return this.props.fetchAllStudents();
         };
     }
 
-    // componentDidUpdate() {
-    //     if (this.props.success[0]) {
-    //         window.setTimeout(() => {
-    //             this.setState({
-    //                 registrationSuccess: true
-    //             })
-    //         }, 2000)
-    //         window.setTimeout(() => {
-    //             this.props.removeBookingSuccessMessage();
-    //             this.setState({
-    //                 registrationSuccess: false
-    //             })
-    //         }, 5000)
-    //     }
-    // }
+    componentDidUpdate() {
+        debugger
+        if (this.props.registrationSuccess) {
+            window.setTimeout(() => {
+                this.setState({ registrationSuccess: false })
+            }, 2000)
+        }
+    }
 
 
     render() {
         if (this.props.students === undefined) {
             return <div></div>
         };
-        
+
         const { deleteStudent, updateStudent, openModal, students, currentUser } = this.props;
         
         // filters through all children matching currentUser.id === child.parentId
@@ -61,9 +54,16 @@ class ParentProfile extends React.Component {
                     updateStudent={updateStudent}
                     openModal={openModal}
                 />
-                );
-            }
-            );
+            )}
+        )};
+
+        let successMessage;
+        if (this.state.registrationSuccess) {
+            successMessage = <div className="success-message-div">
+                <span>Student has been successfully registered.</span>
+            </div>;
+        } else {
+            successMessage = <div className="empty-success-msg-div"></div>;
         }
 
         return (

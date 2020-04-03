@@ -28,3 +28,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+
+.success-message-div, 
+.empty-success-msg-div {
+    width: 100%;
+    height: 50px;
+    background-color: ;
+}

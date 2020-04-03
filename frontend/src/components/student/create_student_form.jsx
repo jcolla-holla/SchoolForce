@@ -45,6 +45,7 @@ class CreateStudentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
     const { allergies, specialNeeds, medicalConditions, 
       firstName, lastName, gender, dateOfBirth, startDate, grade } = this.state
 
