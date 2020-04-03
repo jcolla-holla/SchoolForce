@@ -80,25 +80,16 @@ class LoginForm extends React.Component {
     return (
       <div className="login-form-page">
         <div className="login-form-container">
+          <div className="form-title">Log in</div>
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            <div className="form-title">Log in</div>
+          
+            
             <div className="login-form">
               <div className="form-header-login">
                 <a href="#/signup">Sign Up</a>
                 <a href="#/login">Log in</a>
               </div>
-              <button
-                className="demo-login-button"
-                onClick={() => this.demoAdminLogin()}
-              >
-                Demo Login as Admin
-              </button>
-              <button
-                className="demo-login-button"
-                onClick={() => this.demoParentLogin()}
-              >
-                Demo Login as Parent
-              </button>
+              
               <label>
                 <input
                   type="text"
@@ -120,9 +111,31 @@ class LoginForm extends React.Component {
               <div className="session-error-messages">
                 {this.renderErrors()}
               </div>
+
               <input type="submit" value="Log in" className="session-submit" />
+             
+              <div className="demo-login-buttons">
+                <div className="orLine">
+                  <p>OR</p>
+                </div>
+                <div className="demoButtons">
+                  <button
+                    className="demo-login-button"
+                    onClick={() => this.demoAdminLogin()}
+                  >
+                    Demo Login as Admin
+                  </button>
+                      <button
+                        className="demo-login-button"
+                        onClick={() => this.demoParentLogin()}
+                      >
+                        Demo Login as Parent
+                  </button>
+                </div>
+              </div>
             </div>
           </form>
+         
         </div>
       </div>
     );

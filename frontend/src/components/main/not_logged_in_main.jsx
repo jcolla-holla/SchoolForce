@@ -37,17 +37,17 @@ const NotLoggedInMain = () => (
                     <div id="sms-icon" className="resource-icon">
                         <FontAwesomeIcon className="icons" icon={faSms} />
                         <h3>SMS messages</h3>
-                        <div class="feature-description">Instantaneously send sms messages to parents, reaching them anywhere and anytime.</div>
+                        <div className="feature-description">Instantaneously send sms messages to parents, reaching them anywhere and anytime.</div>
                     </div>
                     <div id="icon-database"  className="resource-icon">
                         <FontAwesomeIcon className="icons" icon={faDatabase} />
                         <h3>Student Database</h3>
-                        <div class="feature-description">Seamlessly search through your students' database.</div>
+                        <div className="feature-description">Seamlessly search through your students' database.</div>
                     </div>
                     <div id="icon-medical" className="resource-icon">
                         <FontAwesomeIcon className="icons" icon={faFileMedical} />
 						<h3>Medical Needs</h3>
-                        <div class="feature-description">Sort and keep track of your students' allergies and medical needs.</div>
+                        <div className="feature-description">Sort and keep track of your students' allergies and medical needs.</div>
                     </div>
                 </div>
             </div>
