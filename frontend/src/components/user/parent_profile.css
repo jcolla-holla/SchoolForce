@@ -1,3 +1,7 @@
+#parent-profile-page {
+    margin-top: 80px;
+}
+
 .welcome-header {
     margin-left: 40px;
     margin-top: 40px;
@@ -6,8 +10,14 @@
     margin-bottom: 0px;
 }
 
+.children-index-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 .children-index-header {
-    margin-left: 40px;
     margin-top: 40px;
     font-family: sans-serif;
 }
@@ -21,10 +31,22 @@
 
 .parent-details div {
     margin-right: 15px;
+    border-right: 1px solid black;
+    padding-right: 10px;
+}
+
+.parent-details div:last-of-type {
+    margin-right: 15px;
+    padding: 0px;
+    border: none;
 }
 
 .children-index {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
 }

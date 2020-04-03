@@ -13,11 +13,11 @@ const NotLoggedInMain = () => (
     <div>
         <section className="main-page-body">
             <div className="first-hook-div">
-                <img
+                {/* <img
                     className="main-page-body-frustration-image"
                     src="https://i.ibb.co/MRHMpV7/shutterstock-1186878361.jpg"
                     alt=""
-                />
+                /> */}
                 <div className="first-hook-descrition">
                     <h2 className="main-page-body-main-hook">
                         Are you a <p>SCHOOL DIRECTOR</p> and parents never read your emails?

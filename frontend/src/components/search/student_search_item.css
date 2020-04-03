@@ -71,6 +71,7 @@
     margin: -50px 0 20px;
     filter: brightness(1.3);
     font-size: 13px;
+    margin-right: 10px;
 }
 
 .update-student-button:hover {

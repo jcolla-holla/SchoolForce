@@ -13,11 +13,6 @@
    overflow: hidden;
 }
 
-#body {
-    margin-top: 80px;
-}
-
-
 .nav-links {
     margin-right: 160px;
     margin-left: -20px;
@@ -78,7 +73,7 @@ transition: 0.5s ease all .3s;
     color: white;
     text-decoration: none;
     background: linear-gradient(#899857, #527318);
-    margin-right: 80px;
+    margin-right: 20px;
      box-shadow: inset 0 1px 1px #899857;
     font-size: 14px;
     border: none;

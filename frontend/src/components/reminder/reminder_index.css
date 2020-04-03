@@ -1,8 +1,8 @@
-.reminder-index-page {
+#reminder-index-page {
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    margin-top: 80px;
 }
 
 .welcome-header {

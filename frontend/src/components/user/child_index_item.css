@@ -4,19 +4,11 @@ body {
 
 .studentLi {
     margin: 10px;
-    border: 1px solid grey;
+    border-style: double;
+    border-collapse: inherit;
     padding: 10px;
-    width: 1000px;
+    width: 400px;
     display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-}
-
-.student-name-container {
-    justify-content: space-between;
-    margin: 10px;
-    width: 1000px;
-    display: inline-block;
     flex-direction: column;
     border-radius: 4px;
 }
@@ -30,31 +22,24 @@ body {
 
 .student-info {
     display: flex;
-    margin-left: 30px;
-    margin-top: 10px;
 }
 
 .student-info div {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 10px;
 }
 
 .student-info .title {
     font-weight: bold;
-     font-size: 18px;
+     font-size: 14px;
 }
 
 .student-info p {
     /* this margin: 0px; resets something inherited I can't figure out - Jesse */
-    margin: 0px;
-    margin-top: 10px;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .student-index-item-buttons {
-    margin-left: 200px;
+    margin-top: 50px;
 }
 
 .child-index-item-button{
