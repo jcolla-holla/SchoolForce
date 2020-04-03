@@ -1,5 +1,5 @@
 .reminder-index-page {
-    font-family: sofia-pro,sans-serif;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -40,7 +40,7 @@
 .reminder-index-header {
     margin-left: 40px;
     margin-top: 40px;
-    font-family: sofia-pro,sans-serif;
+    font-family: sans-serif;
 }
 
 .reminder-list {

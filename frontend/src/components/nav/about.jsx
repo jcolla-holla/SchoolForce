@@ -7,7 +7,7 @@ const About = (props) => {
     return (
         <div id="ourTeamContainer">
             <h1>Our Team</h1>
-            <p>Meet the team that built SchoolForce.  We are always open to software engineering opportunities - reach out to us!</p>
+            <div class="meet-the-team">Meet the team that built SchoolForce.  We are always open to software engineering opportunities - reach out to us!</div>
             <div className="teamProfiles">
                 <div>
                     <div className="teamProfile">
@@ -33,7 +33,7 @@ const About = (props) => {
                     <div className="profName">Danny Yoo</div>
 
                     <div className="profileLinks">
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/dansteryoo">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/dansteryoo">
                             <FontAwesomeIcon icon={faGithub} size="4x" color="black" id="icon" />
                         </a>
 
