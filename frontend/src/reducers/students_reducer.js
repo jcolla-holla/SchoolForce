@@ -20,8 +20,6 @@ const StudentsReducer = ( state = {}, action ) => {
     case REMOVE_STUDENT:
       return Object.values(newState).filter(val => val._id !== action.studentId);
 
-    // case UPDATE_STUDENT: 
-    //   return state.map((post) => post.id === action.id ? { ...post, editing: !post.editing } : post)
     case RECEIVE_PARENT:
       // newState.students = action.student.data;
       return newState;

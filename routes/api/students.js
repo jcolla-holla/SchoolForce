@@ -64,7 +64,6 @@ router.post('/edit/:id', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        // console.log(req);
 
         const { errors, isValid } = validateStudentInput(req.body);
 
