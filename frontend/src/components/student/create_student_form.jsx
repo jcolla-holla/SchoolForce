@@ -19,9 +19,12 @@ class CreateStudentForm extends React.Component {
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
+  componentDidMount() {
+    debugger
+  }
+  
   componentWillUnmount() {
     this.props.clearErrors();
   }
@@ -40,15 +43,10 @@ class CreateStudentForm extends React.Component {
     }
   }
 
-  // update(f) {
-  //   return e => this.setState({
-  //     [f]: e.target.value
-  //   })
-  // };
-
   handleSubmit(e) {
     e.preventDefault();
-    const { allergies, specialNeeds, medicalConditions } = this.state
+    const { allergies, specialNeeds, medicalConditions, 
+      firstName, lastName, gender, dateOfBirth, startDate, grade } = this.state
 
     let allergiesArr = allergies.length < 1 ? allergies : allergies.split(", ");
     let specialNeedsArr = specialNeeds.length < 1  ? specialNeeds : specialNeeds.split(", ");
@@ -59,12 +57,18 @@ class CreateStudentForm extends React.Component {
       student.specialNeeds = specialNeedsArr
       student.medicalConditions = medicalConditionsArr
 
-    this.props.processForm(student)
-      .then(()=> {
-        if (this.props.errors === 0) {
-          this.props.closeModal()
-        }
-      });
+    let validationCheck = [ firstName, lastName, gender, dateOfBirth, startDate, grade ]
+
+    function emptyString(x) {
+      return x === '';
+    }
+
+    if (validationCheck.some(emptyString)) {
+      this.props.processForm(student);
+    } else {
+      this.props.processForm(student)
+        .then(() => this.props.closeModal());
+    }
   };
 
   renderErrors() {

@@ -4,16 +4,37 @@ import ChildIndexItem from './child_index_item';
 
 class ParentProfile extends React.Component {
     // constructor useless error, commenting out
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            registrationSuccess: false
+        }
+    }
+    
     componentDidMount() {
-        
+        debugger
         if (this.props.studentId === '') {
             return this.props.fetchAllStudents();
         };
     }
+
+    // componentDidUpdate() {
+    //     if (this.props.success[0]) {
+    //         window.setTimeout(() => {
+    //             this.setState({
+    //                 registrationSuccess: true
+    //             })
+    //         }, 2000)
+    //         window.setTimeout(() => {
+    //             this.props.removeBookingSuccessMessage();
+    //             this.setState({
+    //                 registrationSuccess: false
+    //             })
+    //         }, 5000)
+    //     }
+    // }
+
 
     render() {
         if (this.props.students === undefined) {
