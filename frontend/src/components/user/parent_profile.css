@@ -2,12 +2,23 @@
     margin-top: 80px;
 }
 
-.welcome-header {
-    margin-left: 40px;
-    margin-top: 40px;
-    max-width: 90%;
-    font-family: sans-serif;
-    margin-bottom: 0px;
+.parent-welcome-header {
+    font-size: 24px;
+    height: 20px;
+    margin: 40px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.update-profile-button {
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    height: 20px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 20px;
 }
 
 .children-index-container {
@@ -15,6 +26,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.children-index-header-container {
+    margin-left: 20px;
 }
 
 .children-index-header {

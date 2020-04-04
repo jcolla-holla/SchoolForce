@@ -30,6 +30,11 @@ export const fetchAllUsers = () => dispatch =>
     .then(users => dispatch(receiveAllUsers(users)))
     .catch(err => console.log(err));
 
+export const updateUser = (user) => dispatch => {
+  debugger
+  return APIUtil.updateUser(user)
+};
+
 // export const fetchAllUsers = () => dispatch => {
 //   return APIUtil.getAllUsers().then(users =>
 //     dispatch(receiveAllUsers(users))

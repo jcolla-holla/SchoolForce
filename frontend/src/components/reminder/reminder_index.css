@@ -24,6 +24,7 @@
     padding: 10px;
     border: 1px solid grey;
     cursor: pointer;
+    height: 45px;
 }
 
 .create-student-button:hover {
