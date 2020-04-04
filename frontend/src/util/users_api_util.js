@@ -9,6 +9,5 @@ export const getUser = (userId) => {
 };
 
 export const updateUser = data => {
-  debugger
   return axios.post(`/api/users/edit/${data.id}`, data);
 };
