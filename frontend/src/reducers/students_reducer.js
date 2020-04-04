@@ -2,7 +2,9 @@ import {
   RECEIVE_STUDENT,
   RECEIVE_ALL_STUDENTS,
   REMOVE_STUDENT,
-  RECEIVE_PARENT
+  RECEIVE_PARENT,
+  RECEIVE_STATUS,
+  CLEAR_STATUS
 } from "../actions/student_actions";
 
 const StudentsReducer = ( state = {}, action ) => {
@@ -20,10 +22,16 @@ const StudentsReducer = ( state = {}, action ) => {
     case REMOVE_STUDENT:
       return Object.values(newState).filter(val => val._id !== action.studentId);
 
-    // case UPDATE_STUDENT: 
-    //   return state.map((post) => post.id === action.id ? { ...post, editing: !post.editing } : post)
     case RECEIVE_PARENT:
       // newState.students = action.student.data;
+      return newState;
+
+    case RECEIVE_STATUS:
+      newState.status = action.status;
+      return newState;
+
+    case CLEAR_STATUS:
+      newState.status = 0;
       return newState;
 
     default:

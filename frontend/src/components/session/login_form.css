@@ -95,7 +95,7 @@ body {
 .login-form-container {
     display: flex;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 80px;
     box-sizing: border-box;
     margin-bottom: 200px;
     flex-direction: column;

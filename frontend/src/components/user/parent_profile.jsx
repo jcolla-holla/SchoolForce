@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./parent_profile.css";
 import ChildIndexItem from './child_index_item';
 
 class ParentProfile extends React.Component {
-  
-  constructor(props) {
-      super(props);
 
-      this.handleUpdateParent = this.handleUpdateParent.bind(this);
-  }
+    constructor(props) {
+        super(props);
 
-  componentDidMount() {
-    if (this.props.studentId === "") {
-      return this.props.fetchAllStudents();
+        this.state = {
+            registrationSuccess: false,
+        }
+        this.handleUpdateParent = this.handleUpdateParent.bind(this);
     }
-  }
+    
+    componentDidMount() {
+        if (this.props.studentId === '') {
+            return this.props.fetchAllStudents();
+        };
+
+    }
 
   handleUpdateParent(e) {
     e.preventDefault();
@@ -22,23 +26,62 @@ class ParentProfile extends React.Component {
     return this.props.openModal("Update Parent", parentId);
   }
 
-  render() {
-    if (this.props.students === undefined) {
-      return <div></div>;
+
+    componentDidUpdate() {
+        if (this.props.status === 200) {
+            // window.setTimeout(() => {
+            //     this.setState({ registrationSuccess: true })
+            // }, 1000)
+            this.state.registrationSuccess = true;
+            window.setTimeout(() => {
+                this.setState({ registrationSuccess: false })
+            }, 6000)
+        this.props.clearStatus();
+        }
     }
 
-    const {
-      deleteStudent,
-      updateStudent,
-      openModal,
-      students,
-      currentUser
-    } = this.props;
+    render() {
+        
+        if (this.props.students === undefined) {
+            return <div></div>
+        };
 
-    // filters through all children matching currentUser.id === child.parentId
-    const currentUserChildren = Object.values(students).filter(
-      ele => ele.parentId[0] === currentUser.id
-    );
+        let { deleteStudent, updateStudent, openModal } = this.props;
+        debugger
+        // filters through all children matching currentUser.id === child.parentId
+        let remove200Status = Object.values(this.props.students).filter(val => val !== 0);
+
+        let currentUserChildren = 
+            remove200Status.filter(val => val.parentId[0] === this.props.currentUser.id);
+
+        let childrenLis;
+        if (currentUserChildren.length === 0) {
+            childrenLis = <p>You have not registered any students yet</p>
+        } else {
+            // maping children matching currentUser.id === child.parentId
+            childrenLis = currentUserChildren.map(
+            (student, idx) => {
+                return (
+                <ChildIndexItem
+                    key={idx}
+                    student={student}
+                    deleteStudent={deleteStudent}
+                    updateStudent={updateStudent}
+                    openModal={openModal}
+                />
+            )}
+        )};
+
+        let successMessage;
+        if (this.state.registrationSuccess) {
+            successMessage = 
+                <div className="success-message-div">
+                <span>Student has been successfully registered.</span>
+            </div>
+        } else {
+            successMessage = <div className="empty-success-msg-div"></div>;
+        }
+
 
     let childrenList;
     if (currentUserChildren.length === 0) {
@@ -59,6 +102,9 @@ class ParentProfile extends React.Component {
     }
 
     return (
+       <div>
+        {successMessage}
+       
       <div id="parent-profile-page">
         <div className="parent-welcome-header">
           <p>
@@ -87,9 +133,10 @@ class ParentProfile extends React.Component {
           </button>
         </div>
         <div className="children-index-container">
-          <ul className="children-index">{childrenList}</ul>
+          <ul className="children-index">{childrenLis}</ul>
         </div>
       </div>
+     </div>
     );
   }
 }

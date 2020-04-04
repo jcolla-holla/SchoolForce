@@ -7,9 +7,10 @@ import "./create_student_form.css";
 
 const mapStateToProps = state => {
   return {
-    errors: state.errors.session,
+    errors: Object.values(state.errors.session),
     currentUser: state.session.user,
-    formType: 'Register Student'
+    formType: 'Register Student',
+    status: state.entities.students.status
   };
 };
 

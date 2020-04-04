@@ -64,7 +64,6 @@ router.post('/edit/:id', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        // console.log(req);
 
         const { errors, isValid } = validateStudentInput(req.body);
 
@@ -88,7 +87,7 @@ router.post('/',
         console.log(newStudent);
 
         newStudent.save()
-            .then(student => res.json(student))
+            .then(student => res.status(200).json(student))
             .catch(err =>
                 res.status(400).json(err))
     }

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchAllStudents, deleteStudent, updateStudent } from '../../actions/student_actions';
+import { clearStatus, fetchAllStudents, deleteStudent, updateStudent } from '../../actions/student_actions';
 import { clearErrors } from '../../actions/session_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { withRouter } from "react-router-dom";
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
         if (Object.values(state.entities.students).length === 0) {
             students = [];
         } else {
-            students = Object.values(state.entities.students);
+            students = Object.values(state.entities.students)
+                .filter(val => val !== state.entities.students.status);
         }
         
     let formType;
@@ -35,7 +36,8 @@ const mapStateToProps = state => {
         currentUser: state.session.user,
         students: students,
         formType: formType,
-        studentId: studentId
+        studentId: studentId,
+        status: state.entities.students.status
     };
 };
 
@@ -46,6 +48,7 @@ const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, id) => dispatch(openModal(modal, id)),
     clearErrors: () => dispatch(clearErrors()),
+    clearStatus: () => dispatch(clearStatus())
 });
 
 export default withRouter(

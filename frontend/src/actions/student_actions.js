@@ -4,6 +4,10 @@ export const RECEIVE_STUDENT = "RECEIVE_STUDENT";
 export const RECEIVE_ALL_STUDENTS = "RECEIVE_ALL_STUDENTS";
 export const REMOVE_STUDENT = "REMOVE_STUDENT";
 export const RECEIVE_PARENT = "RECEIVE_PARENT";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const RECEIVE_STATUS = "RECEIVE_STATUS";
+export const CLEAR_STATUS = "CLEAR_STATUS";
 
 
 export const receiveAllStudents = (students) => ({
@@ -32,6 +36,25 @@ export const receiveParent = (parentId) => {
   }
 };
 
+export const receiveErrors = errors => ({
+  type: RECEIVE_SESSION_ERRORS,
+  errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS,
+});
+
+export const receiveStatus = status => ({
+  type: RECEIVE_STATUS,
+  status
+});
+
+export const clearStatus = () => ({
+  type: CLEAR_STATUS
+});
+
+
 
 export const fetchAllStudents = () => dispatch => (
   APIUtil.getAllStudents()
@@ -47,8 +70,13 @@ export const fetchStudent = (id) => dispatch => (
 
 export const createNewStudent = (data) => dispatch => (
   APIUtil.createStudent(data)
-    .then(student => dispatch(receiveStudent(student)))
-    .catch(err => console.log(err))
+    .then(student => dispatch(receiveStudent(student)),
+        err => dispatch(receiveErrors(err.response.data)))
+    .then(res => {
+      if (res.type === "RECEIVE_STUDENT") {
+        dispatch(receiveStatus(res.student.status))
+      }
+    })
 );
 
 export const deleteStudent = (studentId) => dispatch => (
