@@ -20,7 +20,7 @@ label.update-label {
     position: relative;
     box-sizing: border-box;
     background-color: white;
-    padding: 20px 50px 40px;
+    padding: 0px 50px 40px;
     margin: -50px 0;
     font-size: 12px;
 }
@@ -35,13 +35,37 @@ label.update-label {
     display: flex;
     justify-content: center;
     box-sizing: border-box;
+    margin-top: 60px;
 }
 
 .student-form-title {
     font-size: 18px;
     text-align: center;
     font-weight: 700;
-    font: 
+    position: relative;
+    left: 150px;
+    display: inline;
+    margin-right: 130px;
+}
+
+.update-student-form-title {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    left: 162px;
+    display: inline;
+    margin-right: 130px;
+}
+
+.create-student-form-title {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    left: 155px;
+    display: inline;
+    margin-right: 130px;
 }
 
 .student-form-description {
@@ -49,6 +73,7 @@ label.update-label {
     width: 500px;
     text-align: center;
     margin: 5px 0 0;
+    margin-top: 40px;
 }
 
 .student-form {
@@ -57,6 +82,7 @@ label.update-label {
     flex-direction: column;
     width: 500px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .student-form-header {
@@ -199,6 +225,14 @@ select:invalid {
     color: white;
 }
 
+.modal-upper {
+    position: absolute;
+}
+
+.create-student-modal-upper {
+    position: absolute;
+    margin-top: 5px;
+}
 
 .modal-background {
   position: fixed;
@@ -224,17 +258,31 @@ select:invalid {
 }
 
 .form-closing-x {
-    display: block;
-    position: relative;
-    justify-content: center;
-    color: white;
-    font-size: 50px;
-    border: 5px solid white;
-    border-radius: 50%;
-    width: 70px;
-    padding-left: 10px;
+    color: black;
+    font-size: 30px;
+    margin-left: 178px;
     cursor: pointer;
-    top: 20px;
-    left: 20px;
+    display: inline;
+    position: relative;
+    right: 10px;
+}
 
+.update-student-form-closing-x {
+    color: black;
+    font-size: 30px;
+    margin-left: 200px;
+    cursor: pointer;
+    display: inline;
+    position: relative;
+    right: 10px;
+}
+
+.create-student-form-closing-x {
+    color: black;
+    font-size: 30px;
+    margin-left: 206px;
+    cursor: pointer;
+    display: inline;
+    position: relative;
+    right: 10px;
 }

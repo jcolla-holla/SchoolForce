@@ -98,13 +98,15 @@ class UpdateStudentForm extends React.Component {
 
     return (
       <div className="student-form-page">
-        <div className='form-closing-x' onClick={() => this.props.closeModal()}>&#10005;</div>
         <div className="student-form-container">
 
           <form onSubmit={this.handleSubmit} className="student-form-box">
             <br />
-            <div className="student-form-title">
-              Update Your Student
+            <div className="modal-upper">
+                <div className="update-student-form-title">Update Your Student</div>
+                <div className="update-student-form-closing-x" onClick={() => this.props.closeModal()}>
+                    &#10005;
+                </div>
             </div>
                 <br />
             <div className="student-form">

@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
     return {
         students: Object.values(state.entities.students),
         users: state.entities.users,
-        adminUserId: state.session.user.id
+        adminUserId: state.session.user.id,
+        adminUser: state.session.user
     }
 };
 
