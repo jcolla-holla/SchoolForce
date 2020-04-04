@@ -16,7 +16,8 @@ class StudentsSearch extends React.Component {
                 gender: '',
                 grade: ''
             },
-            selectedStudents: {}
+            selectedStudents: {},
+            checkedAll: false, 
         }
         this.filterUpdate = this.filterUpdate.bind(this);
         this.handleStudentCheck = this.handleStudentCheck.bind(this);
@@ -51,6 +52,8 @@ class StudentsSearch extends React.Component {
             this.setState(newState);
         }
     }
+
+    
 
     componentDidMount() {
         this.props.fetchAllStudents();
@@ -103,6 +106,8 @@ class StudentsSearch extends React.Component {
         
     };
 
+   
+
 
     render() {
         let filteredStudents = [];
@@ -121,6 +126,22 @@ class StudentsSearch extends React.Component {
                 }
                 return oneStudentParentsArr;
             });
+        }
+
+        const handleAllCheck = (filteredStudents) => {
+            if (Object.keys(this.state.selectedStudents).length === 0) {
+                let newSelectedStudents = {}
+                filteredStudents.forEach( student => { 
+                    newSelectedStudents = Object.assign({}, newSelectedStudents, { [student._id]: student });
+                    debugger
+                });
+                let newState = Object.assign({}, this.state, { selectedStudents: newSelectedStudents, checkedAll: true });
+                this.setState(newState);
+            } else {
+                debugger
+                let newState = Object.assign({}, this.state, {selectedStudents: {}, checkedAll: false});
+                this.setState(newState);
+            } 
         }
 
 
@@ -247,7 +268,20 @@ class StudentsSearch extends React.Component {
 
                 <div className='studentIndex'>
                     <h2 className='studentIndexTitle'>Select the students to draft a reminder to their parents</h2>
-                    <ul className="studentsUl">
+                    <ul className="studentsUl"> 
+
+                    {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+
+                    <label className="toggle">
+                    <input className="checkboxStudent toggle__input" type="checkbox" name="selectAll" onChange={() => handleAllCheck(filteredStudents)} />
+                    <span className="toggle__label">
+                        <span className="toggle__text"></span>
+                    </span>
+                    </label>
+
+                    <div className="search-name">
+                        Select All Students
+                    </div>
 
                     { filteredStudents.map ( student => (
                         <StudentItem 
@@ -258,6 +292,7 @@ class StudentsSearch extends React.Component {
                         updateStudent={updateStudent} 
                         openModal={openModal}
                         key={student._id}
+                        checkedAll={this.state.checkedAll}
                         />
                         ))}
                     </ul>
