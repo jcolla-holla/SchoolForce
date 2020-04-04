@@ -91,16 +91,16 @@ class ChildIndexItem extends React.Component {
                         </label>
                         <p> {this.props.student.grade}</p>
                     </div>
-                    <div className='student-index-item-buttons'>
-                        <button className='update-student-button'
-                            onClick={this.handleUpdateStudent}>
-                            Update Student
-                        </button>
-                        <button className='delete-student-button'
-                                onClick={this.handleDeleteStudent}>
-                                Delete Student
-                        </button>
-                    </div>
+                </div>
+                <div className='student-index-item-buttons'>
+                    <button className='update-student-button'
+                        onClick={this.handleUpdateStudent}>
+                        Update Student
+                    </button>
+                    <button className='delete-student-button'
+                            onClick={this.handleDeleteStudent}>
+                            Delete Student
+                    </button>
                 </div>
             </li>
         )

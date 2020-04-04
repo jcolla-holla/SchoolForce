@@ -56,6 +56,7 @@ body {
 .login-form-page {
     box-sizing: border-box;
     display: block;
+    margin-top: 80px;
 }
 
 .login-page-header {

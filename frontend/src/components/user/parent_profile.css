@@ -1,13 +1,38 @@
-.welcome-header {
-    margin-left: 40px;
-    margin-top: 40px;
-    max-width: 90%;
-    font-family: sans-serif;
-    margin-bottom: 0px;
+#parent-profile-page {
+    margin-top: 80px;
+}
+
+.parent-welcome-header {
+    font-size: 24px;
+    height: 20px;
+    margin: 40px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.update-profile-button {
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    height: 20px;
+    border-radius: 3px;
+    border: none;
+    margin-left: 20px;
+}
+
+.children-index-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.children-index-header-container {
+    margin-left: 20px;
 }
 
 .children-index-header {
-    margin-left: 40px;
     margin-top: 40px;
     font-family: sans-serif;
 }
@@ -21,10 +46,22 @@
 
 .parent-details div {
     margin-right: 15px;
+    border-right: 1px solid black;
+    padding-right: 10px;
+}
+
+.parent-details div:last-of-type {
+    margin-right: 15px;
+    padding: 0px;
+    border: none;
 }
 
 .children-index {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
 }
