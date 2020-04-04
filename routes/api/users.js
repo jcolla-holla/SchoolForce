@@ -20,13 +20,19 @@ router.get('/', (req, res) => {
     );
 });
 
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err =>
+      res.status(400).json(err))
+});
+
 router.delete('/:id', (req, res) => {
   User.findByIdAndDelete(req.params.id)
     .then(() => res.json({ msg: "User deleted." }))
     .catch(err =>
       res.status(400).json(err))
 });
-
 
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
@@ -37,21 +43,14 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   })
 
 router.post('/edit/:id', (req, res) => {
-  debugger
-  console.log(req)
-  console.log(res)
   User.findById(req.params.id)
     .then(user => {
 
       user.firstName = req.body.firstName === "" ? user.firstName : req.body.firstName;
       user.lastName = req.body.lastName === "" ? user.lastName : req.body.lastName;
-      user.allergies = req.body.allergies === "" ? user.allergies : req.body.allergies;
-      user.specialNeeds = req.body.specialNeeds === "" ? user.specialNeeds : req.body.specialNeeds;
-      user.medicalConditions = req.body.medicalConditions === "" ? user.medicalConditions : req.body.medicalConditions;
-      user.gender = req.body.gender === "" ? user.gender : req.body.gender;
-      user.dateOfBirth = req.body.dateOfBirth === "" ? user.dateOfBirth : req.body.dateOfBirth;
-      user.startDate = req.body.startDate === "" ? user.startDate : req.body.startDate;
-      user.grade = req.body.grade === "" ? user.grade : req.body.grade;
+      user.email = req.body.email === "" ? user.email : req.body.email;
+      user.mobile = req.body.mobile === "" ? user.mobile : req.body.mobile;
+      user.schoolId = req.body.schoolId === "" ? user.schoolId : req.body.schoolId;
 
       user.save()
         .then(user => res.json(user))
@@ -70,7 +69,7 @@ router.post('/register', (req, res) => {
     if (!isValid) {
       return res.status(400).json(errors);
     } 
-    debugger
+    
     User.findOne({ email: req.body.email })
       .then(user => {
 

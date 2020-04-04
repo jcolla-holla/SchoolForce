@@ -17,15 +17,17 @@ class ParentProfile extends React.Component {
         if (this.props.studentId === '') {
             return this.props.fetchAllStudents();
         };
+    }
 
+    componentWillMount() {
+      this.props.fetchAllUsers()
     }
 
     handleUpdateParent(e) {
         e.preventDefault();
-        const parentId = this.props.currentUser.id;
+        const parentId = this.props.currentUser[0]._id;
         return this.props.openModal("Update Parent", parentId);
     }
-
 
     componentDidUpdate() {
         if (this.props.status === 200) {
@@ -49,26 +51,8 @@ class ParentProfile extends React.Component {
         let remove200Status = Object.values(this.props.students).filter(val => val !== 0);
 
         let currentUserChildren = 
-            remove200Status.filter(val => val.parentId[0] === this.props.currentUser.id);
-
-        let childrenLis;
-        if (currentUserChildren.length === 0) {
-            childrenLis = <p>You have not registered any students yet</p>
-        } else {
-            // maping children matching currentUser.id === child.parentId
-            childrenLis = currentUserChildren.map(
-            (student, idx) => {
-                return (
-                <ChildIndexItem
-                    key={idx}
-                    student={student}
-                    deleteStudent={deleteStudent}
-                    updateStudent={updateStudent}
-                    openModal={openModal}
-                />
-            )}
-        )};
-
+            remove200Status.filter(val => val.parentId[0] === this.props.currentUser[0]._id);
+        
         let successMessage;
         if (this.state.registrationSuccess) {
             successMessage = 
@@ -78,7 +62,6 @@ class ParentProfile extends React.Component {
         } else {
             successMessage = <div className="empty-success-msg-div"></div>;
         }
-
 
     let childrenList;
     if (currentUserChildren.length === 0) {
@@ -98,7 +81,8 @@ class ParentProfile extends React.Component {
       });
     }
 
-    if (this.props.currentUser.adminStatus === false) {
+    if (this.props.currentUser[0].adminStatus === false 
+        || this.props.currentUser[0].admin === false ) {
         return (
           
         <div>
@@ -107,7 +91,7 @@ class ParentProfile extends React.Component {
         <div id="parent-profile-page">
             <div className="parent-welcome-header">
             <p>
-                {this.props.currentUser.firstName} {this.props.currentUser.lastName}
+                {this.props.currentUser[0].firstName} {this.props.currentUser[0].lastName}
                 's Profile
             </p>
             <button
@@ -118,9 +102,9 @@ class ParentProfile extends React.Component {
             </button>
             </div>
             <div className="parent-details">
-            <div>Email: {this.props.currentUser.email}</div>
-            <div>Phone Number: {this.props.currentUser.mobile}</div>
-            <div>School ID: {this.props.currentUser.schoolId}</div>
+            <div>Email: {this.props.currentUser[0].email}</div>
+            <div>Phone Number: {this.props.currentUser[0].mobile}</div>
+            <div>School ID: {this.props.currentUser[0].schoolId}</div>
             </div>
             <div className="children-index-header-container">
             <h2 className="children-index-header">Your students</h2>
@@ -142,8 +126,8 @@ class ParentProfile extends React.Component {
           <div id="parent-profile-page">
             <div className="parent-welcome-header">
               <p>
-                {this.props.currentUser.firstName}{" "}
-                {this.props.currentUser.lastName}
+                {this.props.currentUser[0].firstName}{" "}
+                {this.props.currentUser[0].lastName}
                 's Profile
               </p>
               <button
@@ -154,9 +138,9 @@ class ParentProfile extends React.Component {
               </button>
             </div>
             <div className="parent-details">
-              <div>Email: {this.props.currentUser.email}</div>
-              <div>Phone Number: {this.props.currentUser.mobile}</div>
-              <div>School ID: {this.props.currentUser.schoolId}</div>
+              <div>Email: {this.props.currentUser[0].email}</div>
+              <div>Phone Number: {this.props.currentUser[0].mobile}</div>
+              <div>School ID: {this.props.currentUser[0].schoolId}</div>
             </div>
           </div>
         );

@@ -19,8 +19,7 @@ class UpdateStudentForm extends React.Component {
       gender: gender,
       dateOfBirth: dateOfBirth,
       startDate: startDate,
-      grade: grade,
-      errors: {}
+      grade: grade
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

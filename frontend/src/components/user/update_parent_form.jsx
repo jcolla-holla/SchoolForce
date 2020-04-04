@@ -11,7 +11,7 @@ class UpdateParentForm extends React.Component {
       email,
       mobile,
       schoolId
-    } = this.props.updateParent;
+    } = this.props.updateParent[0];
 
     this.state = {
       id: this.props.parentId,
@@ -25,6 +25,10 @@ class UpdateParentForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+  }
+
+  componentWillUnmount() {
+    return this.props.fetchAllUsers();
   }
 
   update(field) {
@@ -70,7 +74,7 @@ class UpdateParentForm extends React.Component {
   }
 
   render() {
-
+    
     return (
       <div className="student-form-page">
         <div className="student-form-container">
