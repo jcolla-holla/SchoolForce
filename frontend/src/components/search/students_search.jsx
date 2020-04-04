@@ -18,6 +18,7 @@ class StudentsSearch extends React.Component {
             },
             selectedStudents: {},
             checkedAll: false, 
+            filteredStudents: this.props.students
         }
         this.filterUpdate = this.filterUpdate.bind(this);
         this.handleStudentCheck = this.handleStudentCheck.bind(this);
@@ -58,6 +59,7 @@ class StudentsSearch extends React.Component {
     componentDidMount() {
         this.props.fetchAllStudents();
         this.props.fetchAllUsers();
+        this.forceUpdate()
     }
 
 
@@ -106,7 +108,22 @@ class StudentsSearch extends React.Component {
         
     };
 
-   
+    handleAllCheck (filteredStudents) {
+        if (Object.keys(this.state.selectedStudents).length === 0) {
+            let newSelectedStudents = {}
+            filteredStudents.forEach( student => { 
+                newSelectedStudents = Object.assign({}, newSelectedStudents, { [student._id]: student });
+                debugger
+            });
+            let newState = Object.assign({}, this.state, { selectedStudents: newSelectedStudents, checkedAll: true });
+            this.setState(newState);
+        } else {
+            debugger
+            let newState = Object.assign({}, this.state, {selectedStudents: {}, checkedAll: false});
+            this.setState(newState);
+        } 
+    }
+
 
 
     render() {
@@ -114,7 +131,6 @@ class StudentsSearch extends React.Component {
         let filteredParentsArr = [];
         if (this.props.students[0]) {
             filteredStudents = this.props.students.filter((student) => {
-
                 return this.studentFilters(student);
             })
 
@@ -128,21 +144,13 @@ class StudentsSearch extends React.Component {
             });
         }
 
-        const handleAllCheck = (filteredStudents) => {
-            if (Object.keys(this.state.selectedStudents).length === 0) {
-                let newSelectedStudents = {}
-                filteredStudents.forEach( student => { 
-                    newSelectedStudents = Object.assign({}, newSelectedStudents, { [student._id]: student });
-                    debugger
-                });
-                let newState = Object.assign({}, this.state, { selectedStudents: newSelectedStudents, checkedAll: true });
-                this.setState(newState);
-            } else {
-                debugger
-                let newState = Object.assign({}, this.state, {selectedStudents: {}, checkedAll: false});
-                this.setState(newState);
-            } 
+        const sortStudents = (type, func) => {  
+            debugger
+            filteredStudents = filteredStudents.quickSort(type, func);
+            debugger
+            this.setState({filteredStudents: filteredStudents})
         }
+    
 
 
         const userAdminId = this.adminUserId;
@@ -273,7 +281,7 @@ class StudentsSearch extends React.Component {
                     {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
 
                     <label className="toggle">
-                    <input className="checkboxStudent toggle__input" type="checkbox" name="selectAll" onChange={() => handleAllCheck(filteredStudents)} />
+                    <input className="checkboxStudent toggle__input" type="checkbox" name="selectAll" onChange={() => this.handleAllCheck(filteredStudents)} />
                     <span className="toggle__label">
                         <span className="toggle__text"></span>
                     </span>
@@ -283,7 +291,16 @@ class StudentsSearch extends React.Component {
                         Select All Students
                     </div>
 
-                    { filteredStudents.map ( student => (
+                    <div className="studet-sort">
+                        <input 
+                        type="button" 
+                        onClick={() => sortStudents("firstName", (x, y) => { if (x > y) return - 1; return 1;})}
+                        />
+                     </div>
+
+                    { this.state.filteredStudents.map ( student => {
+                        debugger
+                        return (
                         <StudentItem 
                         student={student} 
                         handleStudentCheck={this.handleStudentCheck}
@@ -294,7 +311,7 @@ class StudentsSearch extends React.Component {
                         key={student._id}
                         checkedAll={this.state.checkedAll}
                         />
-                        ))}
+                        )})}
                     </ul>
                 </div>
 
@@ -304,3 +321,22 @@ class StudentsSearch extends React.Component {
 }
 
 export default StudentsSearch;
+
+
+Array.prototype.quickSort = function (type, func) {
+    if (this.length < 2) return this;
+  
+    if (!func) {
+      func = (x, y) => {
+        if (x < y) return - 1;
+        return 1;
+      };
+    }
+  
+    const pivot = this[0];
+    let left = this.slice(1).filter((el) => func(el[type], pivot[type]) === -1);
+    let right = this.slice(1).filter((el) => func(el[type], pivot[type]) !== -1);
+    left = left.quickSort(type, func);
+    right = right.quickSort(type, func);
+    return left.concat([pivot]).concat(right);
+  };
