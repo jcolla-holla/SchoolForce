@@ -18,11 +18,13 @@ class StudentsSearch extends React.Component {
             },
             selectedStudents: {},
             checkedAll: false, 
-            filteredStudents: this.props.students
+            sortType: "firstName",
+            sortFunc: (x, y) => { if (x < y) return - 1; return 1;}
         }
         this.filterUpdate = this.filterUpdate.bind(this);
         this.handleStudentCheck = this.handleStudentCheck.bind(this);
         this.adminUserId = this.props.adminUserId;
+        this.handleSortClick = this.handleSortClick.bind(this);
     }
 
     filterUpdate(field) {
@@ -59,7 +61,6 @@ class StudentsSearch extends React.Component {
     componentDidMount() {
         this.props.fetchAllStudents();
         this.props.fetchAllUsers();
-        this.forceUpdate()
     }
 
 
@@ -113,15 +114,19 @@ class StudentsSearch extends React.Component {
             let newSelectedStudents = {}
             filteredStudents.forEach( student => { 
                 newSelectedStudents = Object.assign({}, newSelectedStudents, { [student._id]: student });
-                debugger
+                
             });
             let newState = Object.assign({}, this.state, { selectedStudents: newSelectedStudents, checkedAll: true });
             this.setState(newState);
         } else {
-            debugger
+           
             let newState = Object.assign({}, this.state, {selectedStudents: {}, checkedAll: false});
             this.setState(newState);
         } 
+    }
+
+    handleSortClick = (type, func) => {  
+        this.setState({sortType: type, sortFunc: func})
     }
 
 
@@ -133,7 +138,6 @@ class StudentsSearch extends React.Component {
             filteredStudents = this.props.students.filter((student) => {
                 return this.studentFilters(student);
             })
-
             filteredParentsArr = Object.values(this.state.selectedStudents).map(student => {
                 //improvement opportunity - avoid a n^2 query
                 let oneStudentParentsArr = []
@@ -142,16 +146,12 @@ class StudentsSearch extends React.Component {
                 }
                 return oneStudentParentsArr;
             });
-        }
 
-        const sortStudents = (type, func) => {  
-            debugger
-            filteredStudents = filteredStudents.quickSort(type, func);
-            debugger
-            this.setState({filteredStudents: filteredStudents})
+           filteredStudents = filteredStudents.sort((a, b) => {
+               debugger
+              return  (a[this.state.sortType] < b[this.state.sortType] ? 1 : -1)})
+          
         }
-    
-
 
         const userAdminId = this.adminUserId;
         const { createReminder, deleteStudent, updateStudent, openModal } = this.props;
@@ -291,15 +291,29 @@ class StudentsSearch extends React.Component {
                         Select All Students
                     </div>
 
-                    <div className="studet-sort">
-                        <input 
-                        type="button" 
-                        onClick={() => sortStudents("firstName", (x, y) => { if (x > y) return - 1; return 1;})}
-                        />
+                    <div className="student-sort">
+                        <button 
+                        onClick={() => this.handleSortClick("firstName", (x, y) => { if (x < y) return - 1; return 1;})}
+                        >sort by first name asc</button>
+                        <button 
+                        onClick={() => this.handleSortClick("firstName", (x, y) => { if (x > y) return - 1; return 1;})}
+                        >sort by first name desc</button>
+                        <button 
+                        onClick={() => this.handleSortClick("lastName", (x, y) => { if (x < y) return - 1; return 1;})}
+                        >sort by last name asc</button>
+                        <button 
+                        onClick={() => this.handleSortClick("lastName", (x, y) => { if (x > y) return - 1; return 1;})}
+                        >sort by last name desc</button>
+                        <button 
+                        onClick={() => this.handleSortClick("grade", (x, y) => { if (x < y) return - 1; return 1;})}
+                        >sort by grade asc</button>
+                        <button 
+                        onClick={() => this.handleSortClick("grade", (x, y) => { if (x > y) return - 1; return 1;})}
+                        >sort by grade asc</button>
                      </div>
 
-                    { this.state.filteredStudents.map ( student => {
-                        debugger
+                    {   filteredStudents.map ( student => {
+                        
                         return (
                         <StudentItem 
                         student={student} 
@@ -325,18 +339,14 @@ export default StudentsSearch;
 
 Array.prototype.quickSort = function (type, func) {
     if (this.length < 2) return this;
-  
-    if (!func) {
-      func = (x, y) => {
-        if (x < y) return - 1;
-        return 1;
-      };
-    }
-  
+    debugger
     const pivot = this[0];
+    debugger
     let left = this.slice(1).filter((el) => func(el[type], pivot[type]) === -1);
     let right = this.slice(1).filter((el) => func(el[type], pivot[type]) !== -1);
+    debugger
     left = left.quickSort(type, func);
     right = right.quickSort(type, func);
+    debugger
     return left.concat([pivot]).concat(right);
   };
