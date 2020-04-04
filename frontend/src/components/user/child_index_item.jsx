@@ -23,7 +23,7 @@ class ChildIndexItem extends React.Component {
     }
 
     render() {
-
+        
         let { allergies, specialNeeds, medicalConditions } = this.props.student
         
         const allergiesArr = () => {

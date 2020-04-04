@@ -12,7 +12,7 @@ class AdminPastReminders extends React.Component {
 
   render() {
     let users = this.props.users;
-    // debugger
+
     let filteredReminders = this.props.reminders.filter(reminder =>
       reminder.authorId === this.props.currentUser.id
     );

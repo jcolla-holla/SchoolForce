@@ -5,8 +5,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 const config = require('../../config/keys')
 const passport = require('passport')
-// const client = require('twilio')(config.accountSid, config.authToken);
-
 
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
@@ -22,6 +20,19 @@ router.get('/', (req, res) => {
     );
 });
 
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err =>
+      res.status(400).json(err))
+});
+
+router.delete('/:id', (req, res) => {
+  User.findByIdAndDelete(req.params.id)
+    .then(() => res.json({ msg: "User deleted." }))
+    .catch(err =>
+      res.status(400).json(err))
+});
 
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
     res.json({
@@ -31,6 +42,26 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
     });
   })
 
+router.post('/edit/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+
+      user.firstName = req.body.firstName === "" ? user.firstName : req.body.firstName;
+      user.lastName = req.body.lastName === "" ? user.lastName : req.body.lastName;
+      user.email = req.body.email === "" ? user.email : req.body.email;
+      user.mobile = req.body.mobile === "" ? user.mobile : req.body.mobile;
+      user.schoolId = req.body.schoolId === "" ? user.schoolId : req.body.schoolId;
+
+      user.save()
+        .then(user => res.json(user))
+        .catch(err =>
+          res.status(400).json(err))
+    })
+    .catch(err =>
+      res.status(400).json(err))
+});
+
+
 router.post('/register', (req, res) => {
   
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -38,7 +69,7 @@ router.post('/register', (req, res) => {
     if (!isValid) {
       return res.status(400).json(errors);
     } 
-
+    
     User.findOne({ email: req.body.email })
       .then(user => {
 

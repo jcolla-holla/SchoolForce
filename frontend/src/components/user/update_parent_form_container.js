@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { updateUser } from "../../actions/user_actions";
+import { updateUser, fetchAllUsers } from "../../actions/user_actions";
 import { clearErrors } from "../../actions/session_actions";
 import { closeModal, openModal } from "../../actions/modal_actions";
 import UpdateParentForm from "./update_parent_form.jsx";
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
         currentUser: state.session.user,
         formType: "Update Parent",
         parentId: state.session.user.id,
-        updateParent: state.session.user
+        updateParent: Object.values(state.entities.users)
+          .filter(val => val._id === state.session.user.id)
     };
 };
 
@@ -20,7 +21,8 @@ const mapDispatchToProps = dispatch => {
     processForm: payload => dispatch(updateUser(payload)),
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, id) => dispatch(openModal(modal, id)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    fetchAllUsers: () => dispatch(fetchAllUsers())
   };
 };
 

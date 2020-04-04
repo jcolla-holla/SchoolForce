@@ -20,10 +20,6 @@ class CreateStudentForm extends React.Component {
     
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // componentDidMount() {
-  //   debugger
-  // }
   
   componentWillUnmount() {
     this.props.clearErrors();

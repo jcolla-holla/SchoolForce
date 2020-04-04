@@ -5,6 +5,8 @@ import { withRouter } from "react-router-dom";
 import ReminderIndex from "./reminder_index";
 
 const mapStateToProps = state => {
+
+  debugger
   let reminders;
   if (state.entities.reminders.reminders === undefined) {
     reminders = [];
@@ -19,8 +21,22 @@ const mapStateToProps = state => {
     users = Object.values(state.entities.users);
   }
 
+  let updateUser;
+  if (Object.keys(state.entities.users).length !== 0) {
+    updateUser = Object.values(state.entities.users)
+      .filter(val => val._id === state.session.user.id);
+  };
+
+  let currentUser;
+  if ((Object.keys(state.entities.users).length !== 0) &&
+    updateUser[0]._id === state.session.user.id) {
+    currentUser = updateUser
+  } else {
+    currentUser = [state.session.user]
+  }
+  debugger
   return {
-    currentUser: state.session.user,
+    currentUser: currentUser,
     reminders: reminders,
     users: users
   };

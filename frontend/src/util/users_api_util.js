@@ -11,3 +11,4 @@ export const getUser = (userId) => {
 export const updateUser = data => {
   return axios.post(`/api/users/edit/${data.id}`, data);
 };
+
