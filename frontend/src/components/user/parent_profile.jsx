@@ -20,18 +20,15 @@ class ParentProfile extends React.Component {
 
     }
 
-  handleUpdateParent(e) {
-    e.preventDefault();
-    const parentId = this.props.currentUser.id;
-    return this.props.openModal("Update Parent", parentId);
-  }
+    handleUpdateParent(e) {
+        e.preventDefault();
+        const parentId = this.props.currentUser.id;
+        return this.props.openModal("Update Parent", parentId);
+    }
 
 
     componentDidUpdate() {
         if (this.props.status === 200) {
-            // window.setTimeout(() => {
-            //     this.setState({ registrationSuccess: true })
-            // }, 1000)
             this.state.registrationSuccess = true;
             window.setTimeout(() => {
                 this.setState({ registrationSuccess: false })
