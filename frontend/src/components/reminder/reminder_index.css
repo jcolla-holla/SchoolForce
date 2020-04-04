@@ -8,7 +8,7 @@
 .welcome-header {
     font-size: 24px;
     height: 20px;
-    margin: 40px;
+    margin: 0 40px;
     font-weight: 500;
     display: flex;
     align-items: center;

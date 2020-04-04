@@ -46,7 +46,7 @@ body {
 .signup-form-container {
     display: flex;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 80px;
     margin-bottom: 50px;
     box-sizing: border-box;
     flex-direction: column;

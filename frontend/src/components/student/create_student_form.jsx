@@ -9,23 +9,25 @@ class CreateStudentForm extends React.Component {
       firstName: "",
       lastName: "",
       parentId: [this.props.currentUser.id],
-      allergies: [],
-      specialNeeds: [],
-      medicalConditions: [],
+      allergies: "",
+      specialNeeds: "",
+      medicalConditions: "",
       gender: "",
       dateOfBirth: "",
       startDate: "",
-      grade: "",
-      errors: {}
+      grade: ""
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors();
+  // componentDidMount() {
+  //   debugger
   // }
+  
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
 
   update(field) {
     if (Array.isArray(this.state[field])) {
@@ -41,55 +43,47 @@ class CreateStudentForm extends React.Component {
     }
   }
 
-  // addData(field) {
-  //   return e =>
-  //     this.setState({
-  //       [field]: this.state[field] << e.currentTarget.value
-  //     });
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
-    const { allergies, specialNeeds, medicalConditions } = this.state
+    
+    const { allergies, specialNeeds, medicalConditions, 
+      firstName, lastName, gender, dateOfBirth, startDate, grade } = this.state
 
     let allergiesArr = allergies.length < 1 ? allergies : allergies.split(", ");
     let specialNeedsArr = specialNeeds.length < 1  ? specialNeeds : specialNeeds.split(", ");
     let medicalConditionsArr = medicalConditions.length < 1 ? medicalConditions : medicalConditions.split(", ");
-    
-    const student = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      parentId: this.state.parentId,
-      allergies: allergiesArr,
-      specialNeeds: specialNeedsArr,
-      medicalConditions: medicalConditionsArr,
-      gender: this.state.gender,
-      dateOfBirth: this.state.dateOfBirth,
-      startDate: this.state.startDate,
-      grade: this.state.grade,
-      errors: this.state.errors
-    };
+   
+    let student = Object.assign({}, this.state);
+      student.allergies = allergiesArr
+      student.specialNeeds = specialNeedsArr
+      student.medicalConditions = medicalConditionsArr
 
-    this.props.processForm(student)
-      .then(() => this.props.closeModal());
-  }
+    let validationCheck = [ firstName, lastName, gender, dateOfBirth, startDate, grade ]
+
+    function emptyString(x) {
+      return x === '';
+    }
+
+    if (validationCheck.some(emptyString)) {
+      this.props.processForm(student);
+    } else {
+      this.props.processForm(student)
+        .then(() => this.props.closeModal());
+    }
+  };
 
   renderErrors() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+      <ul className='student-register-errors'>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
         ))}
       </ul>
     );
-  }
+  };
 
   render() {
-  
-    // if (this.props === undefined) {
-    //   return <div></div>
-    // };
-    
+
     return (
       <div className="student-form-page">
         <div className="student-form-container">
@@ -105,6 +99,9 @@ class CreateStudentForm extends React.Component {
             <br/>
               please use to form below to fill out your student's infomation.
             </p>
+
+            {this.renderErrors()}
+
             <div className="student-form">
               <p className="student-form-header">
                 Student Information
@@ -228,9 +225,6 @@ class CreateStudentForm extends React.Component {
                 />
                 <p className="student-form-instructions">Input all medical conditions separated by commas. Ex: asthma, diabetes, etc. If none, please leave blank.</p>
               </label>
-              <div className="student-form-error-messages">
-                {this.renderErrors()}
-              </div>
               <input
                 type="submit"
                 value={this.props.formType}

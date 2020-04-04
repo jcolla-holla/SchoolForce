@@ -60,8 +60,27 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px;
+}
+
+
+.success-message-div {
+    width: 100%;
+    text-align: center;
+    height: 60px;
+    background-color: #527318;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-size: 24px;
+    transition: 3s;
+    opacity: 90%;
+    visibility: visible;
+    z-index: 2;
+    margin-top: 80px;
+    padding-top: 15px;
+}
+
+.empty-success-msg-div {
+    visibility: hidden;
+    opacity: 0;
 }
