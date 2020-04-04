@@ -31,7 +31,6 @@ export const fetchAllUsers = () => dispatch =>
     .catch(err => console.log(err));
 
 export const updateUser = (user) => dispatch => {
-  debugger
   return APIUtil.updateUser(user)
 };
 
