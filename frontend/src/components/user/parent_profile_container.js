@@ -19,7 +19,9 @@ const mapStateToProps = state => {
             formType = 'Register Student';
         } else if (Object.values(state.modal.formType) === 'Update Student') {
             formType = 'Update Student';
-        } else {
+        } else if (Object.values(state.modal.formType) === 'Update Parent') {
+            formType = 'Update Parent';
+        }else {
             formType = 'Register Student';
         } 
 

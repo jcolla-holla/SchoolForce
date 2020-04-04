@@ -101,20 +101,26 @@ body {
 
 
 .first-hook-div {
-    padding-top: 55px;
-    padding-bottom: 60px;
+    padding-top: 50px;
+    padding-bottom: 200px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-around;
-    background: whitesmoke;
-    
+    background-image: url('../../assets/apple-photo.jpeg');
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #main-page .main-page-body .main-page-body-main-hook {
-    font-size: 27px;
-    color: #3e3e3e;
+    font-size: 35px;
+    color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: lighter;
     margin-bottom: 30px;
+    text-shadow: 1px 1px black;
 }
 
 .main-page-body-main-hook p {
@@ -122,18 +128,20 @@ body {
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 18px;
-    margin-bottom: 18px;    
+    margin-bottom: 18px;   
+    text-shadow: 1px 1px lightgreen; 
 }
 
 .first-hook-descritption {
     font-family: Arial, Helvetica, sans-serif;
-    color: #3e3e3e;
+    color: white;
     margin-bottom: 45px;
-    font-size: 16px;   
+    font-size: 16px;
+    text-shadow: 1px 1px black;
 }
 
 .creat-account-button {
-    padding: 10px;
+    padding: 20px;
     color: white;
     text-decoration: none;
     background: linear-gradient(#899857, #527318);
@@ -180,7 +188,6 @@ body {
     background-color: whitesmoke;
     box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
     width: 100%;
-    margin-top: 20px;
     box-sizing: border-box;
     padding-top: 90px;
     margin-bottom: 100px;
