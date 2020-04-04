@@ -3,7 +3,8 @@ import {
   RECEIVE_ALL_STUDENTS,
   REMOVE_STUDENT,
   RECEIVE_PARENT,
-  RECEIVE_STATUS
+  RECEIVE_STATUS,
+  CLEAR_STATUS
 } from "../actions/student_actions";
 
 const StudentsReducer = ( state = {}, action ) => {
@@ -27,6 +28,10 @@ const StudentsReducer = ( state = {}, action ) => {
 
     case RECEIVE_STATUS:
       newState.status = action.status;
+      return newState;
+
+    case CLEAR_STATUS:
+      newState.status = 0;
       return newState;
 
     default:

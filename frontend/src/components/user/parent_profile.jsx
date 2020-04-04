@@ -9,7 +9,6 @@ class ParentProfile extends React.Component {
 
         this.state = {
             registrationSuccess: false,
-            resetSucess: true
         }
     }
     
@@ -20,26 +19,31 @@ class ParentProfile extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.props.status && this.state.resetSucess) {
-            this.setState({ registrationSuccess: true })
-            this.state.resetSucess = false;
+        if (this.props.status === 200) {
+            // window.setTimeout(() => {
+            //     this.setState({ registrationSuccess: true })
+            // }, 1000)
+            this.state.registrationSuccess = true;
+            window.setTimeout(() => {
+                this.setState({ registrationSuccess: false })
+            }, 6000)
+        this.props.clearStatus();
         }
-        window.setTimeout(() => {
-            this.setState({ registrationSuccess: false })
-        }, 20000)
-    };
+    }
 
     render() {
-        // debugger
+        
         if (this.props.students === undefined) {
             return <div></div>
         };
 
         let { deleteStudent, updateStudent, openModal } = this.props;
-        
+        debugger
         // filters through all children matching currentUser.id === child.parentId
-        let currentUserChildren = Object.values(this.props.students)
-        .filter(val => val !== 200 && val.parentId[0] === this.props.currentUser.id);
+        let remove200Status = Object.values(this.props.students).filter(val => val !== 0);
+
+        let currentUserChildren = 
+            remove200Status.filter(val => val.parentId[0] === this.props.currentUser.id);
 
         let childrenList;
         if (currentUserChildren.length === 0) {

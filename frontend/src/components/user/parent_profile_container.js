@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchAllStudents, deleteStudent, updateStudent } from '../../actions/student_actions';
+import { clearStatus, fetchAllStudents, deleteStudent, updateStudent } from '../../actions/student_actions';
 import { clearErrors } from '../../actions/session_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { withRouter } from "react-router-dom";
@@ -46,6 +46,7 @@ const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal()),
     openModal: (modal, id) => dispatch(openModal(modal, id)),
     clearErrors: () => dispatch(clearErrors()),
+    clearStatus: () => dispatch(clearStatus())
 });
 
 export default withRouter(

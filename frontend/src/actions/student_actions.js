@@ -7,6 +7,8 @@ export const RECEIVE_PARENT = "RECEIVE_PARENT";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const RECEIVE_STATUS = "RECEIVE_STATUS";
+export const CLEAR_STATUS = "CLEAR_STATUS";
+
 
 export const receiveAllStudents = (students) => ({
   type: RECEIVE_ALL_STUDENTS,
@@ -47,6 +49,11 @@ export const receiveStatus = status => ({
   type: RECEIVE_STATUS,
   status
 });
+
+export const clearStatus = () => ({
+  type: CLEAR_STATUS
+});
+
 
 
 export const fetchAllStudents = () => dispatch => (
