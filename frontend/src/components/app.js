@@ -5,6 +5,7 @@ import NavBarContainer from "./nav/navbar_container";
 import MainPageContainer from "./main/main_page_container";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
+import AdminPastRemindersContainer from "./reminder/admin_past_reminders_container";
 import ReminderForm from "./search/reminder_form";
 import ParentProfileContainer from "./user/parent_profile_container";
 import Modal from '../components/modal/modal';
@@ -24,6 +25,7 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/profile" component={ParentProfileContainer} />
         <ProtectedRoute exact path="/draftReminder" component={ReminderForm} />
+        <ProtectedRoute exact path="/pastReminders" component={AdminPastRemindersContainer} />
       </Switch>
     </div>
     <footer className="main-page-footer">

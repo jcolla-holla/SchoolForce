@@ -98,43 +98,70 @@ class ParentProfile extends React.Component {
       });
     }
 
-    return (
-       <div>
-        {successMessage}
-       
-      <div id="parent-profile-page">
-        <div className="parent-welcome-header">
-          <p>
-            {this.props.currentUser.firstName} {this.props.currentUser.lastName}
-            's Profile
-          </p>
-          <button
-            className="update-profile-button"
-            onClick={this.handleUpdateParent}
-          >
-            Update profile
-          </button>
+    if (this.props.currentUser.adminStatus === false) {
+        return (
+          
+        <div>
+          {successMessage}
+          
+        <div id="parent-profile-page">
+            <div className="parent-welcome-header">
+            <p>
+                {this.props.currentUser.firstName} {this.props.currentUser.lastName}
+                's Profile
+            </p>
+            <button
+                className="update-profile-button"
+                onClick={this.handleUpdateParent}
+            >
+                Update profile
+            </button>
+            </div>
+            <div className="parent-details">
+            <div>Email: {this.props.currentUser.email}</div>
+            <div>Phone Number: {this.props.currentUser.mobile}</div>
+            <div>School ID: {this.props.currentUser.schoolId}</div>
+            </div>
+            <div className="children-index-header-container">
+            <h2 className="children-index-header">Your students</h2>
+            <button
+                className="create-student-button"
+                onClick={() => this.props.openModal("Register Student")}
+            >
+                Register Your Student
+            </button>
+            </div>
+            <div className="children-index-container">
+            <ul className="children-index">{childrenList}</ul>
+            </div>
+          </div>
         </div>
-        <div className="parent-details">
-          <div>Email: {this.props.currentUser.email}</div>
-          <div>Phone Number: {this.props.currentUser.mobile}</div>
-          <div>School ID: {this.props.currentUser.schoolId}</div>
-        </div>
-        <div className="children-index-header-container">
-          <h2 className="children-index-header">Your students</h2>
-          <button
-            className="create-student-button"
-            onClick={() => this.props.openModal("Register Student")}
-          >
-            Register Your Student
-          </button>
-        </div>
-        <div className="children-index-container">
-          <ul className="children-index">{childrenList}</ul>
-        </div>
-      </div>
-     </div>
-    );
+        );
+    } else {
+        return (
+          <div id="parent-profile-page">
+            <div className="parent-welcome-header">
+              <p>
+                {this.props.currentUser.firstName}{" "}
+                {this.props.currentUser.lastName}
+                's Profile
+              </p>
+              <button
+                className="update-profile-button"
+                onClick={this.handleUpdateParent}
+              >
+                Update profile
+              </button>
+            </div>
+            <div className="parent-details">
+              <div>Email: {this.props.currentUser.email}</div>
+              <div>Phone Number: {this.props.currentUser.mobile}</div>
+              <div>School ID: {this.props.currentUser.schoolId}</div>
+            </div>
+          </div>
+        );
+    }
+
   }
 }
 

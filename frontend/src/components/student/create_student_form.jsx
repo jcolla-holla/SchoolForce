@@ -86,12 +86,13 @@ class CreateStudentForm extends React.Component {
 
     return (
       <div className="student-form-page">
-        <div className='form-closing-x' onClick={() => this.props.closeModal()}>&#10005;</div>
         <div className="student-form-container">
-
           <form onSubmit={this.handleSubmit} className="student-form-box">
-            <div className="student-form-title">
-              Register Your Student
+            <div className="create-student-modal-upper">
+                <div className="create-student-form-title">Register Your Student</div>
+                <div className="create-student-form-closing-x" onClick={() => this.props.closeModal()}>
+                    &#10005;
+                </div>
             </div>
             <p className="student-form-description">
               If your student is not registered on SchoolForce,
