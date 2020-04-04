@@ -15,10 +15,25 @@
     text-decoration: none;
     font-size: 13px;
     cursor: pointer;
-    height: 20px;
+    height: 30px;
     border-radius: 3px;
-    border: none;
     margin-left: 20px;
+    background-color: green;
+    color: white;
+    border: 1px solid #000000;
+}
+
+.update-profile-button:hover {
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 3px;
+    margin-left: 20px;
+    background-color: green;
+    opacity: 50%;
+    color: white;
+    border: 1px solid #000000;
 }
 
 .children-index-container {

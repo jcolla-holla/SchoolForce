@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "./parent_profile.css";
 import ChildIndexItem from './child_index_item';
 
@@ -44,7 +44,7 @@ class ParentProfile extends React.Component {
         };
 
         let { deleteStudent, updateStudent, openModal } = this.props;
-        debugger
+
         // filters through all children matching currentUser.id === child.parentId
         let remove200Status = Object.values(this.props.students).filter(val => val !== 0);
 
@@ -130,7 +130,7 @@ class ParentProfile extends React.Component {
           </button>
         </div>
         <div className="children-index-container">
-          <ul className="children-index">{childrenLis}</ul>
+          <ul className="children-index">{childrenList}</ul>
         </div>
       </div>
      </div>
