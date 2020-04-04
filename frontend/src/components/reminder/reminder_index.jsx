@@ -16,7 +16,7 @@ class ReminderIndex extends React.Component {
 
   render() {
     let users = this.props.users;
-    let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser.id));
+    let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser[0].id));
     let reminderList;
     
     if (filteredReminders.length === 0) {
@@ -31,12 +31,13 @@ class ReminderIndex extends React.Component {
       ));
     }
 
+    debugger
     return (
       <div id="reminder-index-page">
         <div className="welcome-header">
           <p>
-            Hello {this.props.currentUser.firstName}{" "}
-            {this.props.currentUser.lastName}, welcome to your dashboard
+            Hello {this.props.currentUser[0].firstName}{" "}
+            {this.props.currentUser[0].lastName}, welcome to your dashboard
           </p>
           <Link className="create-student-button" to="/profile">
             View Profile
