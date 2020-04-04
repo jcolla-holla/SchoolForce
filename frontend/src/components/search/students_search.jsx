@@ -127,81 +127,97 @@ class StudentsSearch extends React.Component {
         const userAdminId = this.adminUserId;
         const { createReminder, deleteStudent, updateStudent, openModal } = this.props;
         
-        return ( 
+        return (
+          <div id="admin-search-container">
+            {/* Jesse note: not sure if we want a title or not on search page */}
+            <h1 className="admin-welcome-message">
+              {this.props.adminUser.firstName} {this.props.adminUser.lastName}'s
+              Dashboard
+            </h1>
+            <div className="admin-welcome-break"> </div>
+            <h2 className="adminSearchTitle">
+              Filter the students whose parents you want to message
+            </h2>
+            <div className="studentNameFilter">
+              Student Name Filter:
+              <input
+                className="studentNameFilterTextBox"
+                type="text"
+                placeholder="try 'sally' or 'smith'"
+                value={`${this.state.query.text}`}
+                onChange={this.filterUpdate("text")}
+              />
+              <Link
+                className="adminCreateReminderLink"
+                to={{
+                  pathname: "/draftReminder",
+                  state: {
+                    users: { filteredParentsArr },
+                    adminId: { userAdminId },
+                    createReminder: { createReminder }
+                  }
+                }}
+              >
+                Draft Reminder
+              </Link>
+              <Link className="adminCreateReminderLink" to={{pathname: "/pastReminders"}}>
+                View Past Reminders
+              </Link>
+            </div>
 
-            <div id='admin-search-container'>
-                {/* Jesse note: not sure if we want a title or not on search page */}
-                {/* <title className="adminSearchTitle">Filter the students whose parents you want to message</title> */}
-                <div className='studentNameFilter'>Student Name Filter:
+            <div className="studentChecks">
+              <div className="checkboxContainer">
+                {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+                <label className="toggle">
+                  <input
+                    className="checkboxStudent toggle__input"
+                    type="checkbox"
+                    name="allergies"
+                    onChange={this.handleFilterCheck("allergies")}
+                  />
+                  <span className="toggle__label">
+                    <span className="toggle__text"></span>
+                  </span>
+                </label>
 
-                    <input className='studentNameFilterTextBox' type="text" placeholder="try 'sally' or 'smith'" value={`${this.state.query.text}`} onChange={this.filterUpdate('text')} />
-                    <Link
-                        className="adminCreateReminderLink"
-                        to={{
-                            pathname: "/draftReminder",
-                            state: {
-                                users: { filteredParentsArr },
-                                adminId: { userAdminId },
-                                createReminder: { createReminder }
+                <div className="search-name">Allergies?</div>
+              </div>
 
-                            }
-                        }}>Draft Reminder</Link>
-                </div>
+              <div className="checkboxContainer">
+                {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+                <label className="toggle">
+                  <input
+                    className="checkboxStudent toggle__input"
+                    type="checkbox"
+                    name="specialNeeds"
+                    onChange={this.handleFilterCheck("specialNeeds")}
+                  />
+                  <span className="toggle__label">
+                    <span className="toggle__text"></span>
+                  </span>
+                </label>
 
-                <div className='studentChecks'>
-                    <div className="checkboxContainer">
+                <div className="search-name">Special Needs?</div>
+              </div>
 
-                        {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
-                        <label className="toggle">
+              <div className="checkboxContainer">
+                {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+                <label className="toggle">
+                  <input
+                    className="checkboxStudent toggle__input"
+                    type="checkbox"
+                    name="medicalConditions"
+                    onChange={this.handleFilterCheck("medicalConditions")}
+                  />
+                  <span className="toggle__label">
+                    <span className="toggle__text"></span>
+                  </span>
+                </label>
 
-                            <input className="checkboxStudent toggle__input" type="checkbox" name="allergies" onChange={this.handleFilterCheck('allergies')} />
-                            <span className="toggle__label">
-                                <span className="toggle__text"></span>
-                            </span>
-                        </label>
+                <div className="search-name">Medical Conditions?</div>
+              </div>
 
-                        <div className="search-name">
-                            Allergies?
-                        </div>
-
-                    </div>
-
-                    <div className="checkboxContainer">
-
-                        {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
-                        <label className="toggle">
-
-                            <input className="checkboxStudent toggle__input" type="checkbox" name="specialNeeds" onChange={this.handleFilterCheck('specialNeeds')} />
-                            <span className="toggle__label">
-                                <span className="toggle__text"></span>
-                            </span>
-                        </label>
-
-                        <div className="search-name">
-                            Special Needs?
-                        </div>
-                    </div>
-
-
-                    <div className="checkboxContainer">
-
-                        {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
-                        <label className="toggle">
-
-                            <input className="checkboxStudent toggle__input" type="checkbox" name="medicalConditions" onChange={this.handleFilterCheck('medicalConditions')} />
-                            <span className="toggle__label">
-                                <span className="toggle__text"></span>
-                            </span>
-                        </label>
-
-                        <div className="search-name">
-                            Medical Conditions?
-                        </div>
-                    </div>
-
-                    
-
-                    {/* <label className="checkboxContainer">Include Allergies Search?
+              {/* <label className="checkboxContainer">Include Allergies Search?
                         <input className="checkbox" type="checkbox" name='allergies' onChange={this.handleFilterCheck('allergies')} />
                     </label>
 
@@ -212,59 +228,66 @@ class StudentsSearch extends React.Component {
                     <label className="checkboxContainer">Include Medical Conditions Search?
                         <input className="checkbox" type="checkbox" name='medicalConditions' onChange={this.handleFilterCheck('medicalConditions')} />
                     </label> */}
-                    <div className='studentoptions'>
-
-                        <select className='genderSelect' onChange={this.filterUpdate('gender')}>
-
-                            <option value="" disabled selected value>Gender</option>
-                            <option value="">All</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option> 
-                        </select>
-                        <label className="gradeContainer">
-                        <select className='genderSelect' value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}>
-                        <option value=''>Grade</option>
-                        <option value='Nursery'>Nursery</option>
-                        <option value='PreK'>PreK</option>
-                        <option value='Kindergarten'>Kindergarten</option>
-                        <option value='1st'>1st</option>
-                        <option value='2nd'>2nd</option>
-                        <option value='3rd'>3rd</option>
-                        <option value='4th'>4th</option>
-                        <option value='5th'>5th</option>
-                        <option value='6th'>6th</option>
-                        <option value='7th'>7th</option>
-                        <option value='8th'>8th</option>
-                        <option value='9th'>9th</option>
-                        <option value='10th'>10th</option>
-                        <option value='11th'>11th</option>
-                        <option value='12th'>12th</option>
-                        </select>
-                        </label>
-                    </div>
-                </div>
-
-                <div className='studentIndex'>
-                    <h2 className='studentIndexTitle'>Select the students to draft a reminder to their parents</h2>
-                    <ul className="studentsUl">
-
-                    { filteredStudents.map ( student => (
-                        <StudentItem 
-                        student={student} 
-                        handleStudentCheck={this.handleStudentCheck}
-                        selectedStudents={this.state.selectedStudents}
-                        deleteStudent={deleteStudent}
-                        updateStudent={updateStudent} 
-                        openModal={openModal}
-                        key={student._id}
-                        />
-                        ))}
-                    </ul>
-                </div>
-
+              <div className="studentoptions">
+                <select
+                  className="genderSelect"
+                  onChange={this.filterUpdate("gender")}
+                >
+                  <option value="" disabled selected value>
+                    Gender
+                  </option>
+                  <option value="">All</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+                <label className="gradeContainer">
+                  <select
+                    className="genderSelect"
+                    value={`${this.state.query.grade}`}
+                    onChange={this.filterUpdate("grade")}
+                  >
+                    <option value="">Grade</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="PreK">PreK</option>
+                    <option value="Kindergarten">Kindergarten</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                    <option value="5th">5th</option>
+                    <option value="6th">6th</option>
+                    <option value="7th">7th</option>
+                    <option value="8th">8th</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="11th">11th</option>
+                    <option value="12th">12th</option>
+                  </select>
+                </label>
+              </div>
             </div>
-        )
+
+            <div className="studentIndex">
+              <h2 className="studentIndexTitle">
+                Select the students to draft a reminder to their parents
+              </h2>
+              <ul className="studentsUl">
+                {filteredStudents.map(student => (
+                  <StudentItem
+                    student={student}
+                    handleStudentCheck={this.handleStudentCheck}
+                    selectedStudents={this.state.selectedStudents}
+                    deleteStudent={deleteStudent}
+                    updateStudent={updateStudent}
+                    openModal={openModal}
+                    key={student._id}
+                  />
+                ))}
+              </ul>
+            </div>
+          </div>
+        );
     }
 }
 
