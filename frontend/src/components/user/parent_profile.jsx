@@ -19,7 +19,6 @@ class ParentProfile extends React.Component {
         };
 
     }
-  }
 
   handleUpdateParent(e) {
     e.preventDefault();
@@ -55,12 +54,12 @@ class ParentProfile extends React.Component {
         let currentUserChildren = 
             remove200Status.filter(val => val.parentId[0] === this.props.currentUser.id);
 
-        let childrenList;
+        let childrenLis;
         if (currentUserChildren.length === 0) {
-            childrenList = <p>You have not registered any students yet</p>
+            childrenLis = <p>You have not registered any students yet</p>
         } else {
             // maping children matching currentUser.id === child.parentId
-            childrenList = currentUserChildren.map(
+            childrenLis = currentUserChildren.map(
             (student, idx) => {
                 return (
                 <ChildIndexItem
@@ -134,7 +133,7 @@ class ParentProfile extends React.Component {
           </button>
         </div>
         <div className="children-index-container">
-          <ul className="children-index">{childrenList}</ul>
+          <ul className="children-index">{childrenLis}</ul>
         </div>
       </div>
      </div>
