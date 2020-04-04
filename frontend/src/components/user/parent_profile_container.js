@@ -10,7 +10,8 @@ const mapStateToProps = state => {
         if (Object.values(state.entities.students).length === 0) {
             students = [];
         } else {
-            students = Object.values(state.entities.students);
+            students = Object.values(state.entities.students)
+                .filter(val => val !== state.entities.students.status);
         }
         
     let formType;
@@ -33,7 +34,8 @@ const mapStateToProps = state => {
         currentUser: state.session.user,
         students: students,
         formType: formType,
-        studentId: studentId
+        studentId: studentId,
+        status: state.entities.students.status
     };
 };
 

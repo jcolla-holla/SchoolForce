@@ -9,7 +9,8 @@ const mapStateToProps = state => {
   return {
     errors: Object.values(state.errors.session),
     currentUser: state.session.user,
-    formType: 'Register Student'
+    formType: 'Register Student',
+    status: state.entities.students.status
   };
 };
 

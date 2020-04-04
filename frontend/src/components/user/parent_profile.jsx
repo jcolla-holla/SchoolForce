@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./parent_profile.css";
 import ChildIndexItem from './child_index_item';
 
@@ -8,7 +8,8 @@ class ParentProfile extends React.Component {
         super(props);
 
         this.state = {
-            registrationSuccess: false
+            registrationSuccess: false,
+            resetSucess: true
         }
     }
     
@@ -19,24 +20,26 @@ class ParentProfile extends React.Component {
     }
 
     componentDidUpdate() {
-        debugger
-        if (this.props.registrationSuccess) {
-            window.setTimeout(() => {
-                this.setState({ registrationSuccess: false })
-            }, 2000)
+        if (this.props.status && this.state.resetSucess) {
+            this.setState({ registrationSuccess: true })
+            this.state.resetSucess = false;
         }
-    }
-
+        window.setTimeout(() => {
+            this.setState({ registrationSuccess: false })
+        }, 20000)
+    };
 
     render() {
+        // debugger
         if (this.props.students === undefined) {
             return <div></div>
         };
 
-        const { deleteStudent, updateStudent, openModal, students, currentUser } = this.props;
+        let { deleteStudent, updateStudent, openModal } = this.props;
         
         // filters through all children matching currentUser.id === child.parentId
-        const currentUserChildren = Object.values(students).filter(ele => ele.parentId[0] === currentUser.id);
+        let currentUserChildren = Object.values(this.props.students)
+        .filter(val => val !== 200 && val.parentId[0] === this.props.currentUser.id);
 
         let childrenList;
         if (currentUserChildren.length === 0) {
@@ -58,14 +61,17 @@ class ParentProfile extends React.Component {
 
         let successMessage;
         if (this.state.registrationSuccess) {
-            successMessage = <div className="success-message-div">
+            successMessage = 
+                <div className="success-message-div">
                 <span>Student has been successfully registered.</span>
-            </div>;
+            </div>
         } else {
             successMessage = <div className="empty-success-msg-div"></div>;
         }
 
         return (
+            <div>
+                {successMessage}
             <div id='parent-profile-page'>
                 <div className="welcome-header">
                     <p>{this.props.currentUser.firstName} {this.props.currentUser.lastName}'s Profile</p>
@@ -93,6 +99,7 @@ class ParentProfile extends React.Component {
                     </ul>
                 </div>
             </div>
+        </div>
         )
     }
 }
