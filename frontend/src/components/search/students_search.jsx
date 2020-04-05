@@ -16,11 +16,15 @@ class StudentsSearch extends React.Component {
                 gender: '',
                 grade: ''
             },
-            selectedStudents: {}
+            selectedStudents: {},
+            checkedAll: false, 
+            sortType: "firstName",
+            sortFunc: (x, y) => { if (x < y) return - 1; return 1;}
         }
         this.filterUpdate = this.filterUpdate.bind(this);
         this.handleStudentCheck = this.handleStudentCheck.bind(this);
         this.adminUserId = this.props.adminUserId;
+        this.handleSortClick = this.handleSortClick.bind(this);
     }
 
     filterUpdate(field) {
@@ -51,6 +55,8 @@ class StudentsSearch extends React.Component {
             this.setState(newState);
         }
     }
+
+    
 
     componentDidMount() {
         this.props.fetchAllStudents();
@@ -103,16 +109,35 @@ class StudentsSearch extends React.Component {
         
     };
 
+    handleAllCheck (filteredStudents) {
+        if (Object.keys(this.state.selectedStudents).length === 0) {
+            let newSelectedStudents = {}
+            filteredStudents.forEach( student => { 
+                newSelectedStudents = Object.assign({}, newSelectedStudents, { [student._id]: student });
+                
+            });
+            let newState = Object.assign({}, this.state, { selectedStudents: newSelectedStudents, checkedAll: true });
+            this.setState(newState);
+        } else {
+           
+            let newState = Object.assign({}, this.state, {selectedStudents: {}, checkedAll: false});
+            this.setState(newState);
+        } 
+    }
+
+    handleSortClick = (type, func) => {  
+        this.setState({sortType: type, sortFunc: func})
+    }
+
+
 
     render() {
         let filteredStudents = [];
         let filteredParentsArr = [];
         if (this.props.students[0]) {
             filteredStudents = this.props.students.filter((student) => {
-
                 return this.studentFilters(student);
             })
-
             filteredParentsArr = Object.values(this.state.selectedStudents).map(student => {
                 //improvement opportunity - avoid a n^2 query
                 let oneStudentParentsArr = []
@@ -121,8 +146,10 @@ class StudentsSearch extends React.Component {
                 }
                 return oneStudentParentsArr;
             });
-        }
 
+           filteredStudents = filteredStudents.quickSort(this.state.sortType, this.state.sortFunc);
+          
+        }
 
         const userAdminId = this.adminUserId;
         const { createReminder, deleteStudent, updateStudent, openModal } = this.props;
@@ -228,50 +255,72 @@ class StudentsSearch extends React.Component {
                     <label className="checkboxContainer">Include Medical Conditions Search?
                         <input className="checkbox" type="checkbox" name='medicalConditions' onChange={this.handleFilterCheck('medicalConditions')} />
                     </label> */}
-              <div className="studentoptions">
-                <select
-                  className="genderSelect"
-                  onChange={this.filterUpdate("gender")}
-                >
-                  <option value="" disabled selected value>
-                    Gender
-                  </option>
-                  <option value="">All</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
-                <label className="gradeContainer">
-                  <select
-                    className="genderSelect"
-                    value={`${this.state.query.grade}`}
-                    onChange={this.filterUpdate("grade")}
-                  >
-                    <option value="">Grade</option>
-                    <option value="Nursery">Nursery</option>
-                    <option value="PreK">PreK</option>
-                    <option value="Kindergarten">Kindergarten</option>
-                    <option value="1st">1st</option>
-                    <option value="2nd">2nd</option>
-                    <option value="3rd">3rd</option>
-                    <option value="4th">4th</option>
-                    <option value="5th">5th</option>
-                    <option value="6th">6th</option>
-                    <option value="7th">7th</option>
-                    <option value="8th">8th</option>
-                    <option value="9th">9th</option>
-                    <option value="10th">10th</option>
-                    <option value="11th">11th</option>
-                    <option value="12th">12th</option>
-                  </select>
-                </label>
-              </div>
-            </div>
+                    <div className='studentoptions'>
+
+                        <select className='genderSelect' onChange={this.filterUpdate('gender')}>
+
+                            <option value="" disabled selected value>Gender</option>
+                            <option value="">All</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option> 
+                        </select>
+                        <label className="gradeContainer">
+                        <select className='genderSelect' value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}>
+                        <option value=''>Grade</option>
+                        <option value='Nursery'>Nursery</option>
+                        <option value='PreK'>PreK</option>
+                        <option value='Kindergarten'>Kindergarten</option>
+                        <option value='1st'>1st</option>
+                        <option value='2nd'>2nd</option>
+                        <option value='3rd'>3rd</option>
+                        <option value='4th'>4th</option>
+                        <option value='5th'>5th</option>
+                        <option value='6th'>6th</option>
+                        <option value='7th'>7th</option>
+                        <option value='8th'>8th</option>
+                        <option value='9th'>9th</option>
+                        <option value='10th'>10th</option>
+                        <option value='11th'>11th</option>
+                        <option value='12th'>12th</option>
+                        </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div className='div-student-sort'>
+                    <h2 className='studentIndexTitle'>Select the students to draft a reminder to their parents</h2>
+                    {/* pulled from online resource w checkbox styling: https://codepen.io/melnik909/pen/YjGZqQ */}
+
+                    <div className="select-all">
+                    <div className="checkboxContainer">
+                    <label className="toggle">
+                    <input className="checkboxStudent toggle__input" type="checkbox" name="selectAll" onChange={() => this.handleAllCheck(filteredStudents)} />
+                    <span className="toggle__label">
+                        <span className="toggle__text"></span>
+                    </span>
+                    </label>
+                       <div className="search-name-all"> Select All Students</div>
+                    </div>
+                    </div>
+
+                    <div className="student-sort">
+                        <button 
+                        onClick={() => this.handleSortClick("firstName", (x, y) => { if (x < y) return - 1; return 1;})}
+                        >Sort by first name (asc)</button>
+                        <button 
+                        onClick={() => this.handleSortClick("firstName", (x, y) => { if (x > y) return - 1; return 1;})}
+                        >Sort by first name (desc)</button>
+                        <button 
+                        onClick={() => this.handleSortClick("lastName", (x, y) => { if (x < y) return - 1; return 1;})}
+                        >Sort by last name (asc)</button>
+                        <button 
+                        onClick={() => this.handleSortClick("lastName", (x, y) => { if (x > y) return - 1; return 1;})}
+                        >Sort by last name (desc)</button>
+                     </div>
+                </div>
 
             <div className="studentIndex">
-              <h2 className="studentIndexTitle">
-                Select the students to draft a reminder to their parents
-              </h2>
               <ul className="studentsUl">
                 {filteredStudents.map(student => (
                   <StudentItem
@@ -284,6 +333,7 @@ class StudentsSearch extends React.Component {
                     key={student._id}
                   />
                 ))}
+                {filteredStudents.length === 0 && <div><h2>No students to display</h2></div>}
               </ul>
             </div>
           </div>
@@ -292,3 +342,18 @@ class StudentsSearch extends React.Component {
 }
 
 export default StudentsSearch;
+
+
+Array.prototype.quickSort = function (type, func) {
+    if (this.length < 2) return this;
+    debugger
+    const pivot = this[0];
+    debugger
+    let left = this.slice(1).filter((el) => func(el[type], pivot[type]) === -1);
+    let right = this.slice(1).filter((el) => func(el[type], pivot[type]) !== -1);
+    debugger
+    left = left.quickSort(type, func);
+    right = right.quickSort(type, func);
+    debugger
+    return left.concat([pivot]).concat(right);
+  };

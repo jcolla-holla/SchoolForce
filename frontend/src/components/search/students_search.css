@@ -88,6 +88,7 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 60px;
 }
 
 #admin-search-container .studentIndexTitle {
@@ -172,7 +173,6 @@ LEVEL 1. CORE STYLES
   --uiToggleBgColor: var(--toggleBgColor, #fff);
   --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
   --uiToggleArrowColor: var(--toggleArrowColor, #fff);
-
   display: inline-block;
   position: relative;
 }
@@ -201,9 +201,41 @@ LEVEL 1. CORE STYLES
   top: 0;
 }
 
+.student-sort button {
+    display: inline-block;
+    border: none;
+    padding: 5px;
+    margin: 0;
+    text-decoration: underline;
+    background:none;
+    color: black;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.div-student-sort {
+  margin-left: -10px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  
+}
+
+.student-sort {
+  margin-left: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.select-all {
+  margin-left: 30px;
+}
+
 .toggle__label:before{
   border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .toggle__input:disabled ~ .toggle__label:before{
@@ -252,7 +284,7 @@ The arrow size and position depends from sizes of square because I needed an arr
   position: absolute;
   top: .5428em;
   left: .2em;
-  z-index: 3;
+  z-index: 1;
 
   transform-origin: left top;
   transform: rotate(-40deg) skew(10deg);

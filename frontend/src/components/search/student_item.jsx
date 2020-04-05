@@ -78,7 +78,7 @@ class StudentItem extends React.Component {
                 <button className='delete-student-button'
                         onClick={this.handleDeleteStudent}>
                         Delete Student
-                    </button> 
+                </button> 
             </div>
         </div>
     </li>

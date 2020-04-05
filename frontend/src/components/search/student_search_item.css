@@ -14,7 +14,7 @@
 
 #admin-search-container .student-name {
     font-weight: bold;
-    margin-left: 10px;
+    margin-left: 16px;
     margin-right: 10px;
     font-size: 24px;
 }
@@ -55,7 +55,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .update-student-button {
@@ -68,10 +68,9 @@
     font-weight: 600;
     letter-spacing: .1em;
     line-height: 1.5;
-    margin: -50px 0 20px;
     filter: brightness(1.3);
     font-size: 13px;
-    margin-right: 10px;
+    
 }
 
 .update-student-button:hover {
@@ -111,4 +110,20 @@
  
 .allergies, .specialNeeds, .medicalConditions, .gender, .grade {
     width: 15%;
+}
+
+.specialNeeds label{
+    margin-left: 25px;
+}
+
+.medicalConditions label{
+    margin-left: 20px;
+}
+
+.grade label {
+    margin-top: 20px;
+}
+
+.allergies, .gender, p {
+    padding-top: 17px;
 }
