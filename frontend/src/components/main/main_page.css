@@ -75,16 +75,6 @@ body {
     font-family: "sans-serif";
 }
 
-/* #main-page .login-button:hover {
-    color: gray;
-    background-color: #feb72b;
-}
-
-#main-page .signup-button:hover {
-    color: gray;
-    background-color: #feb72b;
-} */
-
 #main-page .main-page-body {
     display: flex;
     flex-direction: column;
