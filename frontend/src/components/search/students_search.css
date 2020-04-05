@@ -284,7 +284,7 @@ The arrow size and position depends from sizes of square because I needed an arr
   position: absolute;
   top: .5428em;
   left: .2em;
-  z-index: 3;
+  z-index: 1;
 
   transform-origin: left top;
   transform: rotate(-40deg) skew(10deg);

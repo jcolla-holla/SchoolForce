@@ -333,6 +333,7 @@ class StudentsSearch extends React.Component {
                     key={student._id}
                   />
                 ))}
+                {filteredStudents.length === 0 && <div><h2>No students to display</h2></div>}
               </ul>
             </div>
           </div>
