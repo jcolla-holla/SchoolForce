@@ -346,14 +346,14 @@ export default StudentsSearch;
 
 Array.prototype.quickSort = function (type, func) {
     if (this.length < 2) return this;
-    debugger
+    
     const pivot = this[0];
-    debugger
+    
     let left = this.slice(1).filter((el) => func(el[type], pivot[type]) === -1);
     let right = this.slice(1).filter((el) => func(el[type], pivot[type]) !== -1);
-    debugger
+    
     left = left.quickSort(type, func);
     right = right.quickSort(type, func);
-    debugger
+    
     return left.concat([pivot]).concat(right);
   };
