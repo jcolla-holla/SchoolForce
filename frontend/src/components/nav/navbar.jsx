@@ -27,7 +27,7 @@ class NavBar extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="navbarLinks">
           <Link className="signupLink" to={"/signup"}>Sign up</Link>
           <Link className="loginLink" to={"/login"}>Log in</Link>
           {/* <Link className="ourTeamLink" to={"/about"}>Our Team</Link> */}

@@ -87,6 +87,7 @@ body {
 .resources-icons {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 
@@ -102,6 +103,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-left: 20px;
 }
 
 #main-page .main-page-body .main-page-body-main-hook {
@@ -113,33 +115,40 @@ body {
     text-shadow: 1px 1px black;
 }
 
-.main-page-body-main-hook p {
-    color: #527318;
+.main-page-body-main-hook span {
+    color: white;
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 18px;
     margin-bottom: 18px;   
-    text-shadow: 1px 1px lightgreen; 
+    /* text-shadow: 1px 1px lightgreen;  */
+}
+
+.main-page-body-main-hook div {
+    margin-top: 14px;
 }
 
 .first-hook-descritption {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     margin-bottom: 45px;
-    font-size: 16px;
+    font-size: 18px;
     text-shadow: 1px 1px black;
 }
 
 .creat-account-button {
-    padding: 20px;
+    padding: 12px;
     color: white;
     text-decoration: none;
     background: linear-gradient(#899857, #527318);
-    margin-right: 80px;
+    /* margin-right: 80px; */
     box-shadow: inset 0 1px 1px #899857;
     font-size: 16px;
     border: none;
     border-radius: 4px;
+    margin-top: 10px;
+    min-width: 120px;
+    text-align: center;
 }
 
 .creat-account-button:hover {
@@ -147,12 +156,11 @@ body {
     box-shadow: none;
 }
 
-#main-page .main-page-body .main-page-body-frustration-image {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    margin-right: 85px;
-    margin-left: -265px;
+.splashButtons {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #main-page .main-page-body .main-page-body-descriptions {
@@ -222,7 +230,7 @@ body {
 }
 
 .resources-title {
-   
+    padding-left: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 36px;
     color: #3e3e3e;
@@ -268,10 +276,7 @@ body {
     color: #527318;
 }
 
-#main-page .main-page-body .child-picture {
-    width: 500px;
-    border-radius: 4px;
-}
+
 
 .feature-description {
     font-size: 16px;

@@ -40,6 +40,9 @@ body {
 
 .student-index-item-buttons {
     margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+
 }
 
 .child-index-item-button{

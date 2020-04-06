@@ -13,20 +13,20 @@ const NotLoggedInMain = () => (
     <div>
         <section className="main-page-body">
             <div className="first-hook-div">
-                {/* <img
-                    className="main-page-body-frustration-image"
-                    src="https://i.ibb.co/MRHMpV7/shutterstock-1186878361.jpg"
-                    alt=""
-                /> */}
                 <div className="first-hook-descrition">
                     <h2 className="main-page-body-main-hook">
-                        Are you a <p>SCHOOL DIRECTOR</p> and parents never read your emails?
+                        <div>You are a <span>SCHOOL DIRECTOR</span> </div>
+                        <div>and parents never read your emails?</div>
+                        
                     </h2>
                     <div className="first-hook-descritption"><strong>SchoolForce</strong> is a light CRM for SMS communication with parents 100% from your computer. 
                     <p>Meet parents where they are - send short reminders that actually get read.</p>
                     
                     </div>
-                    <Link className="creat-account-button" to={"/signup"}>Register now</Link>
+                    <div className="splashButtons">
+                        <Link className="creat-account-button" to={"/signup"}>Register Now</Link>
+                        <Link className="creat-account-button" to={"/login"}>Demo Login</Link>
+                    </div>
                 </div>
             </div>
 

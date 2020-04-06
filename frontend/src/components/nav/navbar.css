@@ -14,21 +14,22 @@
 }
 
 
-.nav-links {
+/* I don't this this affects anything: - Jesse */
+/* .nav-links {
     margin-right: 160px;
     margin-left: -20px;
 }
-.nav-links a {
-position: relative;
-padding: 30px;
-font-family: sans-serif;
-text-decoration: none;
-color: white;
-font-size: 17px;
-font-weight: 500;
-transition: 0.5s ease all .3s;
 
-}
+.nav-links a {
+    position: relative;
+    padding: 30px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.5s ease all .3s;
+} */
 
 
 
@@ -58,14 +59,28 @@ transition: 0.5s ease all .3s;
     color: white;
 }
 
+
 #nav-bar-container .navbar-logo {
     color: #feb72b;
-    margin-left: 120px;
+    /* margin-left: 120px; */
     font-family: sans-serif;
     text-decoration: none;
     font-size: 30px;
     font-weight: bold;
     -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: start;
+    width: 10vmin;
+    margin-left: 5vmin;
+}
+
+
+@media screen and (max-width: 600px) {
+    .navbar-logo {
+        font-size: 20px;
+        margin-left: 0px;
+        color: blue;
+    }
 }
 
 
@@ -155,6 +170,18 @@ transition: 0.5s ease all .3s;
   background-color: #527318 ;
   z-index: 1 ;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+    .signupLink {
+      display: none;
+    }
+
+    .loginLink {
+      display: none;
+    }
+
+
 }
 
 

@@ -31,7 +31,7 @@ class ReminderIndex extends React.Component {
       ));
     }
 
-    debugger
+    
     return (
       <div id="reminder-index-page">
         <div className="welcome-header">

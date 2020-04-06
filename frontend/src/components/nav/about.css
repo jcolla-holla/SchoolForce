@@ -3,10 +3,10 @@
     align-items: center;
     flex-direction: column;
     font-family: sans-serif;
-    margin-left: 50px;
     width: 100%;
     box-sizing: border-box;
     padding-top: 80px;
+    margin-bottom: 100px;
 }
 
 #main-page #ourTeamContainer {
@@ -75,7 +75,8 @@
 .teamProfiles {
     display: flex;
     align-items: center;
-    
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .profileLinks {
@@ -141,6 +142,9 @@
 
 .meet-the-team {
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
     color: black;
     opacity: 80%;
     margin-bottom: 20px;
