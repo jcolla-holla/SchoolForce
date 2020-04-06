@@ -40,16 +40,16 @@ class ParentProfile extends React.Component {
     }
 
     render() {
-        
+
         if (this.props.students === undefined) {
             return <div></div>
         };
 
         let { deleteStudent, updateStudent, openModal } = this.props;
-
+        
         // filters through all children matching currentUser.id === child.parentId
         let remove200Status = Object.values(this.props.students).filter(val => val !== 0);
-
+  
         let currentUserChildren = 
             remove200Status.filter(val => val.parentId[0] === this.props.currentUser[0]._id);
         

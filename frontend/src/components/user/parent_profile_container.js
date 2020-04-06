@@ -13,8 +13,21 @@ const mapStateToProps = state => {
         if (Object.values(state.entities.students).length === 0) {
             students = [];
         } else {
-            students = Object.values(state.entities.students)
+            let studentCheck = Object.values(state.entities.students)
                 .filter(val => val !== state.entities.students.status);
+
+            let noDuplicates = [];
+            
+            for (let i = 0; i < studentCheck.length -1; i++) {
+                
+                let mainId = studentCheck[i]._id
+                let dupId = studentCheck[i + 1]._id
+                
+                if (mainId !== dupId) {
+                    noDuplicates.push(studentCheck[i])
+                }
+                students = noDuplicates
+            }
         };
         
     let formType;

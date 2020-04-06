@@ -82,7 +82,6 @@ label.update-label {
     flex-direction: column;
     width: 500px;
     margin: 0 auto;
-    margin-top: 20px;
 }
 
 .student-form-header {
@@ -93,17 +92,16 @@ label.update-label {
     color: black;
     padding-bottom: 10px;
     letter-spacing: .07em;
-    margin: 10px 0 10px;
+    margin: ;
 }
 
 .student-form-input {
-    height: 34px;
+    height: 20px;
     width: 100%;
-    padding: 0;
+    padding: 0 2px;
     border: none;
     pointer-events: initial !important;
     -webkit-appearance: none;
-    margin: 8px 0;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(22,24,35,0.2);
     font-size: 12px;
@@ -290,6 +288,6 @@ select:invalid {
 .student-register-errors {
     color: #FF0000;
     font-size: 13px;
-    margin: 10px 0 0;
+    margin: 30px 0 0;
 
 }
