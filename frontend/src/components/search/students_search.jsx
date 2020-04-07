@@ -82,10 +82,11 @@ class StudentsSearch extends React.Component {
         }
 
         if (student) {
+            let searchQuery = this.state.query.text.toLowerCase();
             namevar = (
-              student.firstName.toLowerCase().includes(this.state.query.text.toLowerCase()) !== -1 
+              student.firstName.toLowerCase().includes(searchQuery) !== -1 
               ||
-              student.lastName.toLowerCase().includes(this.state.query.text.toLowerCase()) !== -1
+              student.lastName.toLowerCase().includes(searchQuery) !== -1
             );
         }
 
