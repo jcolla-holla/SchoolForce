@@ -87,8 +87,7 @@ class StudentsSearch extends React.Component {
         }
 
         if (this.state.query.gender) {
-            
-            gendervar = student.gender.toLowerCase() === this.state.query.gender.toLowerCase();
+          gendervar = (student.gender.toLowerCase() === this.state.query.gender.toLowerCase());
         };
 
         if (this.state.query.grade) {
