@@ -22,7 +22,7 @@ const mapStateToProps = state => {
   
   let currentUser;
   if (Object.values(state.entities.users).length === 0) {
-    currentUser = [state.session.user];
+    currentUser = [Object.assign(state.session.user, { _id: state.session.user.id })];
   } else {
 
     let updatedUser = [];
