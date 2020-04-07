@@ -70,13 +70,12 @@ class ParentProfile extends React.Component {
               noDuplicates.push(arr[i])
             }
           }
-          debugger
+          
           return noDuplicates
         }
 
       let noDupChildren = noDups(currentUserChildren)
-      debugger
-        
+      
         let successMessage;
         if (this.state.registrationSuccess) {
             successMessage = 

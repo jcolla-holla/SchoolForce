@@ -81,6 +81,7 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    
     return (
       <div className="signup-form-page">
         <div className="signup-form-container">
