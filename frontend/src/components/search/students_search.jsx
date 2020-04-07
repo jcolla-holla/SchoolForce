@@ -87,7 +87,7 @@ class StudentsSearch extends React.Component {
         }
 
         if (this.state.query.gender) {
-          gendervar = (student.gender.toLowerCase() === this.state.query.gender.toLowerCase());
+          gendervar = (student.gender === this.state.query.gender);
         };
 
         if (this.state.query.grade) {
@@ -273,9 +273,9 @@ class StudentsSearch extends React.Component {
 
                             <option value="" disabled selected value>Gender</option>
                             <option value="">All</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option> 
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option> 
                         </select>
                         <label className="gradeContainer">
                         <select className='genderSelect' value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}>
