@@ -57,8 +57,6 @@ router.post('/edit/:id', (req, res) => {
                 .catch(err =>
                     res.status(400).json(err))
         })
-        .catch(err =>
-            res.status(400).json(err))
 });
 
 router.post('/',
