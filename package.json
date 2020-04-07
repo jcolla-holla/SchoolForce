@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "mern project",
   "main": "app.js",
-  "engines": {
-    "node": "13.8.x"
-  },
   "scripts": {
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
