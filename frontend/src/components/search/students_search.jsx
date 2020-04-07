@@ -120,6 +120,7 @@ class StudentsSearch extends React.Component {
     }
 
     render() {
+
         let filteredStudents = [];
         let filteredParentsArr = [];
         if (this.props.students[0]) {
@@ -138,6 +139,29 @@ class StudentsSearch extends React.Component {
            filteredStudents = filteredStudents.quickSort(this.state.sortType, this.state.sortFunc);
           
         }
+        
+        function noDups(arr) {
+
+          // // array of all student ids
+          // let studentIds = arr.map(ids => ids._id);
+          // // arrray of all unique ids (no dups)
+          // let uniqueIds = studentIds.filter((ids, index) => studentIds.indexOf(ids) >= index);
+          let uniqueIds = [];
+          let noDuplicates = [];
+
+          for (let i = 0; i < arr.length; i++) {
+            let dupCheck = arr[i]._id
+
+            if (!uniqueIds.includes(dupCheck)) {
+              uniqueIds.push(dupCheck)
+              noDuplicates.push(arr[i])
+            }
+          }
+
+          return noDuplicates
+        }
+
+        let noDupChildren = noDups(filteredStudents)
 
         const userAdminId = this.props.adminUserId;
         const { createReminder, deleteStudent, updateStudent, openModal } = this.props;
@@ -311,7 +335,7 @@ class StudentsSearch extends React.Component {
 
             <div className="studentIndex">
               <ul className="studentsUl">
-                {filteredStudents.map(student => (
+                {noDupChildren.map(student => (
                   <StudentItem
                     student={student}
                     handleStudentCheck={this.handleStudentCheck}

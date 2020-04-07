@@ -15,9 +15,9 @@ class ReminderIndex extends React.Component {
   };
 
   render() {
-    
+
     let users = this.props.users;
-    let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser[0]._id));
+    let filteredReminders = this.props.reminders.filter((reminder) => reminder.parentId.includes(this.props.currentUser[0].id));
     let reminderList;
     
     if (filteredReminders.length === 0) {

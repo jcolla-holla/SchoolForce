@@ -9,7 +9,7 @@ const mapStateToProps = state => {
   if (state.entities.reminders.reminders === undefined) {
     reminders = [];
   } else {
-    reminders = state.entities.reminders.reminders;
+    reminders = Object.values(state.entities.reminders.reminders);
   }
 
   let users;

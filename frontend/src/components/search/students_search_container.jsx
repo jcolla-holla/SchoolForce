@@ -29,8 +29,10 @@ const mapStateToProps = (state) => {
         adminUser = updatedAdmin;
     }
     
+    let students = Object.values(state.entities.students).filter(val => val !== 0);
+    
     return {
-        students: Object.values(state.entities.students),
+        students: students,
         users: state.entities.users,
         adminUserId: state.session.user.id,
         adminUser: adminUser
