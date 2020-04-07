@@ -14,7 +14,6 @@ class AdminPastReminders extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.reminders.length === 0) {
       return <div></div>
     }
