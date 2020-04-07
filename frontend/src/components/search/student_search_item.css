@@ -45,7 +45,6 @@
 }
 
 #admin-search-container .nonNameInfo p {
-    /* this margin: 0px; resets something inherited I can't figure out - Jesse */
     margin: 0px;
     margin-top: 10px;
     font-size: 14px;

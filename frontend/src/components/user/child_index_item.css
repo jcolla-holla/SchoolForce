@@ -34,7 +34,6 @@ body {
 }
 
 .student-info p {
-    /* this margin: 0px; resets something inherited I can't figure out - Jesse */
     font-size: 12px;
 }
 
