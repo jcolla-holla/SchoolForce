@@ -8,11 +8,11 @@ const UsersReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_USERS:
-      for (let index = 0; index < action.users.data.length; index++) {
-        let user = action.users.data[index];
-        newState[user._id] = user;
-      }
-      return Object.assign({}, state, newState)
+      // for (let index = 0; index < action.users.data.length; index++) {
+      //   let user = action.users.data[index];
+      //   newState[user._id] = user;
+      // }
+      return Object.assign({}, newState, action.users.data)
       
     default:
       return state;

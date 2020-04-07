@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import "./reminder_index.css";
 
 class AdminPastReminders extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
     this.props.fetchAllUsers();
@@ -11,6 +14,11 @@ class AdminPastReminders extends React.Component {
   }
 
   render() {
+    debugger
+    if (this.props.reminders.length === 0) {
+      return <div></div>
+    }
+
     let users = this.props.users;
 
     let filteredReminders = this.props.reminders.filter(reminder =>

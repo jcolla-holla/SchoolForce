@@ -40,19 +40,42 @@ class ParentProfile extends React.Component {
     }
 
     render() {
-        
+
         if (this.props.students === undefined) {
             return <div></div>
         };
 
         let { deleteStudent, updateStudent, openModal } = this.props;
-
+        
         // filters through all children matching currentUser.id === child.parentId
         let remove200Status = Object.values(this.props.students).filter(val => val !== 0);
 
-        let currentUserChildren = 
-            remove200Status.filter(val => val.parentId[0] === this.props.currentUser[0]._id);
-        
+        let currentUserChildren =
+          remove200Status.filter(val => val.parentId[0] === this.props.currentUser[0]._id);
+
+        function noDups(arr) {
+          
+          // // array of all student ids
+          // let studentIds = arr.map(ids => ids._id);
+          // // arrray of all unique ids (no dups)
+          // let uniqueIds = studentIds.filter((ids, index) => studentIds.indexOf(ids) >= index);
+          let uniqueIds = [];
+          let noDuplicates = [];
+
+          for (let i = 0; i < arr.length; i++) {
+            let dupCheck = arr[i]._id
+
+            if (!uniqueIds.includes(dupCheck)) {
+              uniqueIds.push(dupCheck)
+              noDuplicates.push(arr[i])
+            }
+          }
+          
+          return noDuplicates
+        }
+
+      let noDupChildren = noDups(currentUserChildren)
+      
         let successMessage;
         if (this.state.registrationSuccess) {
             successMessage = 
@@ -64,11 +87,11 @@ class ParentProfile extends React.Component {
         }
 
     let childrenList;
-    if (currentUserChildren.length === 0) {
+      if (noDupChildren.length === 0) {
       childrenList = <p>You have not registered any students yet</p>;
     } else {
       // maping children matching currentUser.id === child.parentId
-      childrenList = currentUserChildren.map((student, idx) => {
+        childrenList = noDupChildren.map((student, idx) => {
         return (
           <ChildIndexItem
             key={idx}

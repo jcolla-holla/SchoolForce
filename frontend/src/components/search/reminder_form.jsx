@@ -7,53 +7,77 @@ class ReminderForm extends React.Component {
         this.state = {
             title: '',
             body: '',
-            demoParent: [{firstName:"", lastName:"", mobile:""}]
+            demoParent: [{ firstName: "", lastName: "", mobile: "" }],
+            parentIds: [],
+            parentMobileArr: [],
+            parentsArr: []
         }
 
         // *START line prevents error out when not loading page
-        this.props.location.state = this.props.location.state ? this.props.location.state : this.props.location.state = { users: { filteredParentsArr: []}, adminId: "",  }
+        this.props.location.state = this.props.location.state ? this.props.location.state : this.props.location.state = { users: { filteredParentsArr: [] }, adminId: "", }
         // * END
 
         this.alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV!@#$%^&*()-+"
-        this.parentsArr = this.props.location.state.users.filteredParentsArr;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoParentSubmit = this.demoParentSubmit.bind(this);
-        this.authorId = this.props.history.location.state.adminId.userAdminId;
-
-        this.parentIds = [];
-        this.parentMobileArr = [];
-        for (let index = 0; index < this.parentsArr.length; index++) {
-            let parentId = this.parentsArr[index][0]._id;
-            //only add unique parent Ids to parentIds array
-            if (!this.parentIds.includes(parentId)) {
-                this.parentIds.push(parentId);
-            }
-
-            //only add unique parent Ids to parentMobileArr array
-            let parentNumber = this.parentsArr[index][0].mobile;
-            if (!this.parentMobileArr.includes(parentNumber)) {
-                this.parentMobileArr.push(`+1${parentNumber}`);
-            }
-
-
-            // check if parentMobileArr is // this.parentMobileArr = ["+1234567890, +17654357890", ...]
-
-        }
+        this.authorId = this.props.adminUser[0].id;
+        this.parentsIdArr = this.props.students.map(ele => ele.parentId[0])
+        this.users = this.props.users;
+        this.students = this.props.students;
+        this.recipientsMobileArr = this.props.location.state.users.filteredParentsArr;
     }
+
+    componentDidMount() {
+        this.setState ({
+            title: '',
+            body: '',
+            demoParent: [{ firstName: "", lastName: "", mobile: "" }],
+            parentIds: [],
+            parentMobileArr: [],
+            parentsArr: []
+        })
+    };
 
     handleSubmit(e) {
         e.preventDefault();
+                
+        function noDups(arr) {
 
-        this.props.history.location.state.createReminder.createReminder({ title: this.state.title, body: this.state.body, authorId: this.authorId, parentId: this.parentIds, parentMobileArr: this.parentMobileArr});
+          // // array of all student ids
+          // let studentIds = arr.map(ids => ids._id);
+          // // arrray of all unique ids (no dups)
+          // let uniqueIds = studentIds.filter((ids, index) => studentIds.indexOf(ids) >= index);
+          let uniqueIds = [];
+          let noDuplicates = [];
 
-        // Danny's Desire (this line below will only work once the reminder backend is updated): 
-        // this.props.history.location.state.createReminder.createReminder({title: this.state.title, body: this.state.body, authorId: this.authorId, parentId: this.parentIds, parentMobileArr: this.parentMobileArr});
+          for (let i = 0; i < arr.length; i++) {
+            let dupCheck = arr[i]
+
+            if (!uniqueIds.includes(dupCheck)) {
+              uniqueIds.push(dupCheck)
+              noDuplicates.push(dupCheck)
+            }
+          }
+
+          return noDuplicates
+        }
+
+        let noDupesParentIds = noDups(this.state.parentIds);
+        let noDupesParentMobileArr = noDups(this.state.parentMobileArr);
+
+        this.props.createReminder({
+            title: this.state.title,
+            body: this.state.body,
+            authorId: this.authorId,
+            parentIds: noDupesParentIds,
+            parentMobileArr: noDupesParentMobileArr
+        });
 
         alert("Your reminder SMS message was sent!");
 
         //redirect to main page
         this.props.history.push("/");
-      }
+    }
 
     update(field) {
         return e => {
@@ -67,27 +91,27 @@ class ReminderForm extends React.Component {
 
         let demoParentMobile = this.state.demoParent[0].mobile;
         let allNumbers = true;
-        for (let index = 0; index < this.alphabet.length; index++) {
-            let char = this.alphabet[index];
+        for (let i = 0; i < this.alphabet.length; i++) {
+            let char = this.alphabet[i];
             if (demoParentMobile.includes(char)) {
                 allNumbers = false;
             }
         }
-
-        if (this.parentMobileArr.includes(this.state.demoParent[0].mobile)) {
+        
+        if (this.state.parentMobileArr.includes(this.state.demoParent[0].mobile)) {
             alert("that number is already in the list of parents to receive a text");
         } else if (this.state.demoParent[0].mobile.length !== 10) {
             alert("please enter a ten digit number including area code, ex: '4153227890'");
         } else if (allNumbers === false) {
             alert("please enter only numbers")
         } else {
-            this.parentsArr.push(this.state.demoParent);
-            this.parentMobileArr.push(`+1${this.state.demoParent[0].mobile}`);
+            this.state.parentsArr.push(this.state.demoParent[0]);
+            this.state.parentMobileArr.push(`+1${this.state.demoParent[0].mobile}`);
         }
-
+        
         // need to force hacky re-render again in order for new demo parent and number to appear in list at bottom of this component.  Next line sets a part of state to what its value already was (not changing state but forcing re-render)
         this.setState({ demoParent: [{ firstName: "Demo", lastName: "User", mobile: this.state.demoParent[0].mobile }] })
-    }   
+    }
 
     updateDemoMobile(e) {
         return e => {
@@ -96,17 +120,34 @@ class ReminderForm extends React.Component {
         };
     }
 
-    render () {
+    render() {
+
+        let parentIdCheck = []
+        for (let i = 0; i < this.parentsIdArr.length; i++) {
+            if (!parentIdCheck.includes(this.parentsIdArr[i])) {
+                this.state.parentIds.push(this.parentsIdArr[i])
+                parentIdCheck.push(this.parentsIdArr[i])
+            }
+        }
+
+        let mobileCheck = []
+        this.users.forEach(each => {
+            if (parentIdCheck.includes(each._id) && !mobileCheck.includes(each.mobile)) {
+                this.state.parentMobileArr.push(`+1${each.mobile}`);
+                mobileCheck.push(`+1${each.mobile}`);
+                this.state.parentsArr.push(each);
+            }
+        })
         return (
             <div id='reminderForm'>
                 <h2 className="reminderFormTitle">Draft and send your text reminder</h2>
                 <div className="reminderFormContent">
                     <form className="reminderSubmitForm" onSubmit={this.handleSubmit}>
                         <label>Title
-                            <input placeholder="potluck reminder" type="text" className='title' onChange={this.update('title')} />
+                            <input placeholder="Must be between 5 to 50 characters." type="text" className='title' onChange={this.update('title')} />
                         </label>
                         <label> Body
-                            <input placeholder="we have a potluck on thursday, please bring a dish to share" type="textarea" className='body' onChange={this.update('body')} />
+                            <input placeholder="Must be between 5 to 50 characters." type="textarea" className='body' onChange={this.update('body')} />
                         </label>
                         <button className="sendReminderButton" type='submit'>Send Reminder</button>
                     </form>
@@ -121,36 +162,36 @@ class ReminderForm extends React.Component {
                         <title className="recipientListTitle">Parents - Text Recipient List</title>
                         <ul>
                             {/* opportunity for improvement: fetch all Students on component did mount and show the student associated with each parent in this list */}
-                            {this.parentsArr.map((parent, idx) => {
+                            {this.state.parentsArr.map((parent, idx) => {
                                 // this for loop below checks if the parent is a duplicate and if so, doesn't show it in the recipient list to the user
                                 let dupe = false;
-                                for (let index = 0; index < idx; index++) {
-                                    if (this.parentsArr.slice(0, idx)[index][0]._id === parent[0]._id) {
+                                for (let i = 0; i < idx; i++) {
+                                    if (parentIdCheck.includes(parent._id)) {
                                         dupe = true;
                                     }
                                 }
-                                
-                                if (parent[0].firstName === "Demo" && parent[0].lastName === "User") {
+
+                                if (parent.firstName === "Demo" && parent.lastName === "User") {
                                     return <li key={`${idx}`} className="demoParent">
                                         {/* we could make these links to parent show page */}
-                                        <div className="parentName">{parent[0].firstName} {parent[0].lastName}</div>
-                                        <div className="parentNumber">{"+1 " + parent[0].mobile.slice(0, 3) + "-" + parent[0].mobile.slice(3, 6) + "-" + parent[0].mobile.slice(6, 10)}</div>
+                                        <div className="parentName">{parent.firstName} {parent.lastName}</div>
+                                        <div className="parentNumber">{"+1 " + parent.mobile.slice(0, 3) + "-" + parent.mobile.slice(3, 6) + "-" + parent.mobile.slice(6, 10)}</div>
                                     </li>
                                 }
 
                                 if (dupe === false) {
                                     return <li key={`${idx}`}>
                                         {/* we could make these links to parent show page */}
-                                        <div className="parentName">{parent[0].firstName} {parent[0].lastName}</div>
-                                        <div className="parentNumber">{"+1 " + parent[0].mobile.slice(0, 3) + "-" + parent[0].mobile.slice(3, 6) + "-" + parent[0].mobile.slice(6, 10)}</div>
+                                        <div className="parentName">{parent.firstName} {parent.lastName}</div>
+                                        <div className="parentNumber">{"+1 " + parent.mobile.slice(0, 3) + "-" + parent.mobile.slice(3, 6) + "-" + parent.mobile.slice(6, 10)}</div>
                                     </li>
                                 }
                                 return true
-                            })}    
+                            })}
                         </ul>
                     </div>
                 </div>
-            </div> 
+            </div>
         )
     }
 }

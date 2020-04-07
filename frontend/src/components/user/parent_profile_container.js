@@ -15,6 +15,7 @@ const mapStateToProps = state => {
         } else {
             students = Object.values(state.entities.students)
                 .filter(val => val !== state.entities.students.status);
+
         };
         
     let formType;

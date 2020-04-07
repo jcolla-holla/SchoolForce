@@ -6,7 +6,7 @@ import MainPageContainer from "./main/main_page_container";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import AdminPastRemindersContainer from "./reminder/admin_past_reminders_container";
-import ReminderForm from "./search/reminder_form";
+import ReminderFormContainer from "./search/reminder_form_container";
 import ParentProfileContainer from "./user/parent_profile_container";
 import Modal from '../components/modal/modal';
 import About from "./nav/about";
@@ -24,7 +24,7 @@ const App = () => (
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <ProtectedRoute exact path="/profile" component={ParentProfileContainer} />
-        <ProtectedRoute exact path="/draftReminder" component={ReminderForm} />
+        <ProtectedRoute exact path="/draftReminder" component={ReminderFormContainer} />
         <ProtectedRoute exact path="/pastReminders" component={AdminPastRemindersContainer} />
       </Switch>
     </div>

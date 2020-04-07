@@ -23,7 +23,6 @@ class StudentsSearch extends React.Component {
         }
         this.filterUpdate = this.filterUpdate.bind(this);
         this.handleStudentCheck = this.handleStudentCheck.bind(this);
-        this.adminUserId = this.props.adminUserId;
         this.handleSortClick = this.handleSortClick.bind(this);
     }
 
@@ -56,8 +55,6 @@ class StudentsSearch extends React.Component {
         }
     }
 
-    
-
     componentDidMount() {
         this.props.fetchAllStudents();
         this.props.fetchAllUsers();
@@ -70,8 +67,6 @@ class StudentsSearch extends React.Component {
         let namevar = true;
         let gendervar = true;
         let gradevar = true; 
-
-       
 
         if (this.state.query.allergies || this.state.query.specialNeeds || this.state.query.medicalConditions) {
             medicalvar = false;
@@ -86,14 +81,10 @@ class StudentsSearch extends React.Component {
             }
         }
 
-
-
         if (student) {
             namevar = (student.firstName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1 ||
                 student.lastName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1);
         }
-
-
 
         if (this.state.query.gender) {
             
@@ -103,7 +94,6 @@ class StudentsSearch extends React.Component {
         if (this.state.query.grade) {
             gradevar = student.grade === this.state.query.grade;
         };
-
 
        return gradevar && gendervar && namevar && medicalvar;
         
@@ -129,9 +119,8 @@ class StudentsSearch extends React.Component {
         this.setState({sortType: type, sortFunc: func})
     }
 
-
-
     render() {
+
         let filteredStudents = [];
         let filteredParentsArr = [];
         if (this.props.students[0]) {
@@ -150,15 +139,39 @@ class StudentsSearch extends React.Component {
            filteredStudents = filteredStudents.quickSort(this.state.sortType, this.state.sortFunc);
           
         }
+        
+        function noDups(arr) {
 
-        const userAdminId = this.adminUserId;
+          // // array of all student ids
+          // let studentIds = arr.map(ids => ids._id);
+          // // arrray of all unique ids (no dups)
+          // let uniqueIds = studentIds.filter((ids, index) => studentIds.indexOf(ids) >= index);
+          let uniqueIds = [];
+          let noDuplicates = [];
+
+          for (let i = 0; i < arr.length; i++) {
+            let dupCheck = arr[i]._id
+
+            if (!uniqueIds.includes(dupCheck)) {
+              uniqueIds.push(dupCheck)
+              noDuplicates.push(arr[i])
+            }
+          }
+
+          return noDuplicates
+        }
+
+        let noDupChildren = noDups(filteredStudents)
+
+        const userAdminId = this.props.adminUserId;
         const { createReminder, deleteStudent, updateStudent, openModal } = this.props;
         
         return (
           <div id="admin-search-container">
             {/* Jesse note: not sure if we want a title or not on search page */}
             <h1 className="admin-welcome-message">
-              {this.props.adminUser.firstName} {this.props.adminUser.lastName}'s
+              School Director{" "}
+              {this.props.adminUser[0].firstName} {this.props.adminUser[0].lastName}'s
               Dashboard
             </h1>
             <div className="admin-welcome-break"> </div>
@@ -322,7 +335,7 @@ class StudentsSearch extends React.Component {
 
             <div className="studentIndex">
               <ul className="studentsUl">
-                {filteredStudents.map(student => (
+                {noDupChildren.map(student => (
                   <StudentItem
                     student={student}
                     handleStudentCheck={this.handleStudentCheck}

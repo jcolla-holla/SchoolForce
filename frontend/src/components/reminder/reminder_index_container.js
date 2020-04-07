@@ -5,11 +5,12 @@ import { withRouter } from "react-router-dom";
 import ReminderIndex from "./reminder_index";
 
 const mapStateToProps = state => {
+  
   let reminders;
   if (state.entities.reminders.reminders === undefined) {
     reminders = [];
   } else {
-    reminders = state.entities.reminders.reminders;
+    reminders = Object.values(state.entities.reminders.reminders);
   }
 
   let users;
@@ -18,26 +19,36 @@ const mapStateToProps = state => {
   } else {
     users = Object.values(state.entities.users);
   }
-
-  let updateUser;
-  if (Object.keys(state.entities.users).length !== 0) {
-    updateUser = Object.values(state.entities.users)
-      .filter(val => val._id === state.session.user.id);
-  };
-
+  
   let currentUser;
-  if ((Object.keys(state.entities.users).length !== 0) &&
-    updateUser[0]._id === state.session.user.id) {
-    currentUser = updateUser
+  if (Object.values(state.entities.users).length === 0) {
+    currentUser = [Object.assign(state.session.user, { _id: state.session.user.id })];
   } else {
-    currentUser = [state.session.user]
+
+    let updatedUser = [];
+
+    for (let i = 0; i < users.length; i++) {
+      let idCheck = users[i]._id
+
+      if (updatedUser.length === 1) { break } {
+        if (state.session.user.id === idCheck) {
+          updatedUser.push(users[i])
+        } 
+      } 
+    }
+
+      if (updatedUser.length === 0) {
+        updatedUser.push(Object.assign(state.session.user, { _id: state.session.user.id }))
+      }
+    
+    currentUser = updatedUser;
   }
   
   return {
     currentUser: currentUser,
     reminders: reminders,
     users: users
-  };
+  }
 };
 
 const mapDispatchToProps = dispatch => ({
