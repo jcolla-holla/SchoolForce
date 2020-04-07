@@ -30,11 +30,17 @@ const mapStateToProps = state => {
     for (let i = 0; i < users.length; i++) {
       let idCheck = users[i]._id
 
-      if (state.session.user.id === idCheck) {
-        updatedUser.push(users[i])
-      }
+      if (updatedUser.length === 1) { break } {
+        if (state.session.user.id === idCheck) {
+          updatedUser.push(users[i])
+        } 
+      } 
     }
 
+      if (updatedUser.length === 0) {
+        updatedUser.push(Object.assign(state.session.user, { _id: state.session.user.id }))
+      }
+    
     currentUser = updatedUser;
   }
   
@@ -42,7 +48,7 @@ const mapStateToProps = state => {
     currentUser: currentUser,
     reminders: reminders,
     users: users
-  };
+  }
 };
 
 const mapDispatchToProps = dispatch => ({
