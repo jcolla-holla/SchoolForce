@@ -2,6 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "13.8.x"
+  },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@testing-library/jest-dom": "^4.2.4",
