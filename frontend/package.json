@@ -2,6 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "13.8.x"
+  },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -26,7 +29,8 @@
     "redux-thunk": "^2.3.0",
     "twilio": "^3.39.5",
     "update": "^0.7.4",
-    "validator": "^12.2.0"
+    "validator": "^12.2.0",
+    "webpack": "^4.41.5"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -82,13 +82,21 @@ class StudentsSearch extends React.Component {
         }
 
         if (student) {
-            namevar = (student.firstName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1 ||
-                student.lastName.toLowerCase().indexOf(this.state.query.text.toLowerCase()) !== -1);
+            let searchQuery = this.state.query.text.toLowerCase();
+            // debugger
+            // console.log("the search query is" + searchQuery);
+          // console.log("the first name  is" + student.firstName);
+          // console.log("the last name  is" + student.lastName);
+
+            namevar = (
+              student.firstName.toLowerCase().includes(searchQuery)
+              ||
+              student.lastName.toLowerCase().includes(searchQuery)
+            );
         }
 
         if (this.state.query.gender) {
-            
-            gendervar = student.gender.toLowerCase() === this.state.query.gender.toLowerCase();
+          gendervar = (student.gender === this.state.query.gender);
         };
 
         if (this.state.query.grade) {
@@ -274,9 +282,9 @@ class StudentsSearch extends React.Component {
 
                             <option value="" disabled selected value>Gender</option>
                             <option value="">All</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option> 
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option> 
                         </select>
                         <label className="gradeContainer">
                         <select className='genderSelect' value={`${this.state.query.grade}`} onChange={this.filterUpdate('grade')}>
