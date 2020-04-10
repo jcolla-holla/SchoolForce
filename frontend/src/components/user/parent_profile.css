@@ -31,7 +31,7 @@
     border-radius: 3px;
     margin-left: 20px;
     background-color: green;
-    opacity: 50%;
+    opacity: .5;
     color: white;
     border: 1px solid #000000;
 }
@@ -89,7 +89,7 @@
     letter-spacing: 0.1em;
     font-size: 24px;
     transition: 3s;
-    opacity: 90%;
+    opacity: .9;
     visibility: visible;
     z-index: 2;
     margin-top: 60px;
