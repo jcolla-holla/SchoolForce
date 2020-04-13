@@ -16,9 +16,9 @@ SchoolForce is a light CRM tool for school directors to (1) manage communication
 
 * ### Technologies (MERN stack)
   * MongoDB
-  * Express
-  * React
-  * Node.js
+  * Express 4.17.1
+  * React-Redux 7.2.0
+  * Node.js 13.8.x
   * Heroku for hosting
   * SMS messages - [Twilio API](https://www.twilio.com/docs/usage/api)
   
