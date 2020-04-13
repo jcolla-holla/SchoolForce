@@ -3,14 +3,15 @@
 SchoolForce is a light CRM tool for school directors to (1) manage communication with parents via SMS message and (2) keep track of students/students.
 
 
-When logged in as an school admin (school director), search your students using filters: name, medical conditions, allergies, etc. to select to send SMS to their parents.
-
-![](frontend/src/assets/Admin_Search.png)  
+### When logged in as an school admin (school director), search your students using filters: name, medical conditions, allergies, etc. to select to send SMS to their parents.
 
 
-School admin (school director) drafts an SMS message, sees the parents who will receive it, and sends it.
+- ![](frontend/src/assets/Admin_Search.png)  
 
-![](frontend/src/assets/Admin_Reminder.png)  
+
+### School admin (school director) drafts an SMS message, sees the parents who will receive it, and sends it.
+
+- ![](frontend/src/assets/Admin_Reminder.png)  
 
 
 * ### Technologies (MERN stack)
