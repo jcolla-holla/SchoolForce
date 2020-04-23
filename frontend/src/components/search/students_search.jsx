@@ -108,20 +108,21 @@ class StudentsSearch extends React.Component {
     };
 
     handleAllCheck (filteredStudents) {
-        if (Object.keys(this.state.selectedStudents).length === 0) {
-            let newSelectedStudents = {}
-            filteredStudents.forEach( student => { 
-                newSelectedStudents = Object.assign({}, newSelectedStudents, { [student._id]: student });
-                
-            });
-            let newState = Object.assign({}, this.state, { selectedStudents: newSelectedStudents, checkedAll: true });
-            this.setState(newState);
+        if (Object.keys(this.state.selectedStudents).length === filteredStudents.length) {
+          let newState = Object.assign({}, this.state, {selectedStudents: {}, checkedAll: false});
+          this.setState(newState);
         } else {
            
-            let newState = Object.assign({}, this.state, {selectedStudents: {}, checkedAll: false});
-            this.setState(newState);
+          let newSelectedStudents = {}
+          filteredStudents.forEach( student => { 
+              newSelectedStudents = Object.assign({}, newSelectedStudents, { [student._id]: student });
+              
+          });
+          let newState = Object.assign({}, this.state, { selectedStudents: newSelectedStudents, checkedAll: true });
+          this.setState(newState);
         } 
     }
+    
 
     handleSortClick = (type, func) => {  
         this.setState({sortType: type, sortFunc: func})
