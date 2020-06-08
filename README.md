@@ -27,7 +27,7 @@ SchoolForce is a light CRM tool for school directors to (1) manage communication
   * [Schema](https://github.com/jcolla-holla/SchoolForce/wiki/Schema)
   * [Sample State](https://github.com/jcolla-holla/SchoolForce/wiki/Sample-State)
 
-* ### Group Members and Work Breakdown
+* ### Group Members and Roles
   * Jesse Colligan - team lead
   * Antonio Cucco - backend lead
   * Stephen DiPietro - frontend lead
