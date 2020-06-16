@@ -1,6 +1,6 @@
 ## [Live Link](https://school-force.herokuapp.com/)
 
-SchoolForce is a light CRM tool for school directors to (1) manage communication with parents via SMS message and (2) keep track of students/students.
+SchoolForce is a light CRM for school directors to (1) manage communication with parents via SMS message and (2) keep track of students/students.
 
 
 ### When logged in as an school admin (school director), search your students using filters: name, medical conditions, allergies, etc. to select to send SMS to their parents.
