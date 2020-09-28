@@ -45,7 +45,7 @@ const About = (props) => {
                     <div className="teamProfile">
                         {/* Jesse note: tried to use <img> but path was giving me issues so I just pivoted to using CSS background-image.  See: /about.css */}
                         
-                        <a target="_blank" rel="noopener noreferrer" href="https://www.stephendipietro.io"><div className="profPic3" /></a>
+                        <a target="_blank" rel="noopener noreferrer" href="https://www.stephendipietro.com"><div className="profPic3" /></a>
                         <div className="profName">Stephen DiPietro</div>
 
                         <div className="profileLinks">
