@@ -39,6 +39,7 @@ class ReminderForm extends React.Component {
     };
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
                 
         function noDups(arr) {
